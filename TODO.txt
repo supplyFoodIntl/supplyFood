@@ -1,4 +1,4 @@
-adjust text collor on navbar to better contrast
+adjust text collor on navbar to better contrast OK
 make the home a jumbotron
 add signin and sign up
 check style against dummy html

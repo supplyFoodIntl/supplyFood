@@ -9,22 +9,43 @@
     height: 100%;
     padding: 10px;
 }
+.dropdown-menu {
+    background-color: #255688;
+}
+#navBarStats {
+    padding: 20px 0px 30px 15px;
+    color: black;
+}
+
+.nav {
+    background-color: #255688;
+    background-image: none;
+    background-repeat: no-repeat;
+    color: blue;
+}
 
 .nav li a {
     padding: 0 4px;
- color :blue;
+    color: white;
+}
+.nav li a:active {
+    padding: 0 4px;
+    color: blue;
 }
 .nav li a:hover {
-    color :black;
+    color: black;
 
 }
-    
+
+
 .navbar-header {
-    background-color:#255688;
+    background-color: #255688;
 }
+
 #navbar {
-    background-color:#2196f3;
-    }
+    background-color: #255688;
+}
+
 .jumbotron hr {
     border-color: darkgray;
 }

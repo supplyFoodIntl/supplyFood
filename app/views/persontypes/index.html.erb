@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Person types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Person Type UID</th>
+      <th>Person Type</th>
+      <th>Create time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @persontypes.each do |persontype| %>
+      <tr>
+	<td><%= persontype.idpersontype %></td>
+        <td><%= persontype.dspersontype %></td>
+        <td><%= persontype.create_time %></td>
+        <td><%= link_to 'Show', persontype %></td>
+        <td><%= link_to 'Edit', edit_persontype_path(persontype) %></td>
+        <td><%= link_to 'Destroy', persontype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Persontype', new_persontype_path %>

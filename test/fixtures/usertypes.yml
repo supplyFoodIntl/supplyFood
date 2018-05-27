@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nmusertype: MyString
+  create_time: 2018-05-26 16:32:30
+
+two:
+  nmusertype: MyString
+  create_time: 2018-05-26 16:32:30

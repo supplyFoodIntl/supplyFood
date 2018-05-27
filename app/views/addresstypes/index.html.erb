@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Addresstypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nmaddresstype</th>
+      <th>Create time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @addresstypes.each do |addresstype| %>
+      <tr>
+        <td><%= addresstype.nmaddresstype %></td>
+        <td><%= addresstype.create_time %></td>
+        <td><%= link_to 'Show', addresstype %></td>
+        <td><%= link_to 'Edit', edit_addresstype_path(addresstype) %></td>
+        <td><%= link_to 'Destroy', addresstype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Addresstype', new_addresstype_path %>

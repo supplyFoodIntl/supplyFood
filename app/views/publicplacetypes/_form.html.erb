@@ -1,0 +1,27 @@
+<%= form_with(model: publicplacetype, local: true) do |form| %>
+  <% if publicplacetype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(publicplacetype.errors.count, "error") %> prohibited this publicplacetype from being saved:</h2>
+
+      <ul>
+      <% publicplacetype.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :dspublicplacetype %>
+    <%= form.text_field :dspublicplacetype %>
+  </div>
+
+  <div class="field">
+    <%= form.label :create_time %>
+    <%= form.datetime_select :create_time %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

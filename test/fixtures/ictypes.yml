@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nmidentificationcard: MyString
+  create_time: 2018-05-25 17:04:24
+
+two:
+  nmidentificationcard: MyString
+  create_time: 2018-05-25 17:04:24

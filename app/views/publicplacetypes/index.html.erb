@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Publicplacetypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dspublicplacetype</th>
+      <th>Create time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @publicplacetypes.each do |publicplacetype| %>
+      <tr>
+        <td><%= publicplacetype.dspublicplacetype %></td>
+        <td><%= publicplacetype.create_time %></td>
+        <td><%= link_to 'Show', publicplacetype %></td>
+        <td><%= link_to 'Edit', edit_publicplacetype_path(publicplacetype) %></td>
+        <td><%= link_to 'Destroy', publicplacetype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Publicplacetype', new_publicplacetype_path %>

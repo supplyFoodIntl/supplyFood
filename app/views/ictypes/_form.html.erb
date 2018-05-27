@@ -1,0 +1,27 @@
+<%= form_with(model: ictype, local: true) do |form| %>
+  <% if ictype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ictype.errors.count, "error") %> prohibited this ictype from being saved:</h2>
+
+      <ul>
+      <% ictype.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nmidentificationcard %>
+    <%= form.text_field :nmidentificationcard %>
+  </div>
+
+  <div class="field">
+    <%= form.label :create_time %>
+    <%= form.datetime_select :create_time %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

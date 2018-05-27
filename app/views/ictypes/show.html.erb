@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nmidentificationcard:</strong>
+  <%= @ictype.nmidentificationcard %>
+</p>
+
+<p>
+  <strong>Create time:</strong>
+  <%= @ictype.create_time %>
+</p>
+
+<%= link_to 'Edit', edit_ictype_path(@ictype) %> |
+<%= link_to 'Back', ictypes_path %>

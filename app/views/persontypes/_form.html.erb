@@ -1,0 +1,27 @@
+<%= form_with(model: persontype, local: true) do |form| %>
+  <% if persontype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(persontype.errors.count, "error") %> prohibited this persontype from being saved:</h2>
+
+      <ul>
+      <% persontype.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Person Type" %>
+    <%= form.text_field :dspersontype %>
+  </div>
+
+  <div class="field">
+    <%= form.label :create_time %>
+    <%= form.datetime_select :create_time %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

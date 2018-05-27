@@ -1,0 +1,2 @@
+class Publicplacetype < ApplicationRecord
+end

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SfDbTest</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <!-- temporary head tag, until figure how to use rails parameters -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Supply!Food - ending the hunger in the world. With you.</title>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">-->
+  
+    <link rel="stylesheet" href="resources/bootstrap.css">
+    <link rel="stylesheet" href="resources/font-awesome.css">
+    <link rel="stylesheet" href="resources/navbar-fixed-right.css">
+    <link rel="stylesheet" href="resources/navbar-fixed-left.css">
+    <link rel="stylesheet" href="resources/docs.css">
+       <!-- let the jquery and bootstrap javascript be dealt by rails
+    <script src="resources/jquery.js"></script>
+    <script src="resources/bootstrap.js"></script>-->
+    <script src="resources/docs.js"></script>
+    <script async="" defer="defer" src="resources/buttons.js"></script>
+    <style>
+        .jumbotron {
+            background-image: url("resources/images/homeBackground.jpeg");
+            background-size: 100% 100%;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+        }
+
+        .nav li a {
+            padding: 0 4px;
+
+        }
+
+        .jumbotron hr {
+            border-color: darkgray;
+        }
+
+    </style>
+    <!-- temporary head tag, until figure how to use rails parameters -->
+
+
+      
+ 
+  </head>
+
+  <body  data-gr-c-s-loaded="true" style="margin-right: 0px;">
+    <%= render 'layouts/navbar' %>
+      <%= yield %>
+  </body>
+</html>

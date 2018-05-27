@@ -1,0 +1,2 @@
+class Ictype < ApplicationRecord
+end

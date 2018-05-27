@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Ictypes</h1>
+<h1>Ictypes - Identification Card Types</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Nmidentificationcard</th>
-      <th>Create time</th>
+      <th scope="col">Name</th>
+      <th scope="col">Create time</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @ictypes.each do |ictype| %>
-      <tr>
-        <td><%= ictype.nmidentificationcard %></td>
+      <tr scope="row">
+        <td ><%= ictype.nmidentificationcard %></td>
         <td><%= ictype.create_time %></td>
         <td><%= link_to 'Show', ictype %></td>
         <td><%= link_to 'Edit', edit_ictype_path(ictype) %></td>

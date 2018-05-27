@@ -1,0 +1,4 @@
+adjust text collor on navbar to better contrast
+make the home a jumbotron
+add signin and sign up
+check style against dummy html

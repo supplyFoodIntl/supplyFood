@@ -2,13 +2,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+        background-image: asset-url("homeBackground.jpeg");
+}
+
 .jumbotron {
-    background-image: asset-url("homeBackground.jpeg");
     background-size: 100% 100%;
     width: 100%;
-    height: 100%;
+    height: 520px;
     padding: 10px;
+    background-color: transparent;
 }
+
 .dropdown-menu {
     background-color: #255688;
 }
@@ -44,6 +49,7 @@
 
 #navbar {
     background-color: #255688;
+    height: 800px;
 }
 
 .jumbotron hr {

@@ -2,3 +2,5 @@ adjust text collor on navbar to better contrast OK
 make the home a jumbotron
 add signin and sign up
 check style against dummy html
+adjust all domain tables to bootstrap
+make click on plate or name supply!food leads to home

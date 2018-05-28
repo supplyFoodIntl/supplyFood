@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
+<h2 align="center">Person Type</h2>
+<div class="well col-xs-8 col-xs-offset-2">
+    <p>
+      <strong>Name:</strong>
+      <%= @persontype.dspersontype %>
+    </p>
 
-<p>
-  <strong>Dspersontype:</strong>
-  <%= @persontype.dspersontype %>
-</p>
-
-<p>
-  <strong>Create time:</strong>
-  <%= @persontype.create_time %>
-</p>
-
-<%= link_to 'Edit', edit_persontype_path(@persontype) %> |
-<%= link_to 'Back', persontypes_path %>
+    <p>
+      <strong>Create time:</strong>
+      <%= @persontype.create_time %>
+    </p>
+    <div class="article-actions">
+        <%= link_to 'Edit', edit_persontype_path(@persontype), class:"btn btn-xs btn-primary" %> 
+        <%= link_to 'Destroy', persontype_path(@persontype), 
+            method: :delete, 
+            data: {confirm:"Are you sure?"}, 
+            class:"btn btn-xs btn-danger" %> 
+        <%= link_to 'Back', persontypes_path , class:"btn btn-xs btn-success" %>
+    </div>
+</div>

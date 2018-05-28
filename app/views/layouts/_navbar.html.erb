@@ -1,13 +1,16 @@
- <nav class="navbar navbar-fixed-left">
+<nav class="navbar navbar-fixed-left">
         <div class="navbar-header" >
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"/>
-						<span class="icon-bar"/>
-						<span class="icon-bar"/>
-					</button>
-            <img style="padding:5px;" src=<%= asset_path 'home200.png' %> width="200px" />
-            <a class="navbar-brand" href="#">Supply!Food</a>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"/>
+                <span class="icon-bar"/>
+                <span class="icon-bar"/>
+            </button>
+            <%= link_to image_tag((asset_path 'home200.png') ,  width: '200'), root_path  %>
+
+            <%= link_to 'Supply!Food', root_path , class:"navbar-brand" %>
+
+            
         </div>
         <div id="navbar" class="navbar-collapse collapse" >
             <ul class="nav navbar-nav">
@@ -91,44 +94,45 @@
                     <span id="donations"></span>
                     <span id="donatedTo"></span>
                 </li>
-                <script>
-                    function getData() { //this will read file and send information to other function
-                        var xmlhttp;
+            </ul>
+            <script>
+                function getData() { //this will read file and send information to other function
+                    var xmlhttp;
 
-                        if (window.XMLHttpRequest) {
-                            xmlhttp = new XMLHttpRequest();
-                        } else {
-                            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                        }
-
-                        xmlhttp.onreadystatechange = function() {
-                            if (xmlhttp.readyState == 4) {
-                                var lines = xmlhttp.responseText; //*here we get all lines from text file*
-
-                                intoArray(lines); //here we call function with parameter "lines*"                   
-                            }
-                        }
-
-                        xmlhttp.open("GET", "resources/stats/stats.txt", true);
-                        xmlhttp.send();
+                    if (window.XMLHttpRequest) {
+                        xmlhttp = new XMLHttpRequest();
+                    } else {
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
                     }
 
-                    function intoArray(lines) {
-                        // splitting all text data into array "\n" is splitting data from each new line
-                        //and saving each new line as each element*
+                    xmlhttp.onreadystatechange = function() {
+                        if (xmlhttp.readyState == 4) {
+                            var lines = xmlhttp.responseText; //*here we get all lines from text file*
 
-                        var lineArr = lines.split('\n');
-
-                        document.getElementById("donations").innerHTML = "<span>Donations : " + lineArr[1] + "</span><br/>";
-                        document.getElementById("donatedTo").innerHTML = "<span>People Supplied :" + lineArr[3] + "</span><br/>";
+                            intoArray(lines); //here we call function with parameter "lines*"                   
+                        }
                     }
 
-                </script>
+                    xmlhttp.open("GET", "resources/stats/stats.txt", true);
+                    xmlhttp.send();
+                }
 
-                <script>
-                    getData();
+                function intoArray(lines) {
+                    // splitting all text data into array "\n" is splitting data from each new line
+                    //and saving each new line as each element*
 
-                </script>
+                    var lineArr = lines.split('\n');
+
+                    document.getElementById("donations").innerHTML = "<span>Donations : " + lineArr[1] + "</span><br/>";
+                    document.getElementById("donatedTo").innerHTML = "<span>People Supplied :" + lineArr[3] + "</span><br/>";
+                }
+
+            </script>
+
+            <script>
+                getData();
+
+            </script>
 
         </div>
-    </nav>
+</nav>

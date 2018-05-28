@@ -1,6 +1,10 @@
 adjust text collor on navbar to better contrast OK
-make the home a jumbotron
+make the home a jumbotron ok
+check style against dummy html ok
+make click on plate or name supply!food leads to home OK
+
+error handling messages over a _errors.html.erb
 add signin and sign up
-check style against dummy html
-adjust all domain tables to bootstrap
-make click on plate or name supply!food leads to home
+review constraints on domains table to not allow input on blank names
+adjust all domain tables to bootstrap - ok - solve de label name problem with handler
+create a top navbar to use sign in , signup, logo, brand, about, contact

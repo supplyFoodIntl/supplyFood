@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Publicplacetypes</h1>
+<h1>Public place types</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Dspublicplacetype</th>
-      <th>Create time</th>
+      <th scope="col">Name</th>
+      <th scope="col">Create time</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @publicplacetypes.each do |publicplacetype| %>
-      <tr>
+      <tr scope="row">
         <td><%= publicplacetype.dspublicplacetype %></td>
         <td><%= publicplacetype.create_time %></td>
         <td><%= link_to 'Show', publicplacetype %></td>

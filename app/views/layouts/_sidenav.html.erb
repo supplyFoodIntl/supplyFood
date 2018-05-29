@@ -1,0 +1,59 @@
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <%= link_to image_tag((asset_path 'home200.png') ,  width: '200'), root_path  %>
+
+        <%= link_to 'Donor', donor_url %>
+        <%= link_to 'Volunteer', volunteer_url %>
+        <%= link_to 'Management', management_url %>
+        <hr>
+        <%= link_to 'Food Handling', foodhandling_url %>
+        <%= link_to 'The value of a donation', valueofdonation_url %>
+        <%= link_to 'Legal', legal_url %>
+        <%= link_to 'Services', services_url %>
+        <%= link_to 'News', news_url %>
+        <div id="navBarStats">
+            <strong>Stats</strong><br/>
+            <span id="donations"></span>
+            <span id="donatedTo"></span>
+        </div>
+        <script>
+            function getData() { //this will read file and send information to other function
+                var xmlhttp;
+
+                if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4) {
+                        var lines = xmlhttp.responseText; //*here we get all lines from text file*
+
+                        intoArray(lines); //here we call function with parameter "lines*"                   
+                    }
+                }
+
+                xmlhttp.open("GET", "resources/stats/stats.txt", true);
+                xmlhttp.send();
+            }
+
+            function intoArray(lines) {
+                // splitting all text data into array "\n" is splitting data from each new line
+                //and saving each new line as each element*
+
+                var lineArr = lines.split('\n');
+
+                document.getElementById("donations").innerHTML = "<span>Donations : " + lineArr[1] + "</span><br/>";
+                document.getElementById("donatedTo").innerHTML = "<span>People Supplied :" + lineArr[3] + "</span><br/>";
+            }
+
+        </script>
+
+        <script>
+            getData();
+
+        </script>
+
+    </div>
+

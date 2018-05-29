@@ -16,8 +16,6 @@
   <!-- 
     <link rel="stylesheet" href="resources/bootstrap.css">-->
     <link rel="stylesheet" href="resources/font-awesome.css">
-    <link rel="stylesheet" href="resources/navbar-fixed-right.css">
-    <link rel="stylesheet" href="resources/navbar-fixed-left.css">
     <link rel="stylesheet" href="resources/docs.css">
        <!-- let the jquery and bootstrap javascript  be dealt by rails
     <script src="resources/jquery.js"></script>
@@ -25,45 +23,18 @@
     <script src="resources/docs.js"></script>
     <script async="" defer="defer" src="resources/buttons.js"></script>
     
-    <!-- temporary head tag, until figure how to use rails parameters 
-
-    <style>
-        .jumbotron {
-            background-image: url("resources/images/homeBackground.jpeg");
-            background-size: 100% 100%;
-            width: 100%;
-            height: 100%;
-            padding: 10px;
-        }
-
-        .nav li a {
-            padding: 0 4px;
-
-        }
-
-        .jumbotron hr {
-            border-color: darkgray;
-        }
-
-    </style>
-
--->
-
-
-      
- 
   </head>
 
   <body  data-gr-c-s-loaded="true" style="margin-right: 0px;">
-    <%= render 'layouts/navbar' %>
+    
+    <%= render 'layouts/sidenav' %>  
+      <%= render 'layouts/navbar' %>
     <div class="jumbotron">
+        
         <div class="container">
 
             <%= yield %>
-            
-            
 
-           
 
         </div> 
         <%= render 'layouts/footer' %>

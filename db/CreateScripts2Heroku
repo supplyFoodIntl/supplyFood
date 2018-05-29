@@ -1,7 +1,7 @@
 --drop tables
 
  DROP TABLE public.addresstypes;
- DROP TABLE public.configuration;
+ DROP TABLE public.configurations;
  DROP TABLE public.ictypes;
  DROP TABLE public.people;
  DROP TABLE public.persontypes;
@@ -26,9 +26,9 @@ GRANT ALL ON SEQUENCE public.addresstypes_seq TO public;
 
 -- Sequence: public.configuration_seq
 
--- DROP SEQUENCE public.configuration_seq;
+-- DROP SEQUENCE public.configurations_seq;
 
-CREATE SEQUENCE public.configuration_seq
+CREATE SEQUENCE public.configurations_seq
   INCREMENT 1
   MINVALUE 1
   MAXVALUE 9223372036854775807
@@ -144,14 +144,14 @@ GRANT ALL ON TABLE public.addresstypes TO public;
 
 
 
-CREATE TABLE public.configuration
+CREATE TABLE public.configurations
 (
-  idconfiguration integer NOT NULL DEFAULT nextval('configuration_seq'::regclass),
+  idconfiguration integer NOT NULL DEFAULT nextval('configurations_seq'::regclass),
   dsconfiguration character varying(45),
   vlconfiguration integer,
   create_time timestamp without time zone DEFAULT now(),
   html_configuration text,
-  CONSTRAINT configuration_pkey PRIMARY KEY (idconfiguration)
+  CONSTRAINT configurations_pkey PRIMARY KEY (idconfiguration)
 )
 WITH (
   OIDS=FALSE
@@ -180,27 +180,27 @@ GRANT ALL ON TABLE public.ictypes TO public;
 
 -- Table: public.people
 
-
-
 CREATE TABLE public.people
 (
   idperson integer NOT NULL DEFAULT nextval('people_seq'::regclass),
   nmperson character varying(45),
   create_time timestamp without time zone DEFAULT now(),
   pt_idpersontype integer NOT NULL,
-  ic character varying(45) DEFAULT 'ID Card, the number of the person document'::character varying,
+  ic character varying(45) DEFAULT ' '::character varying,
   ict_idictype integer NOT NULL,
-  CONSTRAINT person_pkey PRIMARY KEY (idperson),
-  CONSTRAINT fk_person_documenttype1 FOREIGN KEY (ict_idictype)
+  CONSTRAINT people_pkey PRIMARY KEY (idperson),
+  CONSTRAINT "fk_Person_ICType1_idx" FOREIGN KEY (ict_idictype)
       REFERENCES public.ictypes (idictype) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk_pessoa_tipopessoa1 FOREIGN KEY (pt_idpersontype)
+  CONSTRAINT "fk_Person_PersonType1_idx" FOREIGN KEY (pt_idpersontype)
       REFERENCES public.persontypes (idpersontype) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 )
 WITH (
   OIDS=FALSE
 );
+
+
 ALTER TABLE public.people
   OWNER TO meznhkrtzpquvs;
 GRANT ALL ON TABLE public.people TO meznhkrtzpquvs;

@@ -4,6 +4,9 @@ check style against dummy html ok
 make click on plate or name supply!food leads to home OK
 create a top navbar to use sign in , signup, logo, brand, about, contact - keep the logo and brand on sidenav - ok
 
+create db creation script
+create db fill script
+
 review the color,zindex and transparency of the top nav bar - set links to buttons and adjust alignment
 implement the splash start screen with jumbotron
 error handling messages over a _errors.html.erb

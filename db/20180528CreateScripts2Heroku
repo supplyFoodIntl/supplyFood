@@ -1,0 +1,269 @@
+--drop tables
+
+ DROP TABLE public.addresstypes;
+ DROP TABLE public.configuration;
+ DROP TABLE public.ictypes;
+ DROP TABLE public.people;
+ DROP TABLE public.persontypes;
+ DROP TABLE public.publicplacetypes;
+ DROP TABLE public.usertypes;
+--sequences
+
+-- Sequence: public.addresstypes_seq
+
+-- DROP SEQUENCE public.addresstypes_seq;
+
+CREATE SEQUENCE public.addresstypes_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 5
+  CACHE 1;
+ALTER TABLE public.addresstypes_seq
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.addresstypes_seq TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.addresstypes_seq TO public;
+
+-- Sequence: public.configuration_seq
+
+-- DROP SEQUENCE public.configuration_seq;
+
+CREATE SEQUENCE public.configuration_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE public.configuration_seq
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.configuration_seq TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.configuration_seq TO public;
+
+-- Sequence: public.ictypes_seq
+
+-- DROP SEQUENCE public.ictypes_seq;
+
+CREATE SEQUENCE public.ictypes_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 6
+  CACHE 1;
+ALTER TABLE public.ictypes_seq
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.ictypes_seq TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.ictypes_seq TO public;
+
+-- Sequence: public.people_seq
+
+-- DROP SEQUENCE public.people_seq;
+
+CREATE SEQUENCE public.people_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 14
+  CACHE 1;
+ALTER TABLE public.people_seq
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.people_seq TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.people_seq TO public;
+
+-- Sequence: public.persontypes_seq
+
+-- DROP SEQUENCE public.persontypes_seq;
+
+CREATE SEQUENCE public.persontypes_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 5
+  CACHE 1;
+ALTER TABLE public.persontypes_seq
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.persontypes_seq TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.persontypes_seq TO public;
+
+-- Sequence: public.publicplacetypes_seq
+
+-- DROP SEQUENCE public.publicplacetypes_seq;
+
+CREATE SEQUENCE public.publicplacetypes_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 2
+  CACHE 1;
+ALTER TABLE public.publicplacetypes_seq
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.publicplacetypes_seq TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.publicplacetypes_seq TO public;
+
+-- Sequence: public.usertypes_seq
+
+-- DROP SEQUENCE public.usertypes_seq;
+
+CREATE SEQUENCE public.usertypes_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 3
+  CACHE 1;
+ALTER TABLE public.usertypes_seq
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.usertypes_seq TO meznhkrtzpquvs;
+GRANT ALL ON SEQUENCE public.usertypes_seq TO public;
+
+
+
+
+--tables
+
+-- Table: public.addresstypes
+
+
+
+CREATE TABLE public.addresstypes
+(
+  idaddresstype integer NOT NULL DEFAULT nextval('addresstypes_seq'::regclass),
+  nmaddresstype character varying(45),
+  create_time timestamp without time zone DEFAULT now(),
+  CONSTRAINT addresstype_pkey PRIMARY KEY (idaddresstype)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.addresstypes
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON TABLE public.addresstypes TO meznhkrtzpquvs;
+GRANT ALL ON TABLE public.addresstypes TO public;
+
+--create tables
+
+-- Table: public.configuration
+
+
+
+CREATE TABLE public.configuration
+(
+  idconfiguration integer NOT NULL DEFAULT nextval('configuration_seq'::regclass),
+  dsconfiguration character varying(45),
+  vlconfiguration integer,
+  create_time timestamp without time zone DEFAULT now(),
+  html_configuration text,
+  CONSTRAINT configuration_pkey PRIMARY KEY (idconfiguration)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.configuration
+  OWNER TO meznhkrtzpquvs;
+
+-- Table: public.ictypes
+
+
+
+CREATE TABLE public.ictypes
+(
+  idictype integer NOT NULL DEFAULT nextval('ictypes_seq'::regclass),
+  nmidentificationcard character varying(45),
+  create_time timestamp without time zone DEFAULT now(),
+  CONSTRAINT ictype_pkey PRIMARY KEY (idictype)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.ictypes
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON TABLE public.ictypes TO meznhkrtzpquvs;
+GRANT ALL ON TABLE public.ictypes TO public;
+
+-- Table: public.people
+
+
+
+CREATE TABLE public.people
+(
+  idperson integer NOT NULL DEFAULT nextval('people_seq'::regclass),
+  nmperson character varying(45),
+  create_time timestamp without time zone DEFAULT now(),
+  pt_idpersontype integer NOT NULL,
+  ic character varying(45) DEFAULT 'ID Card, the number of the person document'::character varying,
+  ict_idictype integer NOT NULL,
+  CONSTRAINT person_pkey PRIMARY KEY (idperson),
+  CONSTRAINT fk_person_documenttype1 FOREIGN KEY (ict_idictype)
+      REFERENCES public.ictypes (idictype) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk_pessoa_tipopessoa1 FOREIGN KEY (pt_idpersontype)
+      REFERENCES public.persontypes (idpersontype) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.people
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON TABLE public.people TO meznhkrtzpquvs;
+GRANT ALL ON TABLE public.people TO public;
+
+-- Table: public.persontypes
+
+
+
+CREATE TABLE public.persontypes
+(
+  idpersontype integer NOT NULL DEFAULT nextval('persontypes_seq'::regclass),
+  dspersontype character varying(20),
+  create_time timestamp without time zone DEFAULT now(),
+  CONSTRAINT persontype_pkey PRIMARY KEY (idpersontype)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.persontypes
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON TABLE public.persontypes TO meznhkrtzpquvs;
+GRANT ALL ON TABLE public.persontypes TO public;
+
+-- Table: public.publicplacetypes
+
+
+
+CREATE TABLE public.publicplacetypes
+(
+  idpublicplacetype integer NOT NULL DEFAULT nextval('publicplacetypes_seq'::regclass),
+  dspublicplacetype character varying(45),
+  create_time timestamp without time zone DEFAULT now(),
+  CONSTRAINT publicplacetype_pkey PRIMARY KEY (idpublicplacetype)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.publicplacetypes
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON TABLE public.publicplacetypes TO meznhkrtzpquvs;
+GRANT ALL ON TABLE public.publicplacetypes TO public;
+
+-- Table: public.usertypes
+
+
+
+CREATE TABLE public.usertypes
+(
+  idusertype integer NOT NULL DEFAULT nextval('usertypes_seq'::regclass),
+  nmusertype character varying(45),
+  create_time timestamp without time zone DEFAULT now(),
+  CONSTRAINT usertype_pkey PRIMARY KEY (idusertype)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.usertypes
+  OWNER TO meznhkrtzpquvs;
+GRANT ALL ON TABLE public.usertypes TO meznhkrtzpquvs;
+GRANT ALL ON TABLE public.usertypes TO public;
+
+
+
+
+

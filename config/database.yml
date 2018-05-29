@@ -80,8 +80,9 @@ test:
 #
 production:
   <<: *default
-  DATABASE_URL="postgres://meznhkrtzpquvs:88d9bd44ea501d63adc893e11c5cc4b396f3ee10ec86798701e6fdb11578ec0a@ec2-54-83-59-120.compute-1.amazonaws.com:5432/d9iv9s46a0ml3"
-  url: <%= ENV['DATABASE_URL'] %>
+  #DATABASE_URL="postgres://meznhkrtzpquvs:88d9bd44ea501d63adc893e11c5cc4b396f3ee10ec86798701e6fdb11578ec0a@ec2-54-83-59-120.compute-1.amazonaws.com:5432/d9iv9s46a0ml3"
+  #url: <%= ENV['DATABASE_URL'] %>
+  url: postgres://meznhkrtzpquvs:88d9bd44ea501d63adc893e11c5cc4b396f3ee10ec86798701e6fdb11578ec0a@ec2-54-83-59-120.compute-1.amazonaws.com:5432/d9iv9s46a0ml3
   database: d9iv9s46a0ml3
   username: meznhkrtzpquvs
   password: 88d9bd44ea501d63adc893e11c5cc4b396f3ee10ec86798701e6fdb11578ec0a

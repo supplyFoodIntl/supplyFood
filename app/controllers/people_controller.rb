@@ -28,7 +28,6 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
-	flash[:notice] = "Person was sucessfully created."
         format.html { redirect_to @person, notice: 'Person was successfully created.' }
         format.json { render :show, status: :created, location: @person }
       else
@@ -43,7 +42,6 @@ class PeopleController < ApplicationController
   def update
     respond_to do |format|
       if @person.update(person_params)
-	flash[:notice] = "Person was sucessfully updated."
         format.html { redirect_to @person, notice: 'Person was successfully updated.' }
         format.json { render :show, status: :ok, location: @person }
       else
@@ -71,6 +69,6 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:nmperson, :create_time, :pt_idpersontype, :ic, :ict_idictype)
+      params.require(:person).permit(:nmperson, :create_time, :PersonType_id, :Ictype_id)
     end
 end

@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  resources :people
   resources :usertypes
   resources :publicplacetypes
   resources :addresstypes
   resources :ictypes
   resources :persontypes
-  resources :people
     
   root 'home#home'
   get 'about', to: 'home#about'

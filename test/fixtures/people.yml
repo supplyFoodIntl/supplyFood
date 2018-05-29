@@ -2,14 +2,12 @@
 
 one:
   nmperson: MyString
-  create_time: 2018-05-25 17:04:45
-  pt_idpersontype: 1
-  ic: MyString
-  ict_idictype: 1
+  create_time: 2018-05-29 17:24:12
+  PersonType: one
+  Ictype: one
 
 two:
   nmperson: MyString
-  create_time: 2018-05-25 17:04:45
-  pt_idpersontype: 1
-  ic: MyString
-  ict_idictype: 1
+  create_time: 2018-05-29 17:24:12
+  PersonType: two
+  Ictype: two

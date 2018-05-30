@@ -1,0 +1,23 @@
+<br>
+<h1>Management</h1>
+<ul class="nav nav-tabs">
+  <li <%= 'class=active' if current_page?(controller: 'people', action: 'index') %> >
+      <%= link_to 'People', people_url  %>
+  </li>
+  <li <%= 'class=active' if current_page?(controller: 'ic_types', action: 'index')  %>>
+      <%= link_to 'Identification Card Types', ic_types_url %>
+  </li>
+  <li <%= 'class=active' if current_page?(controller: 'person_types', action: 'index') %>>
+      <%= link_to 'Person Types', person_types_url %>
+  </li>
+  <li <%= 'class=active' if current_page?(controller: 'address_types', action: 'index') %>>
+      <%= link_to 'Address types', address_types_url %>
+  </li>
+  <li <%= 'class=active' if current_page?(controller: 'public_place_types', action: 'index') %>> 
+      <%= link_to 'Public place types',public_place_types_url %>
+  </li>
+  <li <%= 'class=active' if current_page?(controller: 'user_types', action: 'index') %>>  
+      <%= link_to 'User types', user_types_url %>
+  </li>
+</ul>
+

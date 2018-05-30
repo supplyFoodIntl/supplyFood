@@ -17,7 +17,7 @@ class UsertypesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create usertype" do
     assert_difference('Usertype.count') do
-      post usertypes_url, params: { usertype: { create_time: @usertype.create_time, nmusertype: @usertype.nmusertype } }
+      post usertypes_url, params: { usertype: { name: @usertype.name } }
     end
 
     assert_redirected_to usertype_url(Usertype.last)
@@ -34,7 +34,7 @@ class UsertypesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update usertype" do
-    patch usertype_url(@usertype), params: { usertype: { create_time: @usertype.create_time, nmusertype: @usertype.nmusertype } }
+    patch usertype_url(@usertype), params: { usertype: { name: @usertype.name } }
     assert_redirected_to usertype_url(@usertype)
   end
 

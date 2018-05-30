@@ -1,0 +1,38 @@
+CREATE TABLE IF NOT EXISTS `supplyFood`.`Supplier` (
+  `idSupplier` INT NOT NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `Person_idPerson` INT NOT NULL,
+  PRIMARY KEY (`idSupplier`),
+  INDEX `fk_Supplier_Person1_idx` (`Person_idPerson` ASC),
+  CONSTRAINT `fk_Supplier_Person1`
+    FOREIGN KEY (`Person_idPerson`)
+    REFERENCES `supplyFood`.`Person` (`idPerson`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `supplyFood`.`Volunteer` (
+  `idVolunteer` INT NOT NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `Person_idPerson` INT NOT NULL,
+  PRIMARY KEY (`idVolunteer`),
+  INDEX `fk_Volunteer_Person1_idx` (`Person_idPerson` ASC),
+  CONSTRAINT `fk_Volunteer_Person1`
+    FOREIGN KEY (`Person_idPerson`)
+    REFERENCES `supplyFood`.`Person` (`idPerson`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `supplyFood`.`Consumer` (
+  `idConsumer` INT NOT NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `Person_idPerson` INT NOT NULL,
+  PRIMARY KEY (`idConsumer`),
+  INDEX `fk_Consumer_Person1_idx` (`Person_idPerson` ASC),
+  CONSTRAINT `fk_Consumer_Person1`
+    FOREIGN KEY (`Person_idPerson`)
+    REFERENCES `supplyFood`.`Person` (`idPerson`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB

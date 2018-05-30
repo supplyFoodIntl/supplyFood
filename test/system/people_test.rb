@@ -14,10 +14,10 @@ class PeopleTest < ApplicationSystemTestCase
     visit people_url
     click_on "New Person"
 
-    fill_in "Ictype", with: @person.Ictype_id
-    fill_in "Persontype", with: @person.PersonType_id
-    fill_in "Create Time", with: @person.create_time
-    fill_in "Nmperson", with: @person.nmperson
+    fill_in "Ic", with: @person.ic
+    fill_in "Ic Type", with: @person.ic_type_id
+    fill_in "Name", with: @person.name
+    fill_in "Person Type", with: @person.person_type_id
     click_on "Create Person"
 
     assert_text "Person was successfully created"
@@ -28,10 +28,10 @@ class PeopleTest < ApplicationSystemTestCase
     visit people_url
     click_on "Edit", match: :first
 
-    fill_in "Ictype", with: @person.Ictype_id
-    fill_in "Persontype", with: @person.PersonType_id
-    fill_in "Create Time", with: @person.create_time
-    fill_in "Nmperson", with: @person.nmperson
+    fill_in "Ic", with: @person.ic
+    fill_in "Ic Type", with: @person.ic_type_id
+    fill_in "Name", with: @person.name
+    fill_in "Person Type", with: @person.person_type_id
     click_on "Update Person"
 
     assert_text "Person was successfully updated"

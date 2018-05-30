@@ -1,0 +1,5 @@
+rails generate scaffold IcType name:string 
+rails generate scaffold PersonType name:string 
+rails generate scaffold Person name:string person_type:references ic_type:references 
+rails db:migrate
+

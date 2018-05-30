@@ -4,12 +4,33 @@ check style against dummy html ok
 make click on plate or name supply!food leads to home OK
 create a top navbar to use sign in , signup, logo, brand, about, contact - keep the logo and brand on sidenav - ok
 
-create db creation script
-create db fill script
+create db creation script - improve
+create db fill script - improve (use rake db:schema:dump)
 
-review the color,zindex and transparency of the top nav bar - set links to buttons and adjust alignment
+rebuild person based on rails standards -  person, icType, personType creation
+    copy old view, model and controllers
+    scaffold
+    adjust the view
+    test
+put all domain names on a tab - solve interface problems
+    
+review the color,zindex and transparency of the top nav bar - set links to buttons and adjust alignment - improve
 implement the splash start screen with jumbotron
 error handling messages over a _errors.html.erb
-add signin and sign up
+
 review constraints on domains table to not allow input on blank names
 adjust all domain tables to bootstrap - ok - solve de label name problem with handler
+
+
+add signin and sign up
+    create user
+add address class
+add volunteer, donor, manager classes
+add assignment classes (define each actor a list of assignments, on the description field just for record)
+add storage class
+add donation class
+add delivery class
+add inventory class
+
+remember *******************
+<%= current_page?(controller: 'people', action: 'index')%> get controller name and action

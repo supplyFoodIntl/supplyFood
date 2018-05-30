@@ -1,0 +1,10 @@
+<%= render 'management/tab' %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ic_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_ic_type_path(@ic_type) %> |
+<%= link_to 'Back', ic_types_path %>

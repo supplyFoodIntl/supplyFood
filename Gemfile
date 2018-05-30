@@ -18,6 +18,8 @@ gem 'bootstrap-sass'
 #jquery
 gem 'jquery-rails'
 
+# seed dump
+gem 'seed_dump'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

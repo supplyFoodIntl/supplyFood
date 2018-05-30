@@ -14,8 +14,7 @@ class UsertypesTest < ApplicationSystemTestCase
     visit usertypes_url
     click_on "New Usertype"
 
-    fill_in "Create Time", with: @usertype.create_time
-    fill_in "Nmusertype", with: @usertype.nmusertype
+    fill_in "Name", with: @usertype.name
     click_on "Create Usertype"
 
     assert_text "Usertype was successfully created"
@@ -26,8 +25,7 @@ class UsertypesTest < ApplicationSystemTestCase
     visit usertypes_url
     click_on "Edit", match: :first
 
-    fill_in "Create Time", with: @usertype.create_time
-    fill_in "Nmusertype", with: @usertype.nmusertype
+    fill_in "Name", with: @usertype.name
     click_on "Update Usertype"
 
     assert_text "Usertype was successfully updated"

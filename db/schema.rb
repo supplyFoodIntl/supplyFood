@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_25_183630) do
+ActiveRecord::Schema.define(version: 2018_05_30_133729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "addresstypes", primary_key: "idaddresstype", id: :integer, default: -> { "nextval('addresstypes_seq'::regclass)" }, force: :cascade do |t|
-    t.string "nmaddresstype", limit: 45
-    t.datetime "create_time", default: -> { "now()" }
+  create_table "address_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "configurations", primary_key: "idconfiguration", id: :integer, default: -> { "nextval('configurations_seq'::regclass)" }, force: :cascade do |t|
@@ -27,33 +28,41 @@ ActiveRecord::Schema.define(version: 2018_05_25_183630) do
     t.text "html_configuration"
   end
 
-  create_table "ictypes", primary_key: "idictype", id: :integer, default: -> { "nextval('ictypes_seq'::regclass)" }, force: :cascade do |t|
-    t.string "nmidentificationcard", limit: 45
-    t.datetime "create_time", default: -> { "now()" }
+  create_table "ic_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "people", primary_key: "idperson", id: :integer, default: -> { "nextval('people_seq'::regclass)" }, force: :cascade do |t|
-    t.string "nmperson", limit: 45
-    t.datetime "create_time", default: -> { "now()" }
-    t.integer "pt_idpersontype", null: false
-    t.integer "ict_idictype", null: false
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.string "ic"
+    t.bigint "person_type_id"
+    t.bigint "ic_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ic_type_id"], name: "index_people_on_ic_type_id"
+    t.index ["person_type_id"], name: "index_people_on_person_type_id"
   end
 
-  create_table "persontypes", primary_key: "idpersontype", id: :integer, default: -> { "nextval('persontypes_seq'::regclass)" }, force: :cascade do |t|
-    t.string "dspersontype", limit: 20
-    t.datetime "create_time", default: -> { "now()" }
+  create_table "person_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "publicplacetypes", primary_key: "idpublicplacetype", id: :integer, default: -> { "nextval('publicplacetypes_seq'::regclass)" }, force: :cascade do |t|
-    t.string "dspublicplacetype", limit: 45
-    t.datetime "create_time", default: -> { "now()" }
+  create_table "public_place_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "usertypes", primary_key: "idusertype", id: :integer, default: -> { "nextval('usertypes_seq'::regclass)" }, force: :cascade do |t|
-    t.string "nmusertype", limit: 45
-    t.datetime "create_time", default: -> { "now()" }
+  create_table "user_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "people", "ictypes", column: "ict_idictype", primary_key: "idictype", name: "fk_Person_ICType1_idx"
-  add_foreign_key "people", "persontypes", column: "pt_idpersontype", primary_key: "idpersontype", name: "fk_Person_PersonType1_idx"
+  add_foreign_key "people", "ic_types"
+  add_foreign_key "people", "person_types"
 end

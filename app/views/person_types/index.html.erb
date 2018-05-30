@@ -1,0 +1,32 @@
+<%= render 'management/tab' %>
+<p id="notice"><%= notice %></p>
+
+<h2>Person Types</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Created at</th>
+      <th scope="col">Updated at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @person_types.each do |person_type| %>
+      <tr scope="row">
+        <td><%= person_type.name %></td>
+        <td><%= person_type.created_at %></td>
+        <td><%= person_type.updated_at %></td>
+        <td><%= link_to 'Show', person_type %></td>
+        <td><%= link_to 'Edit', edit_person_type_path(person_type) %></td>
+        <td><%= link_to 'Destroy', person_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Person Type', new_person_type_path %>

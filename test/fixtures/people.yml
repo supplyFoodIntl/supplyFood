@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nmperson: MyString
-  create_time: 2018-05-29 17:24:12
-  PersonType: one
-  Ictype: one
+  name: MyString
+  ic: MyString
+  person_type: one
+  ic_type: one
 
 two:
-  nmperson: MyString
-  create_time: 2018-05-29 17:24:12
-  PersonType: two
-  Ictype: two
+  name: MyString
+  ic: MyString
+  person_type: two
+  ic_type: two

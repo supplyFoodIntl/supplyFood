@@ -1,0 +1,48 @@
+CREATE TABLE IF NOT EXISTS `supplyFood`.`GoodType` (
+  `idGoodType` INT NOT NULL,
+  `nmGoodType` VARCHAR(45) NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `GT_idParent` INT NOT NULL,
+  PRIMARY KEY (`idGoodType`),
+  INDEX `fk_GoodType_GoodType1_idx` (`GT_idParent` ASC),
+  CONSTRAINT `fk_GoodType_GoodType1`
+    FOREIGN KEY (`GT_idParent`)
+    REFERENCES `supplyFood`.`GoodType` (`idGoodType`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `supplyFood`.`MeasureUnit` (
+  `idmeasureUnit` INT NOT NULL,
+  `nmMeasureUnit` VARCHAR(45) NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idmeasureUnit`))
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `supplyFood`.`Level` (
+  `idLevel` INT NOT NULL,
+  `dsLevel` VARCHAR(45) NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idLevel`))
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `supplyFood`.`sqlLog` (
+  `idsqlLog` INT NOT NULL,
+  `sqlExecuted` VARCHAR(45) NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idsqlLog`))
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `supplyFood`.`PrivatePlace` (
+  `idPrivatePlace` INT NOT NULL,
+  `nmPrivatePlace` VARCHAR(45) NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idPrivatePlace`))
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `supplyFood`.`PostalCodeHint` (
+  `idPostalCodeHint` INT NOT NULL,
+  `dsPostalCode` VARCHAR(45) NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idPostalCodeHint`))
+ENGINE = InnoDB

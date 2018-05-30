@@ -1,21 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>User types</h1>
+<h1>Usertypes</h1>
 
-<table class="table">
+<table>
   <thead>
     <tr>
-      <th scope="col">Nmusertype</th>
-      <th scope="col">Create time</th>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @usertypes.each do |usertype| %>
-      <tr scope="row">
-        <td><%= usertype.nmusertype %></td>
-        <td><%= usertype.create_time %></td>
+      <tr>
+        <td><%= usertype.name %></td>
         <td><%= link_to 'Show', usertype %></td>
         <td><%= link_to 'Edit', edit_usertype_path(usertype) %></td>
         <td><%= link_to 'Destroy', usertype, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,0 +1,33 @@
+<%= render 'management/tab' %>
+
+<p id="notice"><%= notice %></p>
+
+<h2>Identification Card Types</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Created at</th>
+      <th scope="col">Updated at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ic_types.each do |ic_type| %>
+      <tr scope="row">
+        <td><%= ic_type.name %></td>
+        <td><%= ic_type.created_at %></td>
+        <td><%= ic_type.updated_at %></td>
+        <td><%= link_to 'Show', ic_type %></td>
+        <td><%= link_to 'Edit', edit_ic_type_path(ic_type) %></td>
+        <td><%= link_to 'Destroy', ic_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ic Type', new_ic_type_path %>

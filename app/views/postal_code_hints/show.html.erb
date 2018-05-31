@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @postal_code_hint.code %>
+</p>
+
+<p>
+  <strong>Hint:</strong>
+  <%= @postal_code_hint.hint %>
+</p>
+
+<%= link_to 'Edit', edit_postal_code_hint_path(@postal_code_hint) %> |
+<%= link_to 'Back', postal_code_hints_path %>

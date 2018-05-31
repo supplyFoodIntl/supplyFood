@@ -1,0 +1,2 @@
+class PostalCodeHint < ApplicationRecord
+end

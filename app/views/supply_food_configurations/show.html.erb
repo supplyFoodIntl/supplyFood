@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @supply_food_configuration.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @supply_food_configuration.description %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @supply_food_configuration.value %>
+</p>
+
+<%= link_to 'Edit', edit_supply_food_configuration_path(@supply_food_configuration) %> |
+<%= link_to 'Back', supply_food_configurations_path %>

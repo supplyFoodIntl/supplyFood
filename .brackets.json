@@ -1,0 +1,16 @@
+{
+    "css": "css",
+    "ejs": "html",
+    "handlebars": "html",
+    "html": "html",
+    "html": "html.erb"
+    "javascript": "js",
+    "json": "js",
+    "jsx": "js",
+    "less": "css",
+    "php": "html",
+    "scss": "css",
+    "svg": "html",
+    "vue": "html",
+    "xml": "html"
+}

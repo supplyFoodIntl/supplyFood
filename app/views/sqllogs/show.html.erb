@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sql executed:</strong>
+  <%= @sqllog.sql_executed %>
+</p>
+
+<%= link_to 'Edit', edit_sqllog_path(@sqllog) %> |
+<%= link_to 'Back', sqllogs_path %>

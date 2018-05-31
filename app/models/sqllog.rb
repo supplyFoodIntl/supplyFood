@@ -1,0 +1,2 @@
+class Sqllog < ApplicationRecord
+end

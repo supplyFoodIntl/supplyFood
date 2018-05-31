@@ -4,26 +4,15 @@ check style against dummy html ok
 make click on plate or name supply!food leads to home OK
 create a top navbar to use sign in , signup, logo, brand, about, contact - keep the logo and brand on sidenav - ok
 
-create db creation script - improve
+
+--database
+create db creation script - constant improvement
 create db fill script - improve (use rake db:schema:dump)
 
-rebuild person based on rails standards -  person, icType, personType creation
-    copy old view, model and controllers
-    scaffold
-    adjust the view
-    test
-put all domain names on a tab - solve interface problems
-    
-review the color,zindex and transparency of the top nav bar - set links to buttons and adjust alignment - improve
-implement the splash start screen with jumbotron
-error handling messages over a _errors.html.erb
-
-review constraints on domains table to not allow input on blank names
-adjust all domain tables to bootstrap - ok - solve de label name problem with handler
+--application
 
 
-add signin and sign up
-    create user
+add version and last review to website
 add address class
 add volunteer, donor, manager classes
 add assignment classes (define each actor a list of assignments, on the description field just for record)
@@ -31,6 +20,44 @@ add storage class
 add donation class
 add delivery class
 add inventory class
+add signin and sign up
+    create user ok
+    research 3rd party authentications ok
+    modify user controller to support 4 methods
+        sign in
+        sign up
+        reset password
+    implement conventional user access
+    implement 3rd party user access
+
+add configuration
+    log ok read only
+    sqllog
+    level
+    goodType
+    measureUnit
+    postalCodeHint domain classes -
+    scaffold generated ok
+    adjust views to support the tab ok
+    adjust the index to use bootstrap classes ok
+    adjust the edit , new and show views to bootstrap format
+
+
+add contact form
+
+error handling messages over a _errors.html.erb
+    review constraints on domains table to not allow input on blank names
+adjust all domain tables to bootstrap - solve de label name problem with form handler
+
+research about scaffold customization or xslt transform on views scaffolded
+
+
+
+-- test phase
+rebuild person based on rails standards
+put all domain names on a tab
+review the color,zindex and transparency of the top nav bar - set links to buttons and adjust alignment 
+implement the splash start screen with jumbotron
 
 remember *******************
 <%= current_page?(controller: 'people', action: 'index')%> get controller name and action

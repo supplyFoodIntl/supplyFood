@@ -1,2 +1,0 @@
-class Publicplacetype < ApplicationRecord
-end

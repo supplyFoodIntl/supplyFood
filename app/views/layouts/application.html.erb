@@ -2,24 +2,17 @@
 <html class="gr__mladenplavsic_github_io gr__" lang="en" >
     
   <head>
-    <title>SfDbTest</title>
+    <title>Supply!Food</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-   <!-- temporary head tag, until figure how to use rails parameters -->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Supply!Food - ending the hunger in the world. With you.</title>
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">-->
-  <!-- 
-    <link rel="stylesheet" href="resources/bootstrap.css">-->
     <link rel="stylesheet" href="resources/font-awesome.css">
     <link rel="stylesheet" href="resources/docs.css">
-       <!-- let the jquery and bootstrap javascript  be dealt by rails
-    <script src="resources/jquery.js"></script>
-    <script src="resources/bootstrap.js"></script>-->
     <script src="resources/docs.js"></script>
     <script async="" defer="defer" src="resources/buttons.js"></script>
     
@@ -38,6 +31,10 @@
 
         </div> 
         <%= render 'layouts/footer' %>
+        
+        <%= debug (params) if Rails.env.development? %>
     </div>
+      
+      
   </body>
 </html>

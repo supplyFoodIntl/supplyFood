@@ -1,0 +1,31 @@
+<%= render 'management/tab'  %>
+<p id="notice"><%= notice %></p>
+
+<h2>Good Types</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Good type Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @good_types.each do |good_type| %>
+      <tr scope="row">
+        <td><%= good_type.name %></td>
+        <td><%= good_type.good_type.nil? ? "-" : good_type.good_type.name    %></td>
+        <td><%= link_to 'Show', good_type %></td>
+        <td><%= link_to 'Edit', edit_good_type_path(good_type) %></td>
+        <td><%= link_to 'Destroy', good_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Good Type', new_good_type_path %>
+<%= render 'management/tab-end' %>

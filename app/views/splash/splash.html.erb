@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Supply!Food</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Supply!Food - ending the hunger in the world. With you.</title>
+    <link rel="stylesheet" href="resources/font-awesome.css">
+    <link rel="stylesheet" href="resources/docs.css">
+    <script src="resources/docs.js"></script>
+    <script async="" defer="defer" src="resources/buttons.js"></script>
+</head>
+
+<body>
+
+    <div class="jumbotron">
+        <h1 class="display-4"> Supply!Food</h1><br/>
+        <H2 class="lead">Freeware solution for hunger reduction and food insecurity</H2>
+        <div class="text-center">
+            <img src=<%= asset_path 'operationalFlow.png' %> style="width: 500px;">
+        </div>
+
+        <hr class="my-4">
+         <%= link_to 'Start to change lives', home_url, class:'btn btn-primary btn-lg float-right' %>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<%= render 'management/tab'  %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Class name:</strong>
+  <%= @log.class_name %>
+</p>
+
+<p>
+  <strong>Method name:</strong>
+  <%= @log.method_name %>
+</p>
+
+<p>
+  <strong>Hash parms:</strong>
+  <%= @log.hash_parms %>
+</p>
+
+<%= link_to 'Edit', edit_log_path(@log) %> |
+<%= link_to 'Back', logs_path %>
+<%= render 'management/tab-end' %>

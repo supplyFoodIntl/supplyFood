@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @good_type.name %>
+</p>
+
+<p>
+  <strong>Good type:</strong>
+  <%= @good_type.good_type %>
+</p>
+
+<%= link_to 'Edit', edit_good_type_path(@good_type) %> |
+<%= link_to 'Back', good_types_path %>

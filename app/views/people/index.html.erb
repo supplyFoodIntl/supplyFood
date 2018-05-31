@@ -1,4 +1,4 @@
-<%= render 'management/tab', ictype: @ictype %>
+<%= render 'management/tab' %>
 <p id="notice"><%= notice %></p>
 
 <h2>People</h2>
@@ -23,8 +23,8 @@
         <td><%= person.ic %></td>
         <td><%= person.person_type.name %></td>
         <td><%= person.ic_type.name %></td>
-        <td><%= person.created_at %></td>
-        <td><%= person.updated_at %></td>
+        <td><%= person.created_at.strftime(DATETIMEFORMAT) %></td>
+        <td><%= person.updated_at.strftime(DATETIMEFORMAT) %></td>
         <td><%= link_to 'Show', person %></td>
         <td><%= link_to 'Edit', edit_person_path(person) %></td>
         <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -36,3 +36,4 @@
 <br>
 
 <%= link_to 'New Person', new_person_path %>
+<%= render 'management/tab-end' %>

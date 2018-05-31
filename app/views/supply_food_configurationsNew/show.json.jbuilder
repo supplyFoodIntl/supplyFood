@@ -1,1 +1,0 @@
-json.partial! "supply_food_configurations/supply_food_configuration", supply_food_configuration: @supply_food_configuration

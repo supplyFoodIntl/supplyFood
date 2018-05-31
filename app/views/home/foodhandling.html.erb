@@ -1,2 +1,4 @@
 <h1> Food Handling</h1><br/>
 <p> Donated food must be handled with care and follow the federal and regional health authority protocols</p>
+
+<%= SupplyFoodConfiguration.find_by_name('Food Handling').html_configuration.html_safe %>

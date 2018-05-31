@@ -1,3 +1,4 @@
+<%= render 'management/tab' %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,5 +16,12 @@
   <%= @supply_food_configuration.value %>
 </p>
 
+<p>
+  <strong>Html configuration:</strong>
+  <%= @supply_food_configuration.html_configuration %>
+</p>
+
 <%= link_to 'Edit', edit_supply_food_configuration_path(@supply_food_configuration) %> |
 <%= link_to 'Back', supply_food_configurations_path %>
+<%= render 'management/tab-end' %>
+

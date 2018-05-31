@@ -1,4 +1,4 @@
-<%= form_with(model: postal_code_hint, local: true) do |form| %>
+<%= form_with(model: postal_code_hint, local: true,class: "form-horizontal") do |form| %>
   <% if postal_code_hint.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(postal_code_hint.errors.count, "error") %> prohibited this postal_code_hint from being saved:</h2>
@@ -11,15 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :code %>
-    <%= form.text_field :code %>
-  </div>
+ <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :code %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :name, class:"form-control",placeholder:"zipcode", autofocus:true %>
+        </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :hint %>
-    <%= form.text_field :hint %>
-  </div>
+ <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :hint %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :hint, class:"form-control",placeholder:"hint (road, avenue , street )" %>
+        </div>
+    </div>
+
 
   <div class="actions">
     <%= form.submit %>

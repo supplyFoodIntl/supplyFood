@@ -12,7 +12,7 @@ create db fill script - improve (use rake db:schema:dump)
 --application
 
 
-add version and last review to website
+
 add address class
 add volunteer, donor, manager classes
 add assignment classes (define each actor a list of assignments, on the description field just for record)
@@ -30,20 +30,8 @@ add signin and sign up
     implement conventional user access
     implement 3rd party user access
 
-add configuration
-    log ok read only
-    sqllog ok read only
-    level ok
-    goodType ok
-    measureUnit
-    postalCodeHint domain classes -
-    scaffold generated ok
-    adjust views to support the tab ok
-    adjust the index to use bootstrap classes ok
-    adjust the edit , new and show views to bootstrap format
-
-
 add contact form
+fix the error on rails server to stats.txt when editing some table, just editing(need to add a route?)
 
 error handling messages over a _errors.html.erb
     review constraints on domains table to not allow input on blank names
@@ -54,14 +42,31 @@ research about scaffold customization or xslt transform on views scaffolded
 change the `lost` assignment on business model to `check`
 add Fundraise to the business model
 
-
+include field `abbreviation` to measure unit
+remove 'show' option in all domain table where there is only name field and redirect to show
 
 -- test phase
+add version and last review to website ok
 rebuild person based on rails standards
 put all domain names on a tab
 review the color,zindex and transparency of the top nav bar - set links to buttons and adjust alignment 
 implement the splash start screen with jumbotron
 solve the problem on save person using the combo box OK (person crud as reference)
 
+domain objects
+    configuration (apply configurations to home pages) ok
+    level ok
+    goodType ok
+    log ok read only
+    sqllog ok read only
+    measureUnit ok
+    postalCodeHint ok
+        scaffold generated ok
+        adjust views to support the tab ok
+        adjust the index to use bootstrap classes ok
+        adjust the edit , new and show views to bootstrap format ok
+    
+    
+    
 remember *******************
 <%= current_page?(controller: 'people', action: 'index')%> get controller name and action

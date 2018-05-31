@@ -32,9 +32,9 @@ add signin and sign up
 
 add configuration
     log ok read only
-    sqllog
-    level
-    goodType
+    sqllog ok read only
+    level ok
+    goodType ok
     measureUnit
     postalCodeHint domain classes -
     scaffold generated ok
@@ -51,6 +51,9 @@ adjust all domain tables to bootstrap - solve de label name problem with form ha
 
 research about scaffold customization or xslt transform on views scaffolded
 
+change the `lost` assignment on business model to `check`
+add Fundraise to the business model
+
 
 
 -- test phase
@@ -58,6 +61,7 @@ rebuild person based on rails standards
 put all domain names on a tab
 review the color,zindex and transparency of the top nav bar - set links to buttons and adjust alignment 
 implement the splash start screen with jumbotron
+solve the problem on save person using the combo box OK (person crud as reference)
 
 remember *******************
 <%= current_page?(controller: 'people', action: 'index')%> get controller name and action

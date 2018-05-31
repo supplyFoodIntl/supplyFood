@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :assingment_types
   resources :users
   resources :supply_food_configurations
   resources :postal_code_hints

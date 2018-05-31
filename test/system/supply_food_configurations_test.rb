@@ -15,6 +15,7 @@ class SupplyFoodConfigurationsTest < ApplicationSystemTestCase
     click_on "New Supply Food Configuration"
 
     fill_in "Description", with: @supply_food_configuration.description
+    fill_in "Html Configuration", with: @supply_food_configuration.html_configuration
     fill_in "Name", with: @supply_food_configuration.name
     fill_in "Value", with: @supply_food_configuration.value
     click_on "Create Supply food configuration"
@@ -28,6 +29,7 @@ class SupplyFoodConfigurationsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Description", with: @supply_food_configuration.description
+    fill_in "Html Configuration", with: @supply_food_configuration.html_configuration
     fill_in "Name", with: @supply_food_configuration.name
     fill_in "Value", with: @supply_food_configuration.value
     click_on "Update Supply food configuration"

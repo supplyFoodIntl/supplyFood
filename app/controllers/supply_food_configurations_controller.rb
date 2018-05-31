@@ -69,6 +69,6 @@ class SupplyFoodConfigurationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supply_food_configuration_params
-      params.require(:supply_food_configuration).permit(:name, :description, :value)
+      params.require(:supply_food_configuration).permit(:name, :description, :value, :html_configuration)
     end
 end

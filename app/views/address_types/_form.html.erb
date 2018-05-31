@@ -1,4 +1,4 @@
-<%= form_with(model: address_type, local: true) do |form| %>
+<%= form_with(model: address_type, local: true,class: "form-horizontal") do |form| %>
   <% if address_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(address_type.errors.count, "error") %> prohibited this address_type from being saved:</h2>

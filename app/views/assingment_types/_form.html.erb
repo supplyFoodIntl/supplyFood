@@ -1,0 +1,39 @@
+<%= form_with(model: assingment_type, local: true,class: "form-horizontal") do |form| %>
+  <% if assingment_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(assingment_type.errors.count, "error") %> prohibited this assingment_type from being saved:</h2>
+
+      <ul>
+      <% assingment_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :name %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :name, class:"form-control",placeholder:"assignment type name", autofocus:true %>
+        </div>
+    </div>
+
+
+    <div class="form-group field">
+        <div class="control-label col-sm-4">
+            <%= form.label :description %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :description ,class:"form-control",placeholder:"describe the assignment"%>
+        </div>
+    </div>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

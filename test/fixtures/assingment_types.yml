@@ -2,12 +2,8 @@
 
 one:
   name: MyString
-  description: MyString
-  value: 1
-  html_configuration: MyText
+  description: MyText
 
 two:
   name: MyString
-  description: MyString
-  value: 1
-  html_configuration: MyText
+  description: MyText

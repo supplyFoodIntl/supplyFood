@@ -2,6 +2,10 @@
 <h1>Management</h1>
 <ul class="nav nav-tabs">
   <li
+      <%= 'class=active' if current_page?(controller: 'assingment_types', action: 'index') %> >
+      <%= link_to 'Assignment Type', assingment_types_url  %>
+  </li>
+  <li
       <%= 'class=active' if current_page?(controller: 'people', action: 'index') %> >
       <%= link_to 'People', people_url  %>
   </li>

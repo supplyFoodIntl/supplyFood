@@ -1,0 +1,2 @@
+class AssingmentType < ApplicationRecord
+end

@@ -17,7 +17,7 @@ class SupplyFoodConfigurationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create supply_food_configuration" do
     assert_difference('SupplyFoodConfiguration.count') do
-      post supply_food_configurations_url, params: { supply_food_configuration: { description: @supply_food_configuration.description, name: @supply_food_configuration.name, value: @supply_food_configuration.value } }
+      post supply_food_configurations_url, params: { supply_food_configuration: { description: @supply_food_configuration.description, html_configuration: @supply_food_configuration.html_configuration, name: @supply_food_configuration.name, value: @supply_food_configuration.value } }
     end
 
     assert_redirected_to supply_food_configuration_url(SupplyFoodConfiguration.last)
@@ -34,7 +34,7 @@ class SupplyFoodConfigurationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update supply_food_configuration" do
-    patch supply_food_configuration_url(@supply_food_configuration), params: { supply_food_configuration: { description: @supply_food_configuration.description, name: @supply_food_configuration.name, value: @supply_food_configuration.value } }
+    patch supply_food_configuration_url(@supply_food_configuration), params: { supply_food_configuration: { description: @supply_food_configuration.description, html_configuration: @supply_food_configuration.html_configuration, name: @supply_food_configuration.name, value: @supply_food_configuration.value } }
     assert_redirected_to supply_food_configuration_url(@supply_food_configuration)
   end
 

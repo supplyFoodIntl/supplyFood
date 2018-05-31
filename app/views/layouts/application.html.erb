@@ -22,8 +22,9 @@
     
     <%= render 'layouts/sidenav' %>  
       <%= render 'layouts/navbar' %>
+ 
     <div class="jumbotron">
-        
+  
         <div class="container">
 
             <%= yield %>
@@ -33,6 +34,7 @@
         <%= render 'layouts/footer' %>
         
         <%= debug (params) if Rails.env.development? %>
+        <%= debug(@posts) if Rails.env.development?%>
     </div>
       
       

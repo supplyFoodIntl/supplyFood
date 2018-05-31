@@ -1,5 +1,6 @@
 
-<%= form_with(model: person, local: true) do |form| %>
+
+<%= form_with(model: person, local: true,class: "form-horizontal") do |form| %>
   <% if person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
@@ -26,7 +27,7 @@
             <%= form.label :ic %>
         </div>
         <div class="col-sm-8">
-            <%= form.text_field :ic %>
+            <%= form.text_field :ic , class:"form-control" %>
         </div>
     </div>
 
@@ -35,7 +36,7 @@
             <%= form.label :person_type_id %>
         </div>
         <div class="col-sm-8">
-            <%= form.text_field :person_type_id %>
+            <%= collection_select( :person,:person_type_id,  PersonType.all, :id, :name,class:"form-control" ) %>
         </div>
     </div>
 
@@ -44,7 +45,10 @@
             <%= form.label :ic_type_id %>
         </div>
         <div class="col-sm-8">
-            <%= form.text_field :ic_type_id %>
+             <%= collection_select( :person,:ic_type_id,  IcType.all, :id, :name,class:"form-control" ) %>
+            <!--
+            <%= form.text_field :ic_type_id , class:"form-control" %>
+            -->
         </div>
     </div>
 

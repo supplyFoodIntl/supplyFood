@@ -1,0 +1,2 @@
+module PrivatePlaceTypesHelper
+end

@@ -11,9 +11,18 @@ create db fill script - improve (use rake db:schema:dump)
 
 --application
 
-
-
-add address class
+add address class 
+    add public_place
+    add private_place_type tab
+    
+    scaffold ok
+    adjust views to support the tab ok
+    adjust the index to use bootstrap classes
+    adjust the edit , new and show views to bootstrap format
+    on address insert new public_place if not exists and use an old one if exists
+    on person insert and address if not exists and use an old one if exists
+    
+    
 add volunteer, donor, manager classes
 add assignment classes (define each actor a list of assignments, on the description field just for record)
 add storage class
@@ -23,14 +32,17 @@ add inventory class
 add signin and sign up
     create user ok
     research 3rd party authentications ok
-    modify user controller to support 4 methods
+    modify user controller to support 4 methods ok
         sign in
         sign up
         reset password
     implement conventional user access
+        restrict access to the site depending the user access
     implement 3rd party user access
 
 add contact form
+
+adjust css of the tab
 fix the error on rails server to stats.txt when editing some table, just editing(need to add a route?)
 
 error handling messages over a _errors.html.erb

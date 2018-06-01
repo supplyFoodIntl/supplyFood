@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :addresses
+  resources :private_place_types
+  resources :public_places
   resources :assingment_types
   resources :users
   resources :supply_food_configurations

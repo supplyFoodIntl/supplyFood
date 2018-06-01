@@ -46,6 +46,9 @@
     <li <%= 'class=active' if current_page?(controller: 'supply_food_configurations', action: 'index') %>> 
       <%= link_to 'Configurations', supply_food_configurations_url %>
   </li>
+        <li <%= 'class=active' if current_page?(controller: 'private_place_types', action: 'index') %>> 
+      <%= link_to 'Private Place Types', private_place_types_url %>
+  </li>
 </ul>
 <div class="row">
     <div class="col-xs-12">

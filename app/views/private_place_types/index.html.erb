@@ -1,0 +1,29 @@
+<%= render 'management/tab' %>
+<p id="notice"><%= notice %></p>
+
+<h2>Private Place Types</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @private_place_types.each do |private_place_type| %>
+      <tr scope="row">
+        <td><%= private_place_type.name %></td>
+        <td><%= link_to 'Show', private_place_type %></td>
+        <td><%= link_to 'Edit', edit_private_place_type_path(private_place_type) %></td>
+        <td><%= link_to 'Destroy', private_place_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Private Place Type', new_private_place_type_path %>
+<%= render 'management/tab-end' %>

@@ -24,6 +24,14 @@ gem 'seed_dump'
 #bcrypt
 gem 'bcrypt' ,'~> 3.1.7'
 
+
+#log implementation via jupyter notenook
+gem 'lograge'
+gem 'logstash-event'
+gem 'logstash-logger'
+
+
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -47,7 +55,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+#gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

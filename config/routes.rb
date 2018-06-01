@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :addresses
-  resources :private_place_types
-  resources :public_places
   resources :assingment_types
   resources :users
   resources :supply_food_configurations
@@ -32,6 +29,8 @@ Rails.application.routes.draw do
   get 'management', to: 'management#management'
   get 'donor', to: 'donor#donor'
   get 'volunteer', to: 'volunteer#volunteer'
+    
+  get 'log', 
     
     
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

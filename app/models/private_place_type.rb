@@ -1,2 +1,0 @@
-class PrivatePlaceType < ApplicationRecord
-end

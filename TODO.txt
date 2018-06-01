@@ -11,6 +11,14 @@ create db fill script - improve (use rake db:schema:dump)
 
 --application
 
+<<<<<<< HEAD
+implement log and sql log
+    change tables to list on logFile
+    implement log packing
+    
+    use jupyter notebook
+    http://blog.scoutapp.com/articles/2017/10/13/visualizing-rails-logs-with-jupyter-notebook
+    
 add address class 
     add public_place
     add private_place_type tab
@@ -23,6 +31,11 @@ add address class
     on person insert and address if not exists and use an old one if exists
     
     
+=======
+
+
+add address class
+>>>>>>> parent of 530aa81... Domain tables fix on -new- navigation
 add volunteer, donor, manager classes
 add assignment classes (define each actor a list of assignments, on the description field just for record)
 add storage class
@@ -32,17 +45,15 @@ add inventory class
 add signin and sign up
     create user ok
     research 3rd party authentications ok
-    modify user controller to support 4 methods ok
+    modify user controller to support 4 methods
         sign in
         sign up
         reset password
+    include a user listing on tab
     implement conventional user access
-        restrict access to the site depending the user access
     implement 3rd party user access
 
 add contact form
-
-adjust css of the tab
 fix the error on rails server to stats.txt when editing some table, just editing(need to add a route?)
 
 error handling messages over a _errors.html.erb
@@ -57,7 +68,10 @@ add Fundraise to the business model
 include field `abbreviation` to measure unit
 remove 'show' option in all domain table where there is only name field and redirect to show
 
--- test phase
+review the 'last update' on footer to avoid do a query every page (use initialization variable)
+fix the first click on management link
+
+-- test phase************************************
 add version and last review to website ok
 rebuild person based on rails standards
 put all domain names on a tab

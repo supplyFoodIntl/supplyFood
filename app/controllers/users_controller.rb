@@ -21,23 +21,6 @@ class UsersController < ApplicationController
   def edit
   end
 
-  #Custom functions outside scaffold
-  def signup
-  end
-    
-  def signin
-  end
-  
-  def change_password
-  end
-      
-  def forgot_password
-  end
-    
-  def authenticate_password_recovery
-  end
-  #**********************************
-    
   # POST /users
   # POST /users.json
   def create

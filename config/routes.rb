@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :measure_units
   resources :good_types
   resources :levels
-  resources :sqllogs
   resources :logs
   resources :user_types
   resources :address_types
@@ -29,8 +28,7 @@ Rails.application.routes.draw do
   get 'management', to: 'management#management'
   get 'donor', to: 'donor#donor'
   get 'volunteer', to: 'volunteer#volunteer'
-    
-  get 'log', 
+
     
     
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

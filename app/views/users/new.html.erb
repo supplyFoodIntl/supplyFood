@@ -1,5 +1,54 @@
-<h1>New User</h1>
+<h1>Sign Up</h1>
+<%= form_for @user do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-<%= render 'form', user: @user %>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Back', users_path %>
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_digest %>
+    <%= form.text_field :password_digest %>
+  </div>
+
+  <div class="field">
+    <%= form.label :person_id %>
+    <%= form.text_field :person_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_type_id %>
+    <%= form.text_field :user_type_id %>
+  </div>
+
+    <%= form.fields_for :person do |personBuilder| %>
+        <div class="control-label col-sm-4">
+            <%= personBuilder.label :name %>
+        </div>
+        <div class="col-sm-8">
+            <%= personBuilder.text_field :name, class:"form-control",placeholder:"Name of the person", autofocus:true %>
+        </div>
+    <% end %>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+<% end %>
+
+

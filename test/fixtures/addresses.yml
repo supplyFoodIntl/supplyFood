@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  public_place: one
+  private_place_number: 1
+  private_place_type: one
+
+two:
+  public_place: two
+  private_place_number: 1
+  private_place_type: two

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  public_place_type: one
+  postal_code_hint: one
+
+two:
+  name: MyString
+  public_place_type: two
+  postal_code_hint: two

@@ -4,7 +4,7 @@ class GoodTypesController < ApplicationController
   # GET /good_types
   # GET /good_types.json
   def index
-    @good_types = GoodType.all
+    @good_types = GoodType.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /good_types/1

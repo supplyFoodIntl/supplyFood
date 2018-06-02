@@ -12,9 +12,19 @@ class UsersController < ApplicationController
   def show
   end
 
-  # GET /users/new
+  # GET /users/new_personal_info
+  def new_personal_info
+      
+  end
+  # GET /users/new_address
+  def new_address
+    
+  end
+  # GET /users/signup
   def new
     @user = User.new
+    @address= Address.new
+    @person=Person.new
   end
 
   # GET /users/1/edit
@@ -28,6 +38,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+          @address.save
+          @person.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

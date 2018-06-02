@@ -1,0 +1,2 @@
+module PublicPlacesHelper
+end

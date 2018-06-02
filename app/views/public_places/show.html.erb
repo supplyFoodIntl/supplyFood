@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @public_place.name %>
+</p>
+
+<p>
+  <strong>Public place type:</strong>
+  <%= @public_place.public_place_type %>
+</p>
+
+<p>
+  <strong>Postal code hint:</strong>
+  <%= @public_place.postal_code_hint %>
+</p>
+
+<%= link_to 'Edit', edit_public_place_path(@public_place) %> |
+<%= link_to 'Back', public_places_path %>

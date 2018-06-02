@@ -11,14 +11,18 @@ create db fill script - improve (use rake db:schema:dump)
 
 --application
 
-<<<<<<< HEAD
-implement log and sql log
-    change tables to list on logFile
-    implement log packing
-    
-    use jupyter notebook
-    http://blog.scoutapp.com/articles/2017/10/13/visualizing-rails-logs-with-jupyter-notebook
-    
+add signin and sign up
+    modify user controller to support 4 methods
+        sign in
+        sign up
+        sign out - review de redirection of sign out using the DELETE on routes (it is GET, just to run), the :method was not working
+        only show sign out if the user is signed in
+        
+        reset password
+    create user in a single form
+
+add will_paginate to all index views on classes whose could have more than 10 records
+
 add address class 
     add public_place
     add private_place_type tab
@@ -31,30 +35,26 @@ add address class
     on person insert and address if not exists and use an old one if exists
     
     
-=======
-
-
-add address class
->>>>>>> parent of 530aa81... Domain tables fix on -new- navigation
+    implement conventional user access
+    implement 3rd party user access
+    
+add address class ok
+    put it on sign up
 add volunteer, donor, manager classes
 add assignment classes (define each actor a list of assignments, on the description field just for record)
 add storage class
 add donation class
 add delivery class
 add inventory class
-add signin and sign up
-    create user ok
-    research 3rd party authentications ok
-    modify user controller to support 4 methods
-        sign in
-        sign up
-        reset password
-    include a user listing on tab
-    implement conventional user access
-    implement 3rd party user access
+
 
 add contact form
 fix the error on rails server to stats.txt when editing some table, just editing(need to add a route?)
+
+fix glitch on navbar when sign up
+fix glitch on navbar which makes it transparent
+put the management under div with scroll bar
+fix the object assingment to assignment (on all mvc & db)
 
 error handling messages over a _errors.html.erb
     review constraints on domains table to not allow input on blank names
@@ -71,6 +71,14 @@ remove 'show' option in all domain table where there is only name field and redi
 review the 'last update' on footer to avoid do a query every page (use initialization variable)
 fix the first click on management link
 
+implement log and sql log
+    change tables to list on logFile OK
+    implement log packing
+    
+    use jupyter notebook
+    http://blog.scoutapp.com/articles/2017/10/13/visualizing-rails-logs-with-jupyter-notebook
+    
+
 -- test phase************************************
 add version and last review to website ok
 rebuild person based on rails standards
@@ -78,6 +86,10 @@ put all domain names on a tab
 review the color,zindex and transparency of the top nav bar - set links to buttons and adjust alignment 
 implement the splash start screen with jumbotron
 solve the problem on save person using the combo box OK (person crud as reference)
+
+    create user ok
+    research 3rd party authentications ok
+    include a user listing on tab ok
 
 domain objects
     configuration (apply configurations to home pages) ok

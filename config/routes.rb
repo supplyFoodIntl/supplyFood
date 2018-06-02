@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :assingment_types
-  resources :users
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  resources :addresses
+  resources :private_place_types
+  resources :public_places
   resources :supply_food_configurations
   resources :postal_code_hints
   resources :measure_units
@@ -13,12 +17,21 @@ Rails.application.routes.draw do
   resources :person_types
   resources :ic_types
   resources :people
+  resources :users
+  resources :assingment_types
     
   root 'splash#splash'
   get 'home', to: 'home#home'
   get 'about', to: 'home#about'
     
   get 'signup', to: 'users#new'
+  get 'signup_address', to: 'users#new_address'
+  get 'signup_personal_info', to: 'users#new_personal_info'
+    
+  get  'signin', to: 'sessions#new'
+  post 'signin', to: 'sessions#create'
+  get  'signout', to: 'sessions#destroy'
+    
   get 'foodhandling', to: 'home#foodhandling'
   get 'news', to: 'home#news'
   get 'legal', to: 'home#legal'

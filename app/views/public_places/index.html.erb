@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Public Places</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Public place type</th>
+      <th>Postal code hint</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @public_places.each do |public_place| %>
+      <tr>
+        <td><%= public_place.name %></td>
+        <td><%= public_place.public_place_type %></td>
+        <td><%= public_place.postal_code_hint %></td>
+        <td><%= link_to 'Show', public_place %></td>
+        <td><%= link_to 'Edit', edit_public_place_path(public_place) %></td>
+        <td><%= link_to 'Destroy', public_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Public Place', new_public_place_path %>

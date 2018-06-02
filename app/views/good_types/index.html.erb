@@ -24,8 +24,12 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
+
+<div align="center">
+  <%= will_paginate @good_types, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
+
 
 <%= link_to 'New Good Type', new_good_type_path %>
 <%= render 'management/tab-end' %>

@@ -1,5 +1,5 @@
 <h1>Sign Up</h1>
-<%= form_for @user do |form| %>
+<%= form_for @user,class: "form-horizontal" do |form| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -12,30 +12,53 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+ <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :username %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :username, class:"form-control",placeholder:"user id", autofocus:true %>
+        </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest %>
-  </div>
+ <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :email %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :email, class:"form-control",placeholder:"email" %>
+        </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :person_id %>
-    <%= form.text_field :person_id %>
-  </div>
+ <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :password_digest %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :password_digest, class:"form-control",placeholder:"password" %>
+        </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :user_type_id %>
-    <%= form.text_field :user_type_id %>
-  </div>
+ <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :person_id %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :person_id, class:"form-control",placeholder:"person id"  %>
+        </div>
+    </div>
+
+ <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :user_type_id %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :user_type_id, class:"form-control",placeholder:"user type id"  %>
+        </div>
+    </div>
+
+
 
     <%= form.fields_for :person do |personBuilder| %>
         <div class="control-label col-sm-4">

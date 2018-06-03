@@ -11,6 +11,9 @@ create db fill script - improve (use rake db:schema:dump)
 
 --application
 
+add contact form ok
+    format in bootstrap
+
 add signin and sign up
     modify user controller to support 4 methods
         sign in
@@ -48,7 +51,7 @@ add delivery class
 add inventory class
 
 
-add contact form
+
 fix the error on rails server to stats.txt when editing some table, just editing(need to add a route?)
 
 fix glitch on navbar when sign up

@@ -1,18 +1,19 @@
+<%= render 'management/tab' %>
 <p id="notice"><%= notice %></p>
 
-<h1>Private Place Types</h1>
+<h2>Private Place Types</h2>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th scope="col">Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @private_place_types.each do |private_place_type| %>
-      <tr>
+      <tr scope="row">
         <td><%= private_place_type.name %></td>
         <td><%= link_to 'Show', private_place_type %></td>
         <td><%= link_to 'Edit', edit_private_place_type_path(private_place_type) %></td>
@@ -25,3 +26,5 @@
 <br>
 
 <%= link_to 'New Private Place Type', new_private_place_type_path %>
+
+<%= render 'management/tab-end' %>

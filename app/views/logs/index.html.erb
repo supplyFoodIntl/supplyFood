@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 
 <h2>Logs</h2>
-
+<div style="height:350px;width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
 <%= Dir.entries("./log") %>
 
 <%
@@ -12,6 +12,13 @@ line : <%=line %> <br>
 
 <% end %>
 
-<br>
-
+</div>
+<div class="actions">
+    <form class="form-group" >
+    <%= link_to "pack",logs_url, class: 'btn btn-primary btn-lg' %> 
+    
+        <%= link_to "filter",logs_url, class: 'btn btn-primary btn-lg' %>
+        <input type="text" class="form-control col-sm-4" placeholder="filter log" >
+    </form>
+</div>
 <%= render 'management/tab-end' %>

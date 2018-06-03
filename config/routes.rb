@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
+  resources :form_contacts
   resources :addresses
   resources :private_place_types
   resources :public_places
@@ -19,10 +17,15 @@ Rails.application.routes.draw do
   resources :people
   resources :users
   resources :assingment_types
+  resources :form_contacts
     
   root 'splash#splash'
   get 'home', to: 'home#home'
   get 'about', to: 'home#about'
+    
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'    
     
   get 'signup', to: 'users#new'
   get 'signup_address', to: 'users#new_address'

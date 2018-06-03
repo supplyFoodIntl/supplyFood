@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :services
+  resources :volunteers
+  resources :ranks
+  resources :suppliers
   resources :form_contacts
   resources :addresses
   resources :private_place_types

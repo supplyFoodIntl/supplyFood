@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_02_202645) do
+ActiveRecord::Schema.define(version: 2018_06_03_055924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,10 +136,46 @@ ActiveRecord::Schema.define(version: 2018_06_02_202645) do
     t.index ["public_place_type_id"], name: "index_public_places_on_public_place_type_id"
   end
 
+  create_table "ranks", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ranks_volunteers", id: false, force: :cascade do |t|
+    t.bigint "volunteer_id", null: false
+    t.bigint "rank_id", null: false
+    t.index ["rank_id"], name: "index_ranks_volunteers_on_rank_id"
+    t.index ["volunteer_id"], name: "index_ranks_volunteers_on_volunteer_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "services_volunteers", id: false, force: :cascade do |t|
+    t.bigint "volunteer_id", null: false
+    t.bigint "service_id", null: false
+    t.index ["service_id"], name: "index_services_volunteers_on_service_id"
+    t.index ["volunteer_id"], name: "index_services_volunteers_on_volunteer_id"
+  end
+
   create_table "sqllogs", force: :cascade do |t|
     t.string "sql_executed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.bigint "person_id"
+    t.bigint "level_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["level_id"], name: "index_suppliers_on_level_id"
+    t.index ["person_id"], name: "index_suppliers_on_person_id"
   end
 
   create_table "supply_food_configurations", force: :cascade do |t|
@@ -169,6 +205,13 @@ ActiveRecord::Schema.define(version: 2018_06_02_202645) do
     t.index ["user_type_id"], name: "index_users_on_user_type_id"
   end
 
+  create_table "volunteers", force: :cascade do |t|
+    t.bigint "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_volunteers_on_person_id"
+  end
+
   add_foreign_key "addresses", "private_place_types"
   add_foreign_key "addresses", "public_places"
   add_foreign_key "good_types", "good_types"
@@ -176,6 +219,9 @@ ActiveRecord::Schema.define(version: 2018_06_02_202645) do
   add_foreign_key "people", "person_types"
   add_foreign_key "public_places", "postal_code_hints"
   add_foreign_key "public_places", "public_place_types"
+  add_foreign_key "suppliers", "levels"
+  add_foreign_key "suppliers", "people"
   add_foreign_key "users", "people"
   add_foreign_key "users", "user_types"
+  add_foreign_key "volunteers", "people"
 end

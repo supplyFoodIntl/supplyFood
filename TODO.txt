@@ -11,8 +11,12 @@ create db fill script - improve (use rake db:schema:dump)
 
 --application
 
-add contact form ok
-    format in bootstrap
+review the 'last update' on footer to avoid do a query every page (use initialization variable)
+    http://railscasts.com/episodes/1-caching-with-instance-variables?autoplay=true
+
+research about the best practices on localization for rails
+
+research how to generate a form with many models (for user management)
 
 add signin and sign up
     modify user controller to support 4 methods
@@ -30,8 +34,6 @@ add address class
     add public_place
     add private_place_type tab
     
-    scaffold ok
-    adjust views to support the tab ok
     adjust the index to use bootstrap classes
     adjust the edit , new and show views to bootstrap format
     on address insert new public_place if not exists and use an old one if exists
@@ -43,19 +45,18 @@ add address class
     
 add address class ok
     put it on sign up
-add volunteer, donor, manager classes
-add assignment classes (define each actor a list of assignments, on the description field just for record)
+add volunteer ok 
+    donor, 
+    manager classes
+add assignment classes for manager, volunteer and donor (define each actor a list of assignments, on the description field just for record)
 add storage class
 add donation class
 add delivery class
 add inventory class
 
-
-
 fix the error on rails server to stats.txt when editing some table, just editing(need to add a route?)
 
-fix glitch on navbar when sign up
-fix glitch on navbar which makes it transparent
+
 put the management under div with scroll bar
 fix the object assingment to assignment (on all mvc & db)
 
@@ -71,12 +72,20 @@ add Fundraise to the business model
 include field `abbreviation` to measure unit
 remove 'show' option in all domain table where there is only name field and redirect to show
 
-review the 'last update' on footer to avoid do a query every page (use initialization variable)
-fix the first click on management link
+
+add contact form ok
+    format in bootstrap ok
+    add reply button
+    add read flag
+    add replied flag
+    add comment flag
+    add links to another contact forms
+    list contact by user, date, option to expand the tree
 
 implement log and sql log
     change tables to list on logFile OK
     implement log packing
+    implement log search
     
     use jupyter notebook
     http://blog.scoutapp.com/articles/2017/10/13/visualizing-rails-logs-with-jupyter-notebook
@@ -106,8 +115,11 @@ domain objects
         adjust views to support the tab ok
         adjust the index to use bootstrap classes ok
         adjust the edit , new and show views to bootstrap format ok
-    
-    
+
+fix the first click on management link ok
+adjust views to support the tab ok
+fix glitch on navbar when sign up ok
+fix glitch on navbar which makes it transparent ok
     
 remember *******************
 <%= current_page?(controller: 'people', action: 'index')%> get controller name and action

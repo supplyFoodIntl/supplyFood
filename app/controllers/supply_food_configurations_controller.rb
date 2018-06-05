@@ -1,6 +1,8 @@
 class SupplyFoodConfigurationsController < ApplicationController
   before_action :set_supply_food_configuration, only: [:show, :edit, :update, :destroy]
 
+
+
   # GET /supply_food_configurations
   # GET /supply_food_configurations.json
   def index

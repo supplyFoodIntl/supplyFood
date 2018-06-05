@@ -1,3 +1,4 @@
+<%= render 'management/tab' %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -17,13 +18,14 @@
 
 <p>
   <strong>Person:</strong>
-  <%= @user.person %>
+  <%= @user.person.name %>
 </p>
 
 <p>
   <strong>User type:</strong>
-  <%= @user.user_type %>
+  <%= @user.user_type.name %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+
 <%= link_to 'Back', users_path %>
+<%= render 'management/tab-end' %>

@@ -28,6 +28,8 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
+          #check if is there the same address on database, if yes , use-it, if not, create the address
+          @address.save
         format.html { redirect_to @person, notice: 'Person was successfully created.' }
         format.json { render :show, status: :created, location: @person }
       else

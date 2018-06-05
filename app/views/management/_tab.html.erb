@@ -48,6 +48,9 @@
    <li <%= 'class=active' if current_page?(controller: 'postal_code_hints', action: 'index') %>>
       <%= link_to 'Postal Code Hints', postal_code_hints_url %>
   </li>
+  <li <%= 'class=active' if current_page?(controller: 'users', action: 'index') %> >
+      <%= link_to 'Users', users_url %>
+  </li>
   <li <%= 'class=active' if current_page?(controller: 'user_types', action: 'index') %> >
       <%= link_to 'User types', user_types_url %>
   </li>

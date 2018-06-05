@@ -30,12 +30,14 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'    
+ 
     
   get 'signup', to: 'users#new'
   get 'signup_address', to: 'users#new_address'
   get 'signup_personal_info', to: 'users#new_personal_info'
     
   get  'signin', to: 'sessions#new'
+  get  'signedin', to: 'sessions#show'
   post 'signin', to: 'sessions#create'
   get  'signout', to: 'sessions#destroy'
     
@@ -47,7 +49,7 @@ Rails.application.routes.draw do
     
   get 'management', to: 'management#management'
   get 'donor', to: 'donor#donor'
-  get 'volunteer', to: 'volunteer#volunteer'
+  get 'volunteer', to: 'volunteers#menu'
 
     
     

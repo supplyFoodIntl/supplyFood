@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+ 
+    
   # GET /users
   # GET /users.json
   def index
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
   def new_address
     
   end
+    
   # GET /users/signup
   def new
     @user = User.new
@@ -38,8 +41,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-          @address.save
+          #check if is there the same person on database, if yes , use-it, if not, create the person
           @person.save
+
+
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -83,4 +88,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :email, :password_digest, :person_id, :user_type_id)
     end
+
 end

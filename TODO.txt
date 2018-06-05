@@ -4,7 +4,7 @@ create db fill script - constant ok (using rails console)
     improve (use rake db:schema:dump)
 
 --application
-
+adjust the site to bootstrap 4 now installed
 add signin and sign up
     modify user controller to support 4 methods ok
         sign in
@@ -47,10 +47,16 @@ research how to generate a form with many models (for user management)
 
 
 add will_paginate to all index views on classes whose could have more than 10 records
+    contact messages
+    good_types ok
+    people
+    postal code hints
+    users
     
     implement conventional user access
     implement 3rd party user access
 
+add new flowchart to the about page
 fix the error on rails server to stats.txt when editing some table, just editing(need to add a route?)
 
 fix the object assingment to assignment (on all mvc & db)

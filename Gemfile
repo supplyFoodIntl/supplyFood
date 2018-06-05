@@ -13,8 +13,11 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Bootstrap
-#gem 'bootstrap', '~> 4.1.1'
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.1.1'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+#disabled to use bootstrap 4
+#gem 'bootstrap-sass'
 #jquery
 gem 'jquery-rails'
 

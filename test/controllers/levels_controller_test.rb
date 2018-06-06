@@ -37,8 +37,19 @@ class LevelsControllerTest < ActionDispatch::IntegrationTest
     patch level_url(@level), params: { level: { name: @level.name } }
     assert_redirected_to level_url(@level)
   end
+    
+  test "should fail since it has a supplier" do
+    #should fail since it has a supplier
+    assert_raises(ActiveRecord::InvalidForeignKey)  do
+      delete level_url(@level)
+    end
+  end
 
   test "should destroy level" do
+    #should success after delete the supplier
+    @supplier = suppliers(:one)
+    delete supplier_url(@supplier)
+      
     assert_difference('Level.count', -1) do
       delete level_url(@level)
     end

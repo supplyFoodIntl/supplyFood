@@ -5,14 +5,26 @@ create db fill script - constant ok (using rails console)
 
 --application
 
+adjust the site to bootstrap 4 now installed
+    navbar - include brand - supply!food, right buttons should be right
+    footer - ok
+    tab - ok
+    tables container - ajust to fit the tab space - review the show pages
+        contact message
+        ic_type
+        people
+        private place
+        
+
 add signin and sign up
     modify user controller to support 4 methods ok
         sign in
+            use strong password storage and verification
+            add user name on the navbar after sign in
+        sign up
             create user in a single form
             add address class ok
             put it on sign up
-
-        sign up
         sign out - review de redirection of sign out using the DELETE on routes (it is GET, just to run), the :method was not working
         only show sign out if the user is signed in
         reset password
@@ -67,6 +79,7 @@ error handling messages over a _errors.html.erb
 adjust all domain tables to bootstrap - solve de label name problem with form handler
 
 research about scaffold customization or xslt transform on views scaffolded
+research map pointing on google to save locations of hunger sensible areas
 
 change the `lost` assignment on business model to `check`
 add Fundraise to the business model
@@ -95,13 +108,14 @@ implement log and sql log
     
 add calendar of events (connection to https://www.eventbrite.com )
 
+run unit tests 
+    to all models,
+    controllers 
+    and build a solid integrated test based on the test phase below
+
 -- test phase************************************
 
-adjust the site to bootstrap 4 now installed
-    navbar - include brand - supply!food, right buttons should be right
-    footer - ok
-    tab - ok
-    tables container - ajust to fit the tab space - OK
+
 
 put the management under div with scroll bar ok (just for log, the other models will use the browser scroll)
 review the 'last update' on footer to avoid do a query every page (use initialization variable) OK

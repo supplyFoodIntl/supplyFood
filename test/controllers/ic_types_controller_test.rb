@@ -2,7 +2,7 @@ require 'test_helper'
 
 class IcTypesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @ic_type = ic_types(:one)
+    @ic_type = ic_types(:one) 
   end
 
   test "should get index" do
@@ -22,9 +22,9 @@ class IcTypesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ic_type" do
     assert_difference('IcType.count') do
-      post ic_types_url, params: { ic_type: { name: @ic_type.name } } 
+      post ic_types_url, params: { ic_type: { name: rand(10000).to_s  } } 
     end
-    assert_redirected_to ic_type_url(IcType.last)
+    assert_redirected_to ic_types_path(IcType.last)
   end
 
 
@@ -35,17 +35,11 @@ class IcTypesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update ic_type" do
-    patch ic_type_url(@ic_type), params: { ic_type: { name: @ic_type.name } }
+    patch ic_type_url(@ic_type), params: { ic_type: { name: rand(10000).to_s } }
+      puts "expected redirected to #{ic_type_url(@ic_type)}"
     assert_redirected_to ic_type_url(@ic_type)
   end
 
-#  test "should destroy ic_type" do
-#    assert_difference('IcType.count', -1) do
-#      delete ic_type_url(@ic_type)
-#    end
-#
-#    assert_redirected_to ic_types_url
-#  end
     
   test "should fail to destroy since it has a person" do
     #should fail since it has a supplier
@@ -69,7 +63,7 @@ class IcTypesControllerTest < ActionDispatch::IntegrationTest
     delete person_url(@person)
 
       
-    assert_difference('Level.count', -1) do
+    assert_difference('IcType.count', -1) do
       delete ic_type_url(@ic_type)
     end
 

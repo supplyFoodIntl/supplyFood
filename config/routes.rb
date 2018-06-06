@@ -26,6 +26,11 @@ Rails.application.routes.draw do
   root 'splash#splash'
   get 'home', to: 'home#home'
   get 'about', to: 'home#about'
+  
+  if Rails.env.development?
+       get 'testbootstrap', to: 'home#testbootstrap'
+  end
+ 
     
   get 'sessions/new'
   get 'sessions/create'

@@ -105,43 +105,49 @@ body {
     color: black;
 }
 
-// navbar
- .navbar {
+ //navbar
+ #sfnavbar {
      background-color: #255688;
      padding-left:250px;
      z-index:0;
  
  }
 
-
-
- nav {
-     background-color: #255688;
-     background-image: none;
-     background-repeat: no-repeat;
-     color: blue;
- }
-nav div  ul {
-    list-style: none;
+#main_container {
+    padding-left:30px;
 }
-
-.nav-tabs > li {
-     background-color: #255688;
-     background-image: none;
-     background-repeat: no-repeat;
-     color: white;
-
+#grid_container {
+    padding-left:25px;
 }
-.nav-tabs > li > a {
-     text-decoration: none;
-     font-size: 15px;
-     color: lightgray;
-     display: block;
- }
+//#sfnav div  ul {
+//    list-style: none;
+//}
 
-.nav-tabs > li > a:hover {
-     color: black;
- }
+//#sfnav-tabs > li {
+//     background-color: #255688;
+//     background-image: none;
+//     background-repeat: no-repeat;
+//     color: white;
+//
+//}
+//#nav-tabs > li > a {
+//     text-decoration: none;
+//     font-size: 15px;
+//     color: lightgray;
+//     display: block;
+// }
+//
+//nav-tabs > li > a:hover {
+//     color: black;
+// }
+//nav-tabs {
+//    border-bottom-color: darkgray;
+//    border-top-color: darkgray;
+//    border-left-color: darkgray;
+//    border-right-color: darkgray;
+//}
+ul.nav a:hover { color: #fff !important; }
+ul.nav a.active:hover { color: black !important; }
 
 .jumbotron hr {
     border-color: darkgray;

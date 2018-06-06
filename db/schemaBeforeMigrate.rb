@@ -218,7 +218,8 @@ ActiveRecord::Schema.define(version: 2018_06_05_131808) do
 
   add_foreign_key "addresses", "private_place_types"
   add_foreign_key "addresses", "public_places"
-  add_foreign_key "good_types", "good_types"
+  #removed to allow the seed to insert self-relation good_types table
+  #add_foreign_key "good_types", "good_types"
   add_foreign_key "people", "ic_types"
   add_foreign_key "people", "person_types"
   add_foreign_key "public_places", "postal_code_hints"

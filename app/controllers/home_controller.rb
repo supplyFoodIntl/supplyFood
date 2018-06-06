@@ -23,5 +23,7 @@ class HomeController < ApplicationController
     def legal
     end
     
+    def testbootstrap
+    end
 
 end

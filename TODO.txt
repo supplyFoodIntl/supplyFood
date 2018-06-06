@@ -4,7 +4,7 @@ create db fill script - constant ok (using rails console)
     improve (use rake db:schema:dump)
 
 --application
-adjust the site to bootstrap 4 now installed
+
 add signin and sign up
     modify user controller to support 4 methods ok
         sign in
@@ -57,6 +57,7 @@ add will_paginate to all index views on classes whose could have more than 10 re
     implement 3rd party user access
 
 add new flowchart to the about page
+
 fix the error on rails server to stats.txt when editing some table, just editing(need to add a route?)
 
 fix the object assingment to assignment (on all mvc & db)
@@ -95,6 +96,12 @@ implement log and sql log
 add calendar of events (connection to https://www.eventbrite.com )
 
 -- test phase************************************
+
+adjust the site to bootstrap 4 now installed
+    navbar - include brand - supply!food, right buttons should be right
+    footer - ok
+    tab - ok
+    tables container - ajust to fit the tab space - OK
 
 put the management under div with scroll bar ok (just for log, the other models will use the browser scroll)
 review the 'last update' on footer to avoid do a query every page (use initialization variable) OK

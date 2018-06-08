@@ -6,7 +6,7 @@
         <%= link_to 'Volunteer!', volunteers_url %>
         <%= link_to 'Supply!', volunteers_url %>
         <%= link_to 'Find Food!', volunteers_url %>
-        <%= link_to 'Call for Help!', volunteers_url %>
+        <%= link_to 'Call for Help!', point_hunger_url %>
         <%= link_to 'Management', management_url %>
         <hr>
         <%= link_to 'Food Handling', foodhandling_url %>
@@ -37,7 +37,7 @@
                     }
                 }
 
-                xmlhttp.open("GET", "resources/stats/stats.txt", true);
+                xmlhttp.open("GET", "/resources/stats/stats.txt", true);
                 xmlhttp.send();
             }
 

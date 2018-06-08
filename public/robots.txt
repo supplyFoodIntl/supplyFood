@@ -1,1 +1,8 @@
-# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+# robots.txt for http://www.example.com/
+
+User-agent: *
+Disallow: 
+
+# Cybermapper knows where to go.
+User-agent: cybermapper
+Disallow:

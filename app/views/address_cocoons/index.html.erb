@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Address Cocoons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Line one</th>
+      <th>Line two</th>
+      <th>Zip code</th>
+      <th>Person cocoon</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @address_cocoons.each do |address_cocoon| %>
+      <tr>
+        <td><%= address_cocoon.line_one %></td>
+        <td><%= address_cocoon.line_two %></td>
+        <td><%= address_cocoon.zip_code %></td>
+        <td><%= address_cocoon.person_cocoon %></td>
+        <td><%= link_to 'Show', address_cocoon %></td>
+        <td><%= link_to 'Edit', edit_address_cocoon_path(address_cocoon) %></td>
+        <td><%= link_to 'Destroy', address_cocoon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Address Cocoon', new_address_cocoon_path %>

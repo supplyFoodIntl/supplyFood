@@ -1,0 +1,17 @@
+  <div class='nested-fields'>
+    <div class="field">
+      <%= f.label :line_one %>
+      <%= f.text_field :line_one %>
+    </div>
+    <div class="field">
+      <%= f.label :line_two %>
+      <%= f.text_field :line_two %>
+    </div>
+    <div class="field">
+      <%= f.label :zip_code %>
+      <%= f.text_field :zip_code %>
+    </div>
+
+    <%= link_to_remove_association "remove address", f %>
+  </div>
+

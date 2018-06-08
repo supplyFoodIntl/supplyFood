@@ -24,6 +24,18 @@
 
     <div class="form-group field">
         <div class="control-label col-sm-4">
+            <%= form.label :ic_type_id %>
+        </div>
+        <div class="col-sm-8">
+             <%= collection_select( :person,:ic_type_id,  IcType.all, :id, :name,class:"form-control" ) %>
+            <!--
+            <%= form.text_field :ic_type_id , class:"form-control" %>
+            -->
+        </div>
+    </div>
+
+    <div class="form-group field">
+        <div class="control-label col-sm-4">
             <%= form.label :ic %>
         </div>
         <div class="col-sm-8">
@@ -40,17 +52,18 @@
         </div>
     </div>
 
-    <div class="form-group field">
-        <div class="control-label col-sm-4">
-            <%= form.label :ic_type_id %>
-        </div>
-        <div class="col-sm-8">
-             <%= collection_select( :person,:ic_type_id,  IcType.all, :id, :name,class:"form-control" ) %>
-            <!--
-            <%= form.text_field :ic_type_id , class:"form-control" %>
-            -->
-        </div>
-    </div>
+
+<hr>
+
+
+
+<% for address in person.addresses %>
+  <%= person.addresses %>
+  <%= render 'address_fields', f: builder %>
+<% end %>
+<div id="addAddress">
+    <%= link_to "Add Address", "#", remote: true %>
+</div>
 
 
 

@@ -4,17 +4,47 @@ create db fill script - constant ok (using rails console)
     improve (use rake db:schema:dump)
 
 --application
+add routes for all the links on the main page
 
-adjust the site to bootstrap 4 now installed
-    navbar - include brand - supply!food, right buttons should be right
-    footer - ok
-    tab - ok
-    tables container - ajust to fit the tab space - review the show pages
-        contact message
-        ic_type
-        people
-        private place
-        
+add user on one form only
+    form_user
+        user ok
+        person ok
+        phones ok
+        addresses ok
+    format on bootstrap
+    disable edit and delete functions
+    implement email check
+    create a trigger on pg to decouple the user into the tables
+    
+clean all the unused files
+reasearch about code coverage in rails
+research about continuous integrarion with travis ci
+
+add user on one form only
+    using cocoon
+    try a different approach from the video, when click on new address just add an address to the current person using partial form (first on person, later on the address)...allow a max for 4 addresses per person
+    test jquery functions on rails ok
+    
+    make a poc of jquery on rails
+        1 - make a simple jquery page ok
+        2 - port it to rails ok
+        http://192.168.0.106:3000/my_jquery_test
+        3 - improve it 
+            create a simulation of a form with labels and texts ok
+                solve the 'remove all problem'
+                use console do register each step, not alert
+            create combo boxes
+            create a full fledged form
+            separate the script from the view in a .js
+    
+add address class 
+    add public_place
+    add private_place_type tab
+    adjust the index to use bootstrap classes 
+    adjust the edit , new and show views to bootstrap format
+    on address insert new public_place if not exists and use an old one if exists
+    on person insert and address if not exists and use an old one if exists
 
 add signin and sign up
     modify user controller to support 4 methods ok
@@ -31,13 +61,6 @@ add signin and sign up
         make signup, signin and signout on the same button on the right of the navbar
 
 
-add address class 
-    add public_place
-    add private_place_type tab
-    adjust the index to use bootstrap classes 
-    adjust the edit , new and show views to bootstrap format
-    on address insert new public_place if not exists and use an old one if exists
-    on person insert and address if not exists and use an old one if exists
     
 add volunteer ok 
     donor, 
@@ -55,7 +78,7 @@ add inventory class
 research about the best practices on localization for rails
 
 research how to generate a form with many models (for user management)
-
+research about the use of robots.txt
 
 
 add will_paginate to all index views on classes whose could have more than 10 records
@@ -87,6 +110,16 @@ add Fundraise to the business model
 include field `abbreviation` to measure unit
 remove 'show' option in all domain table where there is only name field and redirect to show
 
+adjust the site to bootstrap 4 now installed
+    navbar - include brand - supply!food, right buttons should be right
+    footer - ok
+    tab - ok
+    tables container - ajust to fit the tab space - review the show pages
+        contact message
+        ic_type
+        people
+        private place
+
 add connectivity to facebook,twitter,youtube and instagram 
 
 add contact form ok
@@ -112,6 +145,9 @@ run unit tests
     to all models,
     controllers 
     and build a solid integrated test based on the test phase below
+    
+change the donation counter from javascript to ajax jquery
+build major entities data mirror using xml and json for report transformations
 
 -- test phase************************************
 
@@ -160,3 +196,5 @@ add users to management menu ok
     
 remember *******************
 <%= current_page?(controller: 'people', action: 'index')%> get controller name and action
+
+

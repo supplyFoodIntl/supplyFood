@@ -1,0 +1,29 @@
+<%= form_for @person_cocoon do |f|  %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ic %>
+    <%= f.text_field :ic %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ic_type_id %>
+    <%= f.text_field :ic_type_id %>
+  </div>
+ <h3>Addresses</h3>
+  <div id='address_cocoon'>
+    <%= f.fields_for :address_cocoons do |address_cocoon| %>
+      <%= render 'address_cocoon_fields', :f => address_cocoon %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add address',f, :address_cocoons %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

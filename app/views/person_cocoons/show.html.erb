@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @person_cocoon.name %>
+</p>
+
+<p>
+  <strong>Ic:</strong>
+  <%= @person_cocoon.ic %>
+</p>
+
+<p>
+  <strong>Ic type:</strong>
+  <%= @person_cocoon.ic_type %>
+</p>
+
+<%= link_to 'Edit', edit_person_cocoon_path(@person_cocoon) %> |
+<%= link_to 'Back', person_cocoons_path %>

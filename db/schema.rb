@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_05_131808) do
+ActiveRecord::Schema.define(version: 2018_06_08_201231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "address_cocoons", force: :cascade do |t|
+    t.string "line_one"
+    t.string "line_two"
+    t.integer "zip_code"
+    t.bigint "person_cocoon_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_cocoon_id"], name: "index_address_cocoons_on_person_cocoon_id"
+  end
 
   create_table "address_types", force: :cascade do |t|
     t.string "name"
@@ -99,6 +109,15 @@ ActiveRecord::Schema.define(version: 2018_06_05_131808) do
     t.index ["person_type_id"], name: "index_people_on_person_type_id"
   end
 
+  create_table "person_cocoons", force: :cascade do |t|
+    t.string "name"
+    t.string "ic"
+    t.bigint "ic_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ic_type_id"], name: "index_person_cocoons_on_ic_type_id"
+  end
+
   create_table "person_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -161,6 +180,22 @@ ActiveRecord::Schema.define(version: 2018_06_05_131808) do
     t.index ["volunteer_id"], name: "index_services_volunteers_on_volunteer_id"
   end
 
+  create_table "signups", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "ic"
+    t.bigint "ic_type_id"
+    t.string "address_line1"
+    t.string "address_line2"
+    t.string "zipcode"
+    t.string "state"
+    t.string "country"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ic_type_id"], name: "index_signups_on_ic_type_id"
+  end
+
   create_table "sqllogs", force: :cascade do |t|
     t.string "sql_executed"
     t.datetime "created_at", null: false
@@ -216,13 +251,16 @@ ActiveRecord::Schema.define(version: 2018_06_05_131808) do
     t.index ["person_id"], name: "index_volunteers_on_person_id"
   end
 
+  add_foreign_key "address_cocoons", "person_cocoons"
   add_foreign_key "addresses", "private_place_types"
   add_foreign_key "addresses", "public_places"
   add_foreign_key "good_types", "good_types"
   add_foreign_key "people", "ic_types"
   add_foreign_key "people", "person_types"
+  add_foreign_key "person_cocoons", "ic_types"
   add_foreign_key "public_places", "postal_code_hints"
   add_foreign_key "public_places", "public_place_types"
+  add_foreign_key "signups", "ic_types"
   add_foreign_key "suppliers", "levels"
   add_foreign_key "suppliers", "people"
   add_foreign_key "users", "people"

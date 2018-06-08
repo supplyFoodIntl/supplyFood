@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Line one:</strong>
+  <%= @address_cocoon.line_one %>
+</p>
+
+<p>
+  <strong>Line two:</strong>
+  <%= @address_cocoon.line_two %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @address_cocoon.zip_code %>
+</p>
+
+<p>
+  <strong>Person cocoon:</strong>
+  <%= @address_cocoon.person_cocoon %>
+</p>
+
+<%= link_to 'Edit', edit_address_cocoon_path(@address_cocoon) %> |
+<%= link_to 'Back', address_cocoons_path %>

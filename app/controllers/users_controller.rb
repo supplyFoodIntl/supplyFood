@@ -14,21 +14,12 @@ class UsersController < ApplicationController
   def show
   end
 
-  # GET /users/new_personal_info
-  def new_personal_info
-      
-  end
-  # GET /users/new_address
-  def new_address
     
-  end
-    
-  # GET /users/signup
+  # GET /users/new
   def new
     @user = User.new
-    @address= Address.new
-    @person=Person.new
   end
+    
 
   # GET /users/1/edit
   def edit

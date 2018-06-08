@@ -22,7 +22,8 @@ class HomeController < ApplicationController
     
     def legal
     end
-    
+    def my_jquery_test
+    end
     def testbootstrap
     end
 

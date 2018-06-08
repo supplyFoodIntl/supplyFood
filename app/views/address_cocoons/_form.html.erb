@@ -1,0 +1,37 @@
+<%= form_with(model: address_cocoon, local: true) do |form| %>
+  <% if address_cocoon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(address_cocoon.errors.count, "error") %> prohibited this address_cocoon from being saved:</h2>
+
+      <ul>
+      <% address_cocoon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :line_one %>
+    <%= form.text_field :line_one %>
+  </div>
+
+  <div class="field">
+    <%= form.label :line_two %>
+    <%= form.text_field :line_two %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip_code %>
+    <%= form.number_field :zip_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :person_cocoon_id %>
+    <%= form.text_field :person_cocoon_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

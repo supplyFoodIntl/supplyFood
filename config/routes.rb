@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :signups
+  resources :address_cocoons
+  resources :person_cocoons
   resources :services
   resources :volunteers
   resources :ranks
@@ -26,6 +29,8 @@ Rails.application.routes.draw do
   root 'splash#splash'
   get 'home', to: 'home#home'
   get 'about', to: 'home#about'
+  get 'my_jquery_test', to: 'home#my_jquery_test'
+  get 'point_hunger', to: 'home#point_hunger'
   
   if Rails.env.development?
        get 'testbootstrap', to: 'home#testbootstrap'
@@ -36,10 +41,6 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/destroy'    
  
-    
-  get 'signup', to: 'users#new'
-  get 'signup_address', to: 'users#new_address'
-  get 'signup_personal_info', to: 'users#new_personal_info'
     
   get  'signin', to: 'sessions#new'
   get  'signedin', to: 'sessions#show'

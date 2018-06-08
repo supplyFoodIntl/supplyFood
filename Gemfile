@@ -27,6 +27,8 @@ gem 'seed_dump'
 #bcrypt
 gem 'bcrypt' ,'~> 3.1.7'
 
+#cocoon - for nested forms
+gem "cocoon"
 
 #log implementation via jupyter notenook
 gem 'lograge'

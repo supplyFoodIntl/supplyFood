@@ -6,4 +6,5 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :person
   accepts_nested_attributes_for :user_type
   has_secure_password
+  #extend Devise::Models
 end

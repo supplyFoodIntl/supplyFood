@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_08_201231) do
+ActiveRecord::Schema.define(version: 2018_06_11_143023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 2018_06_08_201231) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "donation_campaigns", force: :cascade do |t|
+    t.bigint "address_id"
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_donation_campaigns_on_address_id"
+  end
+
   create_table "form_contacts", force: :cascade do |t|
     t.string "name"
     t.string "subject"
@@ -75,6 +84,23 @@ ActiveRecord::Schema.define(version: 2018_06_08_201231) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "installs", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_installs_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true
   end
 
   create_table "levels", force: :cascade do |t|
@@ -181,10 +207,6 @@ ActiveRecord::Schema.define(version: 2018_06_08_201231) do
   end
 
   create_table "signups", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.string "ic"
-    t.bigint "ic_type_id"
     t.string "address_line1"
     t.string "address_line2"
     t.string "zipcode"
@@ -193,7 +215,7 @@ ActiveRecord::Schema.define(version: 2018_06_08_201231) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ic_type_id"], name: "index_signups_on_ic_type_id"
+    t.string "full_name"
   end
 
   create_table "sqllogs", force: :cascade do |t|
@@ -227,13 +249,13 @@ ActiveRecord::Schema.define(version: 2018_06_08_201231) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
     t.string "email"
     t.string "password_digest"
     t.bigint "person_id"
     t.bigint "user_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "full_name"
     t.index ["person_id"], name: "index_users_on_person_id"
     t.index ["user_type_id"], name: "index_users_on_user_type_id"
   end
@@ -254,13 +276,13 @@ ActiveRecord::Schema.define(version: 2018_06_08_201231) do
   add_foreign_key "address_cocoons", "person_cocoons"
   add_foreign_key "addresses", "private_place_types"
   add_foreign_key "addresses", "public_places"
+  add_foreign_key "donation_campaigns", "addresses"
   add_foreign_key "good_types", "good_types"
   add_foreign_key "people", "ic_types"
   add_foreign_key "people", "person_types"
   add_foreign_key "person_cocoons", "ic_types"
   add_foreign_key "public_places", "postal_code_hints"
   add_foreign_key "public_places", "public_place_types"
-  add_foreign_key "signups", "ic_types"
   add_foreign_key "suppliers", "levels"
   add_foreign_key "suppliers", "people"
   add_foreign_key "users", "people"

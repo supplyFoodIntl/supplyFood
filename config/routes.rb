@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  resources :donation_campaigns
   resources :signups
   resources :address_cocoons
   resources :person_cocoons

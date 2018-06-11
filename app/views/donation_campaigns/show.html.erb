@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @donation_campaign.address %>
+</p>
+
+<p>
+  <strong>Date start:</strong>
+  <%= @donation_campaign.date_start %>
+</p>
+
+<p>
+  <strong>Date end:</strong>
+  <%= @donation_campaign.date_end %>
+</p>
+
+<%= link_to 'Edit', edit_donation_campaign_path(@donation_campaign) %> |
+<%= link_to 'Back', donation_campaigns_path %>

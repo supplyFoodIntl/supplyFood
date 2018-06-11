@@ -13,39 +13,18 @@
 
     <div class="form-group field">  
         <div class="control-label col-sm-4">
-            <%= form.label :username %>
+            <%= form.label :full_name %>
         </div>
         <div class="col-sm-8">
-            <%= form.text_field :username , class:"form-control",placeholder:"email@domain.com", autofocus:true%>
+            <%= form.text_field :full_name, class:"form-control" %>
         </div>
     </div>
-
     <div class="form-group field">  
         <div class="control-label col-sm-4">
-            <%= form.label :password_digest %>
+            <%= form.label :phone %>
         </div>
         <div class="col-sm-8">
-            <%= form.text_field :password_digest, class:"form-control" %>
-        </div>
-    </div>
-
-
-    <div class="form-group field">  
-        <div class="control-label col-sm-4">
-            <%= form.label :ic %>
-        </div>
-        <div class="col-sm-8">
-            <%= form.text_field :ic, class:"form-control",placeholder:"some id number", autofocus:true %>
-        </div>
-    </div>
-
-
-    <div class="form-group field">  
-        <div class="control-label col-sm-4">
-            <%= form.label :ic_type_id %>
-        </div>
-        <div class="col-sm-8">
-            <%= form.text_field :ic_type_id, class:"form-control" %>
+            <%= form.text_field :phone, class:"form-control" %>
         </div>
     </div>
 
@@ -66,42 +45,35 @@
             <%= form.text_field :address_line2, class:"form-control" %>
         </div>
     </div>
-
-    <div class="form-group field">  
-        <div class="control-label col-sm-4">
-            <%= form.label :zipcode %>
+    <div class="row">
+        <div class="form-group field">  
+            <div class="control-label col-sm-4">
+                <%= form.label :zipcode %>
+            </div>
+            <div class="col-sm-8">
+                <%= form.text_field :zipcode, class:"form-control" %>
+            </div>
         </div>
-        <div class="col-sm-8">
-            <%= form.text_field :zipcode, class:"form-control" %>
+
+        <div class="form-group field">  
+            <div class="control-label col-sm-4">
+                <%= form.label "State/Province" %>
+            </div>
+            <div class="col-sm-8">
+                <%= form.text_field :state, class:"form-control" %>
+            </div>
+        </div>
+
+        <div class="form-group field">  
+            <div class="control-label col-sm-4">
+                <%= form.label :country %>
+            </div>
+            <div class="col-sm-8">
+                <%= form.text_field :country, class:"form-control" %>
+            </div>
         </div>
     </div>
 
-    <div class="form-group field">  
-        <div class="control-label col-sm-4">
-            <%= form.label :state %>
-        </div>
-        <div class="col-sm-8">
-            <%= form.text_field :state, class:"form-control" %>
-        </div>
-    </div>
-
-    <div class="form-group field">  
-        <div class="control-label col-sm-4">
-            <%= form.label :country %>
-        </div>
-        <div class="col-sm-8">
-            <%= form.text_field :country, class:"form-control" %>
-        </div>
-    </div>
-
-    <div class="form-group field">  
-        <div class="control-label col-sm-4">
-            <%= form.label :phone %>
-        </div>
-        <div class="col-sm-8">
-            <%= form.text_field :phone, class:"form-control" %>
-        </div>
-    </div>
 
   <div class="actions">
     <%= form.submit %>

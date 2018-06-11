@@ -4,16 +4,18 @@ create db fill script - constant ok (using rails console)
     improve (use rake db:schema:dump)
 
 --application
-add routes for all the links on the main page
 
+clean previous devise installation and research about devise on rails 5
 add user on one form only
+    change the authentication system from native to devise
+    the authentication will occur with email/password
+        password digest when the user respond from the link on email
+        remove ic and ic type demand from donors ok
+    make the form fills on one page ok
+        add city field
+        put city (add), state and country in one line 
     form_user
-        user ok
-        person ok
-        phones ok
-        addresses ok
     format on bootstrap
-    disable edit and delete functions
     implement email check
     create a trigger on pg to decouple the user into the tables
     
@@ -151,8 +153,16 @@ build major entities data mirror using xml and json for report transformations
 
 -- test phase************************************
 
-
-
+add user on one form only
+    the authentication will occur with email/password
+        remove ic and ic type demand from donors ok
+    make the form fills on one page ok
+    form_user
+        user ok
+        person ok
+        phones ok
+        addresses ok
+add routes for all the links on the main page OK
 put the management under div with scroll bar ok (just for log, the other models will use the browser scroll)
 review the 'last update' on footer to avoid do a query every page (use initialization variable) OK
     http://railscasts.com/episodes/1-caching-with-instance-variables?autoplay=true

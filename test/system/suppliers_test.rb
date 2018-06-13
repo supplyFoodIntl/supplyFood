@@ -14,7 +14,6 @@ class SuppliersTest < ApplicationSystemTestCase
     visit suppliers_url
     click_on "New Supplier"
 
-    fill_in "Level", with: @supplier.level_id
     fill_in "Person", with: @supplier.person_id
     click_on "Create Supplier"
 
@@ -26,7 +25,6 @@ class SuppliersTest < ApplicationSystemTestCase
     visit suppliers_url
     click_on "Edit", match: :first
 
-    fill_in "Level", with: @supplier.level_id
     fill_in "Person", with: @supplier.person_id
     click_on "Update Supplier"
 

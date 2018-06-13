@@ -1,12 +1,6 @@
 class VolunteersController < ApplicationController
   before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
 
-  def intro
-  end
-
-  def contract
-  end
-    
   # GET /volunteers
   # GET /volunteers.json
   def index
@@ -21,7 +15,6 @@ class VolunteersController < ApplicationController
   # GET /volunteers/new
   def new
     @volunteer = Volunteer.new
-      redirect_to (volunteer_intro_url)
   end
 
   # GET /volunteers/1/edit

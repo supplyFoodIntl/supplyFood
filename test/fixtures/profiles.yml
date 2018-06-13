@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  person: one
+  consumer: one
+  supplier: one
+  volunteer: one
+  user: one
+
+two:
+  full_name: MyString
+  person: two
+  consumer: two
+  supplier: two
+  volunteer: two
+  user: two

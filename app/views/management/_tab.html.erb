@@ -30,8 +30,8 @@ elsif current_page?(controller: 'public_place_types', action: 'index')
      @public_place_types_active= ' active' 
 elsif current_page?(controller: 'postal_code_hints', action: 'index')
      @postal_code_hints_active= ' active' 
-elsif current_page?(controller: 'users', action: 'index')
-     @users_active= ' active' 
+#elsif current_page?(controller: 'users', action: 'index')
+#     @users_active= ' active' 
 elsif current_page?(controller: 'user_types', action: 'index')
      @user_types_active= ' active' 
  end
@@ -82,9 +82,11 @@ elsif current_page?(controller: 'user_types', action: 'index')
    <li class="nav-item" >
       <%= link_to 'Postal Code Hints', postal_code_hints_url, class:"#{@linkClass} #{@postal_code_hints_active}"  %>
   </li>
+<!--
   <li class="nav-item" >
-      <%= link_to 'Users', users_url, class:"#{@linkClass} #{@users_active}"  %>
+      <%# link_to 'Users', users_url, class:"#{@linkClass} #{@users_active}"  %>
   </li>
+-->
   <li class="nav-item" >
       <%= link_to 'User types', user_types_url, class:"#{@linkClass} #{@user_types_active}"  %>
   </li>

@@ -8,11 +8,10 @@ class SessionsController < ApplicationController
 
   def create
       current_emailByParams = params[:session][:email].downcase
-      current_passwordByParams = params[:session][:password_digest]
+      current_passwordByParams = params[:session][:password]
       
        user = User.find_by(email: current_emailByParams)
-      #if user.authenticate( :password_digest)
-      #
+
       if authenticate_user(current_emailByParams, current_passwordByParams)
           session[:user_id]=user.id
           flash[:sucess]="You are logged in!"
@@ -46,7 +45,7 @@ private
     def authenticate_user( parm_name, parm_password)
         selected_user = User.find_by_email ( parm_name)
         #binding.pry
-        if selected_user.password_digest==parm_password
+        if selected_user.password==parm_password
             true
         else
             false
@@ -60,6 +59,6 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def session_params
-      params.require(:session).permit(:id,:user_id,:user,:password_digest)
+      params.require(:session).permit(:id,:user_id,:user,:password)
     end
 end

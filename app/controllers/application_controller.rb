@@ -6,20 +6,21 @@ class ApplicationController < ActionController::Base
         @@last_revision ||= "#{SchemaMigration.last.version[6..7]}/#{SchemaMigration.last.version[4..5]}/#{SchemaMigration.last.version[0..3]}"
      end
 
-    def current_user
-        @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    end
-    
-    def signed_up?
-        #return true if the current_user has value
-        !!current_user
-    end
-    def require_user
-        if !signed_up?
-            flash[:danger] = "you must be signed in!"
-            redirect_to root_path
-        end
-    end
+#old access control, now using devise
+#    def current_user
+#        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+#    end
+#    
+#    def signed_up?
+#        #return true if the current_user has value
+#        !!current_user
+#    end
+#    def require_user
+#        if !signed_up?
+#            flash[:danger] = "you must be signed in!"
+#            redirect_to root_path
+#        end
+#    end
 
     
 #  private
@@ -30,4 +31,5 @@ class ApplicationController < ActionController::Base
 
     
     protect_from_forgery  with: :exception
+    before_action :authenticate_user!
 end

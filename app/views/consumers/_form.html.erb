@@ -1,0 +1,22 @@
+<%= form_with(model: consumer, local: true) do |form| %>
+  <% if consumer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(consumer.errors.count, "error") %> prohibited this consumer from being saved:</h2>
+
+      <ul>
+      <% consumer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :person_id %>
+    <%= form.text_field :person_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

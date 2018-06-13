@@ -27,6 +27,7 @@ class PublicPlacesController < ApplicationController
     @public_place = PublicPlace.new(public_place_params)
 
     respond_to do |format|
+       
       if @public_place.save
         format.html { redirect_to @public_place, notice: 'Public place was successfully created.' }
         format.json { render :show, status: :created, location: @public_place }

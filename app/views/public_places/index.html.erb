@@ -16,8 +16,8 @@
     <% @public_places.each do |public_place| %>
       <tr>
         <td><%= public_place.name %></td>
-        <td><%= public_place.public_place_type %></td>
-        <td><%= public_place.postal_code_hint %></td>
+        <td><%= public_place.public_place_type.name %></td>
+        <td><%= public_place.postal_code_hint.code %></td>
         <td><%= link_to 'Show', public_place %></td>
         <td><%= link_to 'Edit', edit_public_place_path(public_place) %></td>
         <td><%= link_to 'Destroy', public_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>

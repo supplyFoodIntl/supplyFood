@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :models
+  resources :profiles
+  resources :volunteers
+  resources :suppliers
+  resources :consumers
+  resources :donors
+  devise_for :user
   #devise_for :installs
   resources :donation_campaigns
   resources :signups
   resources :address_cocoons
   resources :person_cocoons
   resources :services
-  resources :volunteers
   resources :ranks
-  resources :suppliers
   resources :form_contacts
   resources :addresses
   resources :private_place_types
@@ -25,7 +28,6 @@ Rails.application.routes.draw do
   resources :person_types
   resources :ic_types
   resources :people
-  resources :users
   resources :assingment_types
   resources :form_contacts
     
@@ -40,15 +42,7 @@ Rails.application.routes.draw do
   end
  
     
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'    
  
-    
-  get  'signin', to: 'sessions#new'
-  get  'signedin', to: 'sessions#show'
-  post 'signin', to: 'sessions#create'
-  get  'signout', to: 'sessions#destroy'
     
   get 'foodhandling', to: 'home#foodhandling'
   get 'news', to: 'home#news'
@@ -57,7 +51,14 @@ Rails.application.routes.draw do
   get 'valueofdonation', to: 'home#valueofdonation'
     
   get 'management', to: 'management#management'
+    
   get 'donor', to: 'donor#donor'
+  get 'donate', to: 'donor#donate'
+  get 'track_donations', to: 'donor#track_donations'
+  get 'list_donations', to: 'donor#list_donations'
+
+  get 'donor', to: 'donor#donor'
+    
   get 'volunteer', to: 'volunteers#menu'
 
     

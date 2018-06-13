@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_11_165649) do
+ActiveRecord::Schema.define(version: 2018_06_13_123021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(version: 2018_06_11_165649) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "consumers", force: :cascade do |t|
+    t.bigint "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_consumers_on_person_id"
+  end
+
   create_table "donation_campaigns", force: :cascade do |t|
     t.bigint "address_id"
     t.datetime "date_start"
@@ -62,6 +69,13 @@ ActiveRecord::Schema.define(version: 2018_06_11_165649) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address_id"], name: "index_donation_campaigns_on_address_id"
+  end
+
+  create_table "donors", force: :cascade do |t|
+    t.bigint "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_donors_on_person_id"
   end
 
   create_table "form_contacts", force: :cascade do |t|
@@ -86,23 +100,6 @@ ActiveRecord::Schema.define(version: 2018_06_11_165649) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "installs", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_installs_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true
-  end
-
   create_table "levels", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -122,23 +119,6 @@ ActiveRecord::Schema.define(version: 2018_06_11_165649) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "models", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_models_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
   end
 
   create_table "people", force: :cascade do |t|
@@ -178,6 +158,22 @@ ActiveRecord::Schema.define(version: 2018_06_11_165649) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "full_name"
+    t.bigint "person_id"
+    t.bigint "consumer_id"
+    t.bigint "supplier_id"
+    t.bigint "volunteer_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["consumer_id"], name: "index_profiles_on_consumer_id"
+    t.index ["person_id"], name: "index_profiles_on_person_id"
+    t.index ["supplier_id"], name: "index_profiles_on_supplier_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+    t.index ["volunteer_id"], name: "index_profiles_on_volunteer_id"
   end
 
   create_table "public_place_types", force: :cascade do |t|
@@ -243,10 +239,8 @@ ActiveRecord::Schema.define(version: 2018_06_11_165649) do
 
   create_table "suppliers", force: :cascade do |t|
     t.bigint "person_id"
-    t.bigint "level_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["level_id"], name: "index_suppliers_on_level_id"
     t.index ["person_id"], name: "index_suppliers_on_person_id"
   end
 
@@ -266,15 +260,20 @@ ActiveRecord::Schema.define(version: 2018_06_11_165649) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.bigint "person_id"
-    t.bigint "user_type_id"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "full_name"
-    t.index ["person_id"], name: "index_users_on_person_id"
-    t.index ["user_type_id"], name: "index_users_on_user_type_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "usertypes", force: :cascade do |t|
@@ -293,16 +292,20 @@ ActiveRecord::Schema.define(version: 2018_06_11_165649) do
   add_foreign_key "address_cocoons", "person_cocoons"
   add_foreign_key "addresses", "private_place_types"
   add_foreign_key "addresses", "public_places"
+  add_foreign_key "consumers", "people"
   add_foreign_key "donation_campaigns", "addresses"
+  add_foreign_key "donors", "people"
   add_foreign_key "good_types", "good_types"
   add_foreign_key "people", "ic_types"
   add_foreign_key "people", "person_types"
   add_foreign_key "person_cocoons", "ic_types"
+  add_foreign_key "profiles", "consumers"
+  add_foreign_key "profiles", "people"
+  add_foreign_key "profiles", "suppliers"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "profiles", "volunteers"
   add_foreign_key "public_places", "postal_code_hints"
   add_foreign_key "public_places", "public_place_types"
-  add_foreign_key "suppliers", "levels"
   add_foreign_key "suppliers", "people"
-  add_foreign_key "users", "people"
-  add_foreign_key "users", "user_types"
   add_foreign_key "volunteers", "people"
 end

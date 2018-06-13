@@ -5,68 +5,68 @@ create db fill script - constant ok (using rails console)
 
 --application
 
-clean previous devise installation and research about devise on rails 5
-add user on one form only
-    change the authentication system from native to devise
-    the authentication will occur with email/password
-        password digest when the user respond from the link on email
-        remove ic and ic type demand from donors ok
-    make the form fills on one page ok
-        add city field
-        put city (add), state and country in one line 
-    form_user
-    format on bootstrap
-    implement email check
-    create a trigger on pg to decouple the user into the tables
-    
-clean all the unused files
-reasearch about code coverage in rails
-research about continuous integrarion with travis ci
-
-add user on one form only
-    using cocoon
-    try a different approach from the video, when click on new address just add an address to the current person using partial form (first on person, later on the address)...allow a max for 4 addresses per person
-    test jquery functions on rails ok
-    
-    make a poc of jquery on rails
-        1 - make a simple jquery page ok
-        2 - port it to rails ok
-        http://192.168.0.106:3000/my_jquery_test
-        3 - improve it 
-            create a simulation of a form with labels and texts ok
-                solve the 'remove all problem'
-                use console do register each step, not alert
-            create combo boxes
-            create a full fledged form
-            separate the script from the view in a .js
-    
 add address class 
+    simple address form, all the treatment will be made after the registration
     add public_place
+        use jquery autocomplete on zip
+        https://www.lugolabs.com/articles/jquery-ui-autocomplete-with-ruby-on-rails
     add private_place_type tab
     adjust the index to use bootstrap classes 
     adjust the edit , new and show views to bootstrap format
     on address insert new public_place if not exists and use an old one if exists
     on person insert and address if not exists and use an old one if exists
+    
+volunteer ok
+      check inventories
+      deliver goods on campaigns
+donor, 
+    created when the first donation is sent
+supplier
+    execute supplies
+        check in and checkout by volunteers or managers
+manager classes
+    select the courier available (volunteer or supplier)
+    fix the good type selected by the donor on the donation system classification rules
+    set the appropriate storage
+    command volunteer to move supplies between inventories   
+donation
+    create a new supply (self or courier which can be third party supplier or a volunteer)
+    create new good_type if there is no one
+    
+migrate to supplyFood2 with devise installed *aborted*
+clean previous devise installation and research about devise on rails 5
+    change all the authentication sytem to devise, keeping the current layout
+        show the username on navbar ok, improve style
+        the authentication will occur with email/password ok
+            password digest when the user respond from the link on email v2
+            remove ic and ic type demand from donors ok
+        to donate, volunteer ou supply the user must to complete the registration ok
+            make the form fills on one page ok
+                add city field
+                put city (add), state and country in one line 
+            form_user
+            format on bootstrap ok
+            implement email check v2
+            create a trigger on pg to decouple the user into the tables v2
+    
+clean all the unused files
+reasearch about code coverage in rails
+research about continuous integrarion with travis ci
 
-add signin and sign up
+add signin and sign up 
     modify user controller to support 4 methods ok
         sign in
             use strong password storage and verification
-            add user name on the navbar after sign in
+            add user name on the navbar after sign in ok
         sign up
-            create user in a single form
+            create user in a single form *** using devised, not necessary anymore***
             add address class ok
-            put it on sign up
-        sign out - review de redirection of sign out using the DELETE on routes (it is GET, just to run), the :method was not working
+            put it on sign up ** later, on the profile page ***
+        sign out - *** using devised, not necessary anymore***
         only show sign out if the user is signed in
-        reset password
+        reset password *** using devised, not necessary anymore***
         make signup, signin and signout on the same button on the right of the navbar
 
-
-    
-add volunteer ok 
-    donor, 
-    manager classes
 
 add usefullLinks
     set the list on home
@@ -135,6 +135,7 @@ add contact form ok
 
 implement log and sql log
     change tables to list on logFile OK
+    reduce log listing to 100 lines OK
     implement log packing
     implement log search
     
@@ -150,6 +151,14 @@ run unit tests
     
 change the donation counter from javascript to ajax jquery
 build major entities data mirror using xml and json for report transformations
+
+implement ajax on the tables of management
+    tables with pagination first
+    lesser tables later
+    apply jqueryte to edit the configuration files (https://github.com/pan/jqueryte)
+
+plan the construction of 'skins' to supply!food using alterations on application.html.erb
+
 
 -- test phase************************************
 
@@ -203,7 +212,28 @@ fix glitch on navbar when sign up ok
 fix glitch on navbar which makes it transparent ok
 
 add users to management menu ok
+
     
+-------------v2
+
+add user on one form only
+    using cocoon
+    try a different approach from the video, when click on new address just add an address to the current person using partial form (first on person, later on the address)...allow a max for 4 addresses per person
+    test jquery functions on rails ok
+    
+    make a poc of jquery on rails - using cocoon 
+        1 - make a simple jquery page ok
+        2 - port it to rails ok
+        http://192.168.0.106:3000/my_jquery_test
+        3 - improve it 
+            create a simulation of a form with labels and texts ok
+                solve the 'remove all problem'
+                use console do register each step, not alert
+            create combo boxes
+            create a full fledged form
+            separate the script from the view in a .js
+
+
 remember *******************
 <%= current_page?(controller: 'people', action: 'index')%> get controller name and action
 

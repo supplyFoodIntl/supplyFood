@@ -7,10 +7,12 @@
 
 <%
 # TODO : parametrize development, test and production logs
-File.open("./log/development.log").each do |line| %> 
-<%=line %> <br>
-
-<% end %>
+countLines=0
+File.open("./log/development.log").each_with_index do |line,countLines| %> 
+    <%=line %> <br>
+<% 
+    break if  countLines>100
+end %>
 
 </div>
 <div class="actions">

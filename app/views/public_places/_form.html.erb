@@ -1,4 +1,5 @@
-<%= form_with(model: public_place, local: true) do |form| %>
+
+<%= form_with(model: public_place, local: true,class: "form-horizontal") do |form| %>
   <% if public_place.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(public_place.errors.count, "error") %> prohibited this public_place from being saved:</h2>
@@ -11,20 +12,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="form-group field">
+            <%= form.label :public_place_type_id, class:"control-label" %>
+            <%= collection_select( :public_place,:public_place_type_id,  PublicPlaceType.all, :id, :name,  {:prompt => "Select a public place type"}, {:class=>"form-control"} ) %>
+    </div>
 
-  <div class="field">
-    <%= form.label :public_place_type_id %>
-    <%= form.text_field :public_place_type_id %>
-  </div>
+    <div class="form-group field">
+        <%= form.label :name %>
+        <%= form.text_field :name, placeholder:"Name of the public place", class:"form-control col-sm" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :postal_code_hint_id %>
-    <%= form.text_field :postal_code_hint_id %>
-  </div>
+    <div class="form-group field">
+        <%= form.label :postal_code_hint_id %>
+        <%= form.text_field :postal_code_hint_id, placeholder:"Zip Code", class:"form-control col-sm" %>
+    </div>
 
   <div class="actions">
     <%= form.submit %>

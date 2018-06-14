@@ -7,6 +7,27 @@ class PostalCodeHintsController < ApplicationController
     @postal_code_hints = PostalCodeHint.all
   end
 
+  #control the seach on postal_codes_hint
+  def search
+    #define the type of search
+    if params[:search]=="code"
+        #code
+        @postal_code_hints = PostalCodeHint.list_by_code (params[:code])
+    elsif params[:search]=="hint"
+        #hint
+        @postal_code_hints = PostalCodeHint.list_by_hint (params[:hint])
+    end
+
+    if  @postal_code_hints.empty?
+            render html: '<div>No results</div>'.html_safe
+    else
+        respond_to do |format|
+            format.html { render partial: 'postal_code_hints/search'}
+            #format.json { render json: @postal_code_hints}
+        end
+    end
+  end
+    
   # GET /postal_code_hints/1
   # GET /postal_code_hints/1.json
   def show
@@ -69,6 +90,6 @@ class PostalCodeHintsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def postal_code_hint_params
-      params.require(:postal_code_hint).permit(:code, :hint)
+      params.require(:postal_code_hint).permit(:code, :hint,:search, :public_place_id)
     end
 end

@@ -18,11 +18,24 @@
               <h5 style="margin-top:5px;">
               [<%=current_user.email%>]&nbsp;&nbsp;
               </h5></li>
+        
+          <li class="nav-item">
+            <%=
+            @current_profile = get_current_profile
+            if @current_profile.nil?
+                link_to 'Profile', new_profile_path , class:"btn btn-xs btn-primary pull-right"
+            else
+                link_to 'Profile', edit_profile_path[current_user.id] , class:"btn btn-xs btn-primary pull-right" 
+            end
+            %></li>
         <% end %>
-          <li class="nav-item"><%= link_to 'Profile', profiles_path , class:"btn btn-xs btn-primary pull-right" %></li>
+        <% if current_user.nil? %>
           <li class="nav-item"><%= link_to 'Sign Up', new_user_registration_path , class:"btn btn-xs btn-primary pull-right" %></li>
           <li class="nav-item"><%= link_to 'Sign In', new_user_session_path, class:"btn btn-xs btn-primary pull-right" %></li>
+        <% else %>
           <li class="nav-item"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"btn btn-xs btn-primary pull-right" %></li>
+        <% end %>
+
       </ul>
 
   </div>

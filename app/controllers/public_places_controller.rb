@@ -1,6 +1,7 @@
 class PublicPlacesController < ApplicationController
   before_action :set_public_place, only: [:show, :edit, :update, :destroy]
 
+
   # GET /public_places
   # GET /public_places.json
   def index
@@ -70,6 +71,6 @@ class PublicPlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def public_place_params
-      params.require(:public_place).permit(:name, :public_place_type_id, :postal_code_hint_id)
+      params.require(:public_place).permit(:name, :public_place_type_id, :postal_code_hint_id,:number, public_place_type_attributes: [ :hint, :code])
     end
 end

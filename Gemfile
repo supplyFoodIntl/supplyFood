@@ -23,7 +23,11 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 #disabled to use bootstrap 4
 #gem 'bootstrap-sass'
 #jquery
+#jquery ui rails , used to autocomplete text boxes
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
+
 
 # seed dump
 gem 'seed_dump'
@@ -33,6 +37,7 @@ gem 'bcrypt' ,'~> 3.1.7'
 
 #cocoon - for nested forms
 gem "cocoon"
+
 
 #log implementation via jupyter notenook
 gem 'lograge'

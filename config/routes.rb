@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :public_places
   resources :supply_food_configurations
   resources :postal_code_hints
+  get 'postal_code_hints_search', to: 'postal_code_hints#search'
+  post 'postal_code_hints_search', to: 'postal_code_hints#search'
   resources :measure_units
   resources :good_types
   resources :levels

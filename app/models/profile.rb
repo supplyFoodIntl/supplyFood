@@ -4,4 +4,6 @@ class Profile < ApplicationRecord
   belongs_to :supplier
   belongs_to :volunteer
   belongs_to :user
+    
+
 end

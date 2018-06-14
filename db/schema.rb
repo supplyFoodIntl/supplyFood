@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_13_123021) do
+ActiveRecord::Schema.define(version: 2018_06_13_191926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -188,6 +188,7 @@ ActiveRecord::Schema.define(version: 2018_06_13_123021) do
     t.bigint "postal_code_hint_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "number"
     t.index ["postal_code_hint_id"], name: "index_public_places_on_postal_code_hint_id"
     t.index ["public_place_type_id"], name: "index_public_places_on_public_place_type_id"
   end
@@ -217,18 +218,6 @@ ActiveRecord::Schema.define(version: 2018_06_13_123021) do
     t.bigint "service_id", null: false
     t.index ["service_id"], name: "index_services_volunteers_on_service_id"
     t.index ["volunteer_id"], name: "index_services_volunteers_on_volunteer_id"
-  end
-
-  create_table "signups", force: :cascade do |t|
-    t.string "address_line1"
-    t.string "address_line2"
-    t.string "zipcode"
-    t.string "state"
-    t.string "country"
-    t.string "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "full_name"
   end
 
   create_table "sqllogs", force: :cascade do |t|

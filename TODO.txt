@@ -5,22 +5,47 @@ create db fill script - constant ok (using rails console)
 
 --application
 
+ajust problems with jquery
+    test widgets on a simple page
+
 add address class 
     simple address form, all the treatment will be made after the registration
     add public_place
-        use jquery autocomplete on zip
-        https://www.lugolabs.com/articles/jquery-ui-autocomplete-with-ruby-on-rails
+        add number to public place ok
+        add search for zip
+            zipcode hint ok
+            block non numeric chacters ok
+            model functions ok
+            use link_to to implement the listing on form
+                using javacript ok
+                redirecting to json ok
+                search by code or hint ok
+                if con create there the postal code is not found create a new one with the public place data
+                solve the refresh problem on javascript
+                make the form smaller
+                separate the javascript from erb
+                use ajax to fill a div with the json content v2
+            move the 'seach by hint to the public place name'
+            make jquery works properly
+            use jquery autocomplete on zip v2
+            https://www.lugolabs.com/articles/jquery-ui-autocomplete-with-ruby-on-rails
+            research why jquery and jquery ui only work on cdn and not on sprockets
+    set the public place on address using the same mechanics of the public place over postal code hints 
     add private_place_type tab
     adjust the index to use bootstrap classes 
     adjust the edit , new and show views to bootstrap format
     on address insert new public_place if not exists and use an old one if exists
     on person insert and address if not exists and use an old one if exists
-    
+
 volunteer ok
+    add rank checkbox to the form
       check inventories
       deliver goods on campaigns
 donor, 
     created when the first donation is sent
+
+add rank to management tab
+
 supplier
     execute supplies
         check in and checkout by volunteers or managers
@@ -33,41 +58,12 @@ donation
     create a new supply (self or courier which can be third party supplier or a volunteer)
     create new good_type if there is no one
     
-migrate to supplyFood2 with devise installed *aborted*
-clean previous devise installation and research about devise on rails 5
-    change all the authentication sytem to devise, keeping the current layout
-        show the username on navbar ok, improve style
-        the authentication will occur with email/password ok
-            password digest when the user respond from the link on email v2
-            remove ic and ic type demand from donors ok
-        to donate, volunteer ou supply the user must to complete the registration ok
-            make the form fills on one page ok
-                add city field
-                put city (add), state and country in one line 
-            form_user
-            format on bootstrap ok
-            implement email check v2
-            create a trigger on pg to decouple the user into the tables v2
-    
 clean all the unused files
-reasearch about code coverage in rails
-research about continuous integrarion with travis ci
 
-add signin and sign up 
-    modify user controller to support 4 methods ok
-        sign in
-            use strong password storage and verification
-            add user name on the navbar after sign in ok
-        sign up
-            create user in a single form *** using devised, not necessary anymore***
-            add address class ok
-            put it on sign up ** later, on the profile page ***
-        sign out - *** using devised, not necessary anymore***
-        only show sign out if the user is signed in
-        reset password *** using devised, not necessary anymore***
-        make signup, signin and signout on the same button on the right of the navbar
-
-
+profile page
+    adjust the page to bootstrap
+    fill the username with the user_id from current_user on the new form
+        
 add usefullLinks
     set the list on home
     
@@ -76,12 +72,6 @@ add storage class
 add donation class
 add delivery class
 add inventory class
-
-research about the best practices on localization for rails
-
-research how to generate a form with many models (for user management)
-research about the use of robots.txt
-
 
 add will_paginate to all index views on classes whose could have more than 10 records
     contact messages
@@ -103,35 +93,17 @@ error handling messages over a _errors.html.erb
     review constraints on domains table to not allow input on blank names
 adjust all domain tables to bootstrap - solve de label name problem with form handler
 
-research about scaffold customization or xslt transform on views scaffolded
-research map pointing on google to save locations of hunger sensible areas
-
 change the `lost` assignment on business model to `check`
 add Fundraise to the business model
 
 include field `abbreviation` to measure unit
 remove 'show' option in all domain table where there is only name field and redirect to show
 
-adjust the site to bootstrap 4 now installed
-    navbar - include brand - supply!food, right buttons should be right
-    footer - ok
-    tab - ok
-    tables container - ajust to fit the tab space - review the show pages
-        contact message
-        ic_type
-        people
-        private place
-
 add connectivity to facebook,twitter,youtube and instagram 
 
 add contact form ok
     format in bootstrap ok
-    add reply button
-    add read flag
-    add replied flag
-    add comment flag
-    add links to another contact forms
-    list contact by user, date, option to expand the tree
+    just send by email 
 
 implement log and sql log
     change tables to list on logFile OK
@@ -139,28 +111,38 @@ implement log and sql log
     implement log packing
     implement log search
     
-    use jupyter notebook
-    http://blog.scoutapp.com/articles/2017/10/13/visualizing-rails-logs-with-jupyter-notebook
-    
 add calendar of events (connection to https://www.eventbrite.com )
+    
+change the donation counter from javascript to ajax jquery
 
 run unit tests 
     to all models,
     controllers 
     and build a solid integrated test based on the test phase below
-    
-change the donation counter from javascript to ajax jquery
-build major entities data mirror using xml and json for report transformations
-
-implement ajax on the tables of management
-    tables with pagination first
-    lesser tables later
-    apply jqueryte to edit the configuration files (https://github.com/pan/jqueryte)
-
-plan the construction of 'skins' to supply!food using alterations on application.html.erb
-
 
 -- test phase************************************
+
+adjust the site to bootstrap 4 now installed ok
+    navbar - include brand - supply!food, right buttons should be right
+    footer - ok
+    tab - ok
+    tables container - ajust to fit the tab space - ok
+
+migrate to supplyFood2 with devise installed *aborted*
+clean previous devise installation and research about devise on rails 5 solved
+    change all the authentication sytem to devise, keeping the current layout ok
+        show the username on navbar ok, improve style
+        the authentication will occur with email/password ok
+            password digest when the user respond from the link on email v2
+            remove ic and ic type demand from donors ok
+        to donate, volunteer ou supply the user must to complete the registration ok
+            make the form fills on one page ok
+                add city field
+                put city (add), state and country in one line 
+            form_user **devise
+            format on bootstrap ok
+            implement email check v2
+            create a trigger on pg to decouple the user into the tables v2
 
 add user on one form only
     the authentication will occur with email/password
@@ -213,6 +195,19 @@ fix glitch on navbar which makes it transparent ok
 
 add users to management menu ok
 
+add signin and sign up 
+    modify user controller to support 4 methods ok
+        sign in
+            use strong password storage and verification ok
+            add user name on the navbar after sign in ok
+        sign up
+            create user in a single form *** using devised, not necessary anymore***
+            add address class ok
+            put it on sign up ** later, on the profile page ***
+        sign out - *** using devised, not necessary anymore***
+        only show sign out if the user is signed in
+        reset password *** using devised, not necessary anymore***
+        make signup, signin and signout on the same button on the right of the navbar ok
     
 -------------v2
 
@@ -232,9 +227,36 @@ add user on one form only
             create combo boxes
             create a full fledged form
             separate the script from the view in a .js
+            
+plan the construction of 'skins' to supply!food using alterations on application.html.erb v2
+
+implement ajax on the tables of management v2
+    tables with pagination first
+    lesser tables later
+    apply jqueryte to edit the configuration files (https://github.com/pan/jqueryte)
+build major entities data mirror using xml and json for report transformations v2
+
+    use jupyter notebook v2
+    http://blog.scoutapp.com/articles/2017/10/13/visualizing-rails-logs-with-jupyter-notebook
 
 
+contact form
+    add reply button v2
+    add read flag v2
+    add replied flag v2
+    add comment flag v2
+    add links to another contact forms v2
+    list contact by user, date, option to expand the tree v2
 remember *******************
 <%= current_page?(controller: 'people', action: 'index')%> get controller name and action
+------------research
 
+reasearch about code coverage in rails
+research about continuous integrarion with travis ci
+research about the best practices on localization for rails
+research how to generate a form with many models (for user management)
+research about the use of robots.txt
+research about scaffold customization or xslt transform on views scaffolded
+research map pointing on google to save locations of hunger sensible areas
+research about formstatic and simpleform
 

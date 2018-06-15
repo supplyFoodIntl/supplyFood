@@ -7,6 +7,7 @@
   <thead>
     <tr>
       <th scope="col">Code</th>
+      <th scope="col">Public place name</th>
       <th scope="col">Hint</th>
       <th colspan="3"></th>
     </tr>
@@ -16,6 +17,7 @@
     <% @postal_code_hints.each do |postal_code_hint| %>
       <tr scope="row">
         <td><%= postal_code_hint.code %></td>
+        <td><%= postal_code_hint.public_place_name %></td>
         <td><%= postal_code_hint.hint %></td>
         <td><%= link_to 'Show', postal_code_hint %></td>
         <td><%= link_to 'Edit', edit_postal_code_hint_path(postal_code_hint) %></td>

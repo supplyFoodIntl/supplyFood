@@ -13,12 +13,15 @@ class PostalCodeHintsController < ApplicationController
     if params[:search]=="code"
         #code
         @postal_code_hints = PostalCodeHint.list_by_code (params[:code])
+    elsif params[:search]=="public_place_name"
+        #public_place_name
+        @postal_code_hints = PostalCodeHint.list_by_public_place_name (params[:public_place_name])
     elsif params[:search]=="hint"
         #hint
         @postal_code_hints = PostalCodeHint.list_by_hint (params[:hint])
     end
 
-    if  @postal_code_hints.empty?
+    if  @postal_code_hints.nil?||@postal_code_hints.empty?
             render html: '<div>No results</div>'.html_safe
     else
         respond_to do |format|
@@ -90,6 +93,6 @@ class PostalCodeHintsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def postal_code_hint_params
-      params.require(:postal_code_hint).permit(:code, :hint,:search, :public_place_id)
+      params.require(:postal_code_hint).permit(:code, :hint,:search, :public_place_name, :public_place_id )
     end
 end

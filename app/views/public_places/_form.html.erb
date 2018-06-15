@@ -1,32 +1,47 @@
 <script  type="text/JavaScript">
     function httpGet(theUrl)
     {
+        
     var xmlHttp = null;
 
     xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false );
     xmlHttp.send( null );
+        
     return xmlHttp.responseText;
     }
   
-
 function search_by_code(event) {
     var search_text = document.getElementById("search_code").value;
     var search_result_url = "/postal_code_hints_search?search=code&code=" + search_text ;
     document.getElementById("result_search").innerHTML=httpGet(search_result_url);
-    event.preventDefault();
+    //event.preventDefault();
     return false;
 }
-    function search_by_hint(event) {
-    var search_text = document.getElementById("search_hint").value;
-    var search_result_url = "/postal_code_hints_search?search=hint&hint=" + search_text ;
+    function search_by_public_place_name(event) {
+    var search_text = document.getElementById("search_public_place_name").value;
+    var search_result_url = "/postal_code_hints_search?search=public_place_name&public_place_name=" + search_text ;
     document.getElementById("result_search").innerHTML=httpGet(search_result_url);
-    event.preventDefault();
+    //event.preventDefault();
     return false;
 }
-</script>
+    
+    function set_postal_code_hint(new_id,new_hint, new_code,new_public_place_name){
+        document.getElementById("postal_code_hint_id").value=new_id;
+        document.getElementById("postal_code_hint_code").value=new_code;
+        document.getElementById("postal_code_hint_public_place_name").value=new_public_place_name;
+        document.getElementById("postal_code_hint_hint").value=new_hint;
 
-<%= form_with(model: public_place, local: true,class: "form-horizontal") do |form| %>
+        document.getElementById("search_public_place_name").value=new_public_place_name;
+        document.getElementById("lbl_pch_code").innerHTML=new_code;
+        document.getElementById("lbl_pch_hint").innerHTML=new_hint
+        document.getElementById("lbl_pch_public_place").innerHTML=new_public_place_name;
+        return false;
+    }
+    
+
+</script>
+<%= form_with(model: public_place,class: "form-horizontal", id: "public_place_form") do |form| %>
   <% if public_place.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(public_place.errors.count, "error") %> prohibited this public_place from being saved:</h2>
@@ -46,33 +61,54 @@ function search_by_code(event) {
 
     <div class="form-group field">
         <%= form.label :name, class:"control-label" %>
-        <%= form.text_field :name, placeholder:"Name of the public place", class:"form-control col-sm",id:"search_hint" %>
-         <%= link_to "Hint", "", class: 'btn btn-xs btn-success',  onmouseup: "event.preventDefault(); search_by_hint(event);" %>
+        <%= form.text_field :name, placeholder:"Name of the public place", class:"form-control col-sm",id:"search_public_place_name" %>
+         <%= link_to  "" , remote: true, class: 'btn btn-xs btn-success',  onmousedown: "search_by_public_place_name(event);"  do %>
+            <i class="fa fa-search"></i> Hint
+        <%end%>
+        
     </div>
 
     <div class="form-group field">
         <%= form.label :number %>
         <%= form.text_field :number, placeholder:"number of the public place", class:"form-control col-sm" %>
     </div>
-    <% if !public_place.postal_code_hint.nil? %>
+    
         <div id='postal_code_hint'>
             Postal code :
-                <%= @public_place.postal_code_hint[:code] %>-
+            <label id="lbl_pch_code" >
+                <% if !public_place.postal_code_hint.nil? %>
+                <%= @public_place.postal_code_hint[:code] %>
+                <% end %>
+            </label>-
+            <label id="lbl_pch_public_place">
+                <% if !public_place.postal_code_hint.nil? %>
+                <%= @public_place.postal_code_hint[:public_place] %>
+                <% end %>
+            </label>&nbsp;
+            <label id="lbl_pch_hint">
+                <% if !public_place.postal_code_hint.nil? %>
                 <%= @public_place.postal_code_hint[:hint] %>
-
-            </table>
+                <% end %>
+            </label>
         </div>
-    <% end %>
-    <div class="form-group field">
-
-    </div>
+    
+<div>
+    <%= form.text_field :postal_code_hint_id, class:"form-control col-sm" ,id:"postal_code_hint_id" %>
+    <%= form.text_field :postal_code_hint_code, class:"form-control col-sm" ,id:"postal_code_hint_code" %>
+    <%= form.text_field :postal_code_hint_public_place_name, class:"form-control col-sm" ,id:"postal_code_hint_public_place_name" %>
+    <%= form.text_field :postal_code_hint_hint, class:"form-control col-sm" ,id:"postal_code_hint_hint" %>
+</div>
 
     <div class="">
         <%= form.label "Postal code search" %>
         <%= form.text_field :postal_code_hint_search, class:"form-control col-sm" , id:"search_code" %>
-       
-        <%= link_to "Search", "", class: 'btn btn-xs btn-success',  onmouseup: "event.preventDefault(); search_by_code(event);" %>
-        <div id="result_search"></div>
+        
+        <%= link_to "", remote: true, class: 'btn btn-xs btn-success',  onmousedown: "search_by_code(event);"  do %>
+            <i class="fa fa-search"></i> Code
+        <%end%>
+        <div id="result_search">
+          <%= render "postal_code_hints/search" %>
+        </div>
     </div>
 
 

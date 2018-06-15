@@ -1,18 +1,22 @@
-<table class="table table-sm">
-  <thead>
-    <tr>
-      <th scope="col">Code</th>
-      <th scope="col">Hint</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% if !@postal_code_hints.nil? %>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Code</th>
+          <th scope="col">Public place name</th>
+          <th scope="col">Hint</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @postal_code_hints.each do |postal_code_hint| %>
-      <tr scope="row">
-        <td><a onmouseup="set_id('postal_code_hint_id',<%=postal_code_hint.id %>)"><%= postal_code_hint.code %></a></td>
-        <td><%= postal_code_hint.hint %></td>
-      </tr> 
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @postal_code_hints.each do |postal_code_hint| %>
+          <tr scope="row">
+            <td><a onmouseup="set_postal_code_hint(<%=postal_code_hint.id %>,'<%=postal_code_hint.hint %>','<%=postal_code_hint.code %>','<%= postal_code_hint.public_place_name %>');" ><%= postal_code_hint.code %></a></td>
+            <td><%= postal_code_hint.public_place_name %></td>
+            <td><%= postal_code_hint.hint %></td>
+          </tr> 
+        <% end %>
+      </tbody>
+    </table>
+<% end %>

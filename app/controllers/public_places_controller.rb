@@ -8,6 +8,10 @@ class PublicPlacesController < ApplicationController
     @public_places = PublicPlace.all
   end
 
+  def search
+      render partial: 'postal_code_hint/search'
+  end
+    
   # GET /public_places/1
   # GET /public_places/1.json
   def show
@@ -20,6 +24,7 @@ class PublicPlacesController < ApplicationController
 
   # GET /public_places/1/edit
   def edit
+
   end
 
   # POST /public_places
@@ -71,6 +76,6 @@ class PublicPlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def public_place_params
-      params.require(:public_place).permit(:name, :public_place_type_id, :postal_code_hint_id,:number, public_place_type_attributes: [ :hint, :code])
+      params.require(:public_place).permit(:name, :public_place_type_id, :postal_code_hint_id,:number, public_place_type_attributes: [ :public_place_name,:hint, :code])
     end
 end

@@ -20,8 +20,10 @@ add address class
                 using javacript ok
                 redirecting to json ok
                 search by code or hint ok
+                solve the refresh problem on javascript - use ajax ok
+                change  public place hint
+                    separate public place and hint
                 if con create there the postal code is not found create a new one with the public place data
-                solve the refresh problem on javascript
                 make the form smaller
                 separate the javascript from erb
                 use ajax to fill a div with the json content v2

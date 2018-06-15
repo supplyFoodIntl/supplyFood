@@ -1,0 +1,49 @@
+<div class="row" style="padding-left:30px;">
+        <div class="form-group field">
+            <%= form.label :country, class:"control-label" %>
+            <select name="countries" class="form-control col-sm" id="postal_code_hint_country">
+                <% CS.countries.each do |key, value| %>
+                <option value="<%= key %>" 
+                        <% if key.to_s == SupplyFoodConfiguration.get_favourite_country %>
+                            selected
+                        <%end%>
+                        >
+                        <%= value%></option>
+                <% end %>
+            </select>
+            <%#  form.text_field :country, placeholder:"Country", class:"form-control col-sm",id:"search_public_place_name" %>
+        </div>
+                
+        <div class="form-group field">
+            <%= form.label :state, class:"control-label" %>
+            
+            <select name="states" class="form-control col-sm" id="postal_code_hint_state">
+                <% CS.states("br").each do |key, value| %>
+                    <option value="<%= key %>"
+                        <% if key.to_s == SupplyFoodConfiguration.get_favourite_state %>
+                            selected
+                        <%end%>
+                        >
+                        <%= value%></option>
+                <% end %>
+            </select>
+            
+            <%# form.text_field :state, placeholder:"State/province", class:"form-control col-sm",id:"search_public_place_name" %>
+        </div>
+        <div class="form-group field">
+            <%= form.label :city, class:"control-label" %>
+
+            <select name="cities" class="form-control col-sm" id="postal_code_hint_city">
+                <% CS.cities("RJ","BR").each do |key, value| %>
+                    <option value="<%= key %>"
+                            <% if key.to_s == SupplyFoodConfiguration.get_favourite_city %>
+                                selected
+                            <%end%>
+                            >
+                        <%= key%>
+                    </option>
+                <% end %>
+            </select>
+                 
+        </div>
+    </div>

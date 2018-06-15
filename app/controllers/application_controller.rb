@@ -1,10 +1,7 @@
 class ApplicationController < ActionController::Base
  # before_action :set_page_request_info
-    helper_method :current_user, :signed_up?, :get_last_revision
+    helper_method :current_user, :signed_up?
     
-    def get_last_revision
-        @@last_revision ||= "#{SchemaMigration.last.version[6..7]}/#{SchemaMigration.last.version[4..5]}/#{SchemaMigration.last.version[0..3]}"
-     end
 
 #old access control, now using devise
 #    def current_user

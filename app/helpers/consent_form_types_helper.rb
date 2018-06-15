@@ -1,0 +1,2 @@
+module ConsentFormTypesHelper
+end

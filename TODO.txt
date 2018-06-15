@@ -8,28 +8,36 @@ create db fill script - constant ok (using rails console)
 ajust problems with jquery
     test widgets on a simple page
 
+
+add consent form and consent form type ok
+    required to become a donor, volunteer or supplier
+donation
+    ajust new donation do bootstrap
+    mvc created ok
+        on first donation show the consent form
+            add the user as donor
+                get full name
+                get address (simple form)
+            jump to new donation
+                on create 
+                    create a blank supply
+                add address to donation, not to donor, use 
+                    test gem 'jt-rails-address', '~> 1.0' to the simple form, check gem install graticule https://github.com/collectiveidea/graticule too
+                    then link the address to de person
+
 add address class 
+    test gem 'jt-rails-address', '~> 1.0' to the simple form, check gem install graticule https://github.com/collectiveidea/graticule too
     simple address form, all the treatment will be made after the registration
+    add the city-state-country to the address form
     add public_place
-        add number to public place ok
         add search for zip
-            zipcode hint ok
-            block non numeric chacters ok
-            model functions ok
-            use link_to to implement the listing on form
-                using javacript ok
-                redirecting to json ok
-                search by code or hint ok
-                solve the refresh problem on javascript - use ajax ok
-                change  public place hint
-                    separate public place and hint
-                if con create there the postal code is not found create a new one with the public place data
+            use link_to to implement the listing on form ok
+                make the line on the search result shine when hover
+                apply create_if_not_exist on postal_code_hint when in public_place
                 make the form smaller
                 separate the javascript from erb
-                use ajax to fill a div with the json content v2
-            move the 'seach by hint to the public place name'
             make jquery works properly
-            use jquery autocomplete on zip v2
+
             https://www.lugolabs.com/articles/jquery-ui-autocomplete-with-ruby-on-rails
             research why jquery and jquery ui only work on cdn and not on sprockets
     set the public place on address using the same mechanics of the public place over postal code hints 
@@ -40,11 +48,14 @@ add address class
     on person insert and address if not exists and use an old one if exists
 
 volunteer ok
+    if user is not a volunteer
+        show terms of  volunteering
+        if ok 
+            ask full name and address if dont exists
+            
     add rank checkbox to the form
       check inventories
       deliver goods on campaigns
-donor, 
-    created when the first donation is sent
 
 add rank to management tab
 
@@ -122,7 +133,37 @@ run unit tests
     controllers 
     and build a solid integrated test based on the test phase below
 
+modularize public_place register on a separated app
 -- test phase************************************
+person
+    add user_email column to person (1:1 relation) ok
+    create when the user is created ok
+add number to public place ok
+    zipcode hint ok
+    block non numeric chacters ok
+    model functions ok
+use link_to to implement the listing on form
+    using javacript ok
+    redirecting to json ok
+    search by code or hint ok
+    solve the refresh problem on javascript - use ajax ok
+    add country, state/province, city, neighborhood on the public place and postal_code_hint ok
+    put city/state/country on one row and use combo boxes to fill it, same on postal_code_hint ok
+    make the line on the search result shine when hover
+    populate country table based on wikipedia ok
+    ***** using city-state
+    populate states from USA, Brazil, Canada and mexico based on wikipedia OK
+      add the 10 biggest GDP  *aborted*
+      test and change to country ruby gem https://github.com/hexorx/countries *using city-state*
+      test and change to city-state ruby gem https://github.com/loureirorg/city-state ok
+      set prefered country, state and city as configuration (use a staticvar as revision) ok
+    change  public place hint
+        separate public place and hint ok
+    if con create there the postal code is not found create a new one with the public place data
+    make the form smaller
+    separate the javascript from erb
+    move the 'seach by hint to the public place name' ok
+    use ajax to fill a div with the json content v2
 
 adjust the site to bootstrap 4 now installed ok
     navbar - include brand - supply!food, right buttons should be right
@@ -211,8 +252,9 @@ add signin and sign up
         reset password *** using devised, not necessary anymore***
         make signup, signin and signout on the same button on the right of the navbar ok
     
--------------v2
+-------------v2************************************************
 
+use jquery autocomplete on zip v2
 add user on one form only
     using cocoon
     try a different approach from the video, when click on new address just add an address to the current person using partial form (first on person, later on the address)...allow a max for 4 addresses per person

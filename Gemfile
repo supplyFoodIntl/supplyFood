@@ -38,6 +38,8 @@ gem 'bcrypt' ,'~> 3.1.7'
 #cocoon - for nested forms
 gem "cocoon"
 
+#city-states gem added to test public places
+gem 'city-state'
 
 #log implementation via jupyter notenook
 gem 'lograge'

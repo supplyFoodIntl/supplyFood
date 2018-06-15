@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @country.name %>
+</p>
+
+<p>
+  <strong>Alpha 2 code:</strong>
+  <%= @country.alpha_2_code %>
+</p>
+
+<p>
+  <strong>Alpha 3 code:</strong>
+  <%= @country.alpha_3_code %>
+</p>
+
+<p>
+  <strong>Numeric code:</strong>
+  <%= @country.numeric_code %>
+</p>
+
+<p>
+  <strong>Independent:</strong>
+  <%= @country.independent %>
+</p>
+
+<%= link_to 'Edit', edit_country_path(@country) %> |
+<%= link_to 'Back', countries_path %>

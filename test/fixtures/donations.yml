@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  available_start: 2018-06-15 18:11:56
+  available_end: 2018-06-15 18:11:56
+  donor: one
+  volunteer: one
+
+two:
+  available_start: 2018-06-15 18:11:56
+  available_end: 2018-06-15 18:11:56
+  donor: two
+  volunteer: two

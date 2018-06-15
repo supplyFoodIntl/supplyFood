@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Consent form type:</strong>
+  <%= @consent_form.consent_form_type %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @consent_form.person %>
+</p>
+
+<%= link_to 'Edit', edit_consent_form_path(@consent_form) %> |
+<%= link_to 'Back', consent_forms_path %>

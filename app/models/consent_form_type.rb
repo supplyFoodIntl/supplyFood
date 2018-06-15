@@ -1,0 +1,2 @@
+class ConsentFormType < ApplicationRecord
+end

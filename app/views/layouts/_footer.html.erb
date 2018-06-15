@@ -3,8 +3,8 @@
     <div id="sf_footer">
          site maintained by&nbsp;<a href="supplyfood@gmail.com">supply!Food Intl.</a>   
       <div>
-            Last update <%= get_last_revision %>
-          <br>
+            Last update <%= get_last_revision %><br>
+            Favourite location <%= SupplyFoodConfiguration.get_favourite_location %><br>
       </div>
         <div class="pull-right">
             <%= link_to 'Home', root_path, class:"btn btn-secondary btn-sm float-right" %>

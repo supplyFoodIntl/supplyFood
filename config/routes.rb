@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :consent_forms
+  resources :consent_form_types
+  resources :donations
+  resources :cities
+  resources :states
+  resources :countries
   resources :profiles
   resources :volunteers
   resources :suppliers

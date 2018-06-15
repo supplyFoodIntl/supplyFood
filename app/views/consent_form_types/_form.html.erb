@@ -1,0 +1,27 @@
+<%= form_with(model: consent_form_type, local: true) do |form| %>
+  <% if consent_form_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(consent_form_type.errors.count, "error") %> prohibited this consent_form_type from being saved:</h2>
+
+      <ul>
+      <% consent_form_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :html_text %>
+    <%= form.text_area :html_text %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

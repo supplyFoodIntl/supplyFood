@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_14_235657) do
+ActiveRecord::Schema.define(version: 2018_06_15_234135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,11 +55,47 @@ ActiveRecord::Schema.define(version: 2018_06_14_235657) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.bigint "state_id"
+    t.bigint "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_cities_on_country_id"
+    t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "consent_form_types", force: :cascade do |t|
+    t.string "description"
+    t.text "html_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "consent_forms", force: :cascade do |t|
+    t.bigint "consent_form_type_id"
+    t.bigint "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["consent_form_type_id"], name: "index_consent_forms_on_consent_form_type_id"
+    t.index ["person_id"], name: "index_consent_forms_on_person_id"
+  end
+
   create_table "consumers", force: :cascade do |t|
     t.bigint "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["person_id"], name: "index_consumers_on_person_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.string "alpha_2_code"
+    t.string "alpha_3_code"
+    t.integer "numeric_code"
+    t.boolean "independent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "donation_campaigns", force: :cascade do |t|
@@ -69,6 +105,17 @@ ActiveRecord::Schema.define(version: 2018_06_14_235657) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address_id"], name: "index_donation_campaigns_on_address_id"
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.datetime "available_start"
+    t.datetime "available_end"
+    t.bigint "donor_id"
+    t.bigint "volunteer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["donor_id"], name: "index_donations_on_donor_id"
+    t.index ["volunteer_id"], name: "index_donations_on_volunteer_id"
   end
 
   create_table "donors", force: :cascade do |t|
@@ -128,6 +175,7 @@ ActiveRecord::Schema.define(version: 2018_06_14_235657) do
     t.bigint "ic_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
     t.index ["ic_type_id"], name: "index_people_on_ic_type_id"
     t.index ["person_type_id"], name: "index_people_on_person_type_id"
   end
@@ -227,6 +275,15 @@ ActiveRecord::Schema.define(version: 2018_06_14_235657) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "states", force: :cascade do |t|
+    t.string "name"
+    t.string "alpha_2_code"
+    t.bigint "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_states_on_country_id"
+  end
+
   create_table "suppliers", force: :cascade do |t|
     t.bigint "person_id"
     t.datetime "created_at", null: false
@@ -282,8 +339,14 @@ ActiveRecord::Schema.define(version: 2018_06_14_235657) do
   add_foreign_key "address_cocoons", "person_cocoons"
   add_foreign_key "addresses", "private_place_types"
   add_foreign_key "addresses", "public_places"
+  add_foreign_key "cities", "countries"
+  add_foreign_key "cities", "states"
+  add_foreign_key "consent_forms", "consent_form_types"
+  add_foreign_key "consent_forms", "people"
   add_foreign_key "consumers", "people"
   add_foreign_key "donation_campaigns", "addresses"
+  add_foreign_key "donations", "donors"
+  add_foreign_key "donations", "volunteers"
   add_foreign_key "donors", "people"
   add_foreign_key "good_types", "good_types"
   add_foreign_key "people", "ic_types"
@@ -296,6 +359,7 @@ ActiveRecord::Schema.define(version: 2018_06_14_235657) do
   add_foreign_key "profiles", "volunteers"
   add_foreign_key "public_places", "postal_code_hints"
   add_foreign_key "public_places", "public_place_types"
+  add_foreign_key "states", "countries"
   add_foreign_key "suppliers", "people"
   add_foreign_key "volunteers", "people"
 end

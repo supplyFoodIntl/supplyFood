@@ -65,14 +65,18 @@ function search_by_code(event) {
          <%= link_to  "" , remote: true, class: 'btn btn-xs btn-success',  onmousedown: "search_by_public_place_name(event);"  do %>
             <i class="fa fa-search"></i> Hint
         <%end%>
-        
+    </div>
+
+    <div class="form-group field">
+        <%= form.label :neighbourhood, class:"control-label" %>
+        <%= form.text_field :neighbourhood, placeholder:"neigbourhood, community", class:"form-control col-sm",id:"search_public_place_name" %>
     </div>
 
     <div class="form-group field">
         <%= form.label :number %>
         <%= form.text_field :number, placeholder:"number of the public place", class:"form-control col-sm" %>
     </div>
-    
+<hr>
         <div id='postal_code_hint'>
             Postal code :
             <label id="lbl_pch_code" >
@@ -91,13 +95,15 @@ function search_by_code(event) {
                 <% end %>
             </label>
         </div>
-    
+<hr>
 <div>
     <%= form.text_field :postal_code_hint_id, class:"form-control col-sm" ,id:"postal_code_hint_id" %>
     <%= form.text_field :postal_code_hint_code, class:"form-control col-sm" ,id:"postal_code_hint_code" %>
     <%= form.text_field :postal_code_hint_public_place_name, class:"form-control col-sm" ,id:"postal_code_hint_public_place_name" %>
     <%= form.text_field :postal_code_hint_hint, class:"form-control col-sm" ,id:"postal_code_hint_hint" %>
 </div>
+
+<%= render partial: "/postal_code_hints/city" , locals: {form: form} %>
 
     <div class="">
         <%= form.label "Postal code search" %>

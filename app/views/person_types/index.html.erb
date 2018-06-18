@@ -3,7 +3,7 @@
 
 <h2>Person Types</h2>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -19,7 +19,6 @@
         <td><%= person_type.name %></td>
         <td><%= person_type.created_at %></td>
         <td><%= person_type.updated_at %></td>
-        <td><%= link_to 'Show', person_type %></td>
         <td><%= link_to 'Edit', edit_person_type_path(person_type) %></td>
         <td><%= link_to 'Destroy', person_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

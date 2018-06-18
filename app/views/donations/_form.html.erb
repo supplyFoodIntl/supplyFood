@@ -1,3 +1,23 @@
+<script>
+
+
+
+         function addDonation(event) {
+            const clientPromise = stitch.StitchClientFactory.create('test_stitch-tyysi');
+
+            let client;
+            let db;
+
+            clientPromise.then(stitchClient => {
+            client = stitchClient;
+            db = client.service('mongodb', 'mongodb-atlas').db('testStitch');}
+
+             
+             var donation_to_add = '{"person":{"full_name":"#{donation[good_type]}","IC":"#{ic}","IC_Type":"#{ic_type}","user":{"email":"#{email}"}},"goods":[{"good_type":donation[good_type],"qty":10},{"good_type":2,"qty":10}],"scheduled_start":"2018/06/10 10:00","scheduled_until":"2018/06/10 15:00","confirmed":false,"collected":false,"concerns":{"expiration_date":false,"quality":false}}';
+             db.collection("donations").insertOne({owner_id : client.authedId(), donation: donation_to_add});
+         }
+</script>
+
 <%= form_with(model: donation, local: true,class: "form-horizontal") do |form| %>
   <% if donation.errors.any? %>
     <div id="error_explanation">
@@ -47,7 +67,7 @@
         </div>
     </div>
 <hr>
-<h2>Retrieve Addres</h2>
+<h2>Retrieve Address</h2>
     <div class="form-group field">  
         <div class="control-label col-sm-4">
             <%= form.label :lineOne %>
@@ -81,6 +101,7 @@
             <%= form.text_field :Phone, class:"form-control",placeholder:"eg : Broadway )" %>
         </div>
     </div>
+    <%= link_to "","send mongo", remote: true, class: 'btn btn-xs btn-success',  onmousedown: "addDonation(event);"  %>
   <div class="actions">
     <%= form.submit %>
   </div>

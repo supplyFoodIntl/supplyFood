@@ -4,7 +4,7 @@
 <h2>Assignment Types</h2>
 
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -18,7 +18,6 @@
       <tr scope="row">
         <td><%= assingment_type.name %></td>
         <td><%= assingment_type.description %></td>
-        <td><%= link_to 'Show', assingment_type %></td>
         <td><%= link_to 'Edit', edit_assingment_type_path(assingment_type) %></td>
         <td><%= link_to 'Destroy', assingment_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

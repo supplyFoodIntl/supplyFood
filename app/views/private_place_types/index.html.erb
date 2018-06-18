@@ -3,7 +3,7 @@
 
 <h2>Private Place Types</h2>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -15,7 +15,6 @@
     <% @private_place_types.each do |private_place_type| %>
       <tr scope="row">
         <td><%= private_place_type.name %></td>
-        <td><%= link_to 'Show', private_place_type %></td>
         <td><%= link_to 'Edit', edit_private_place_type_path(private_place_type) %></td>
         <td><%= link_to 'Destroy', private_place_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

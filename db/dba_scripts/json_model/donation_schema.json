@@ -1,0 +1,149 @@
+
+
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "person": {
+      "$id": "/properties/person",
+      "type": "object",
+      "properties": {
+        "full_name": {
+          "$id": "/properties/person/properties/full_name",
+          "type": "string",
+          "title": "The Full_name Schema ",
+          "default": "",
+          "examples": [
+            "#{full_name}"
+          ]
+        },
+        "IC": {
+          "$id": "/properties/person/properties/IC",
+          "type": "string",
+          "title": "The Ic Schema ",
+          "default": "",
+          "examples": [
+            "#{ic}"
+          ]
+        },
+        "IC_Type": {
+          "$id": "/properties/person/properties/IC_Type",
+          "type": "string",
+          "title": "The Ic_type Schema ",
+          "default": "",
+          "examples": [
+            "#{ic_type}"
+          ]
+        },
+        "user": {
+          "$id": "/properties/person/properties/user",
+          "type": "object",
+          "properties": {
+            "email": {
+              "$id": "/properties/person/properties/user/properties/email",
+              "type": "string",
+              "title": "The Email Schema ",
+              "default": "",
+              "examples": [
+                "#{email}"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "goods": {
+      "$id": "/properties/goods",
+      "type": "array",
+      "items": {
+        "$id": "/properties/goods/items",
+        "type": "object",
+        "properties": {
+          "good_type": {
+            "$id": "/properties/goods/items/properties/good_type",
+            "type": "integer",
+            "title": "The Good_type Schema ",
+            "default": 0,
+            "examples": [
+              1
+            ]
+          },
+          "qty": {
+            "$id": "/properties/goods/items/properties/qty",
+            "type": "integer",
+            "title": "The Qty Schema ",
+            "default": 0,
+            "examples": [
+              10
+            ]
+          }
+        }
+      }
+    },
+    "scheduled_start": {
+      "$id": "/properties/scheduled_start",
+      "type": "string",
+      "title": "The Scheduled_start Schema ",
+      "default": "",
+      "examples": [
+        "2018/06/10 10:00"
+      ]
+    },
+    "scheduled_until": {
+      "$id": "/properties/scheduled_until",
+      "type": "string",
+      "title": "The Scheduled_until Schema ",
+      "default": "",
+      "examples": [
+        "2018/06/10 15:00"
+      ]
+    },
+    "confirmed": {
+      "$id": "/properties/confirmed",
+      "type": "boolean",
+      "title": "The Confirmed Schema ",
+      "default": false,
+      "examples": [
+        false
+      ]
+    },
+    "collected": {
+      "$id": "/properties/collected",
+      "type": "boolean",
+      "title": "The Collected Schema ",
+      "default": false,
+      "examples": [
+        false
+      ]
+    },
+    "concerns": {
+      "$id": "/properties/concerns",
+      "type": "object",
+      "properties": {
+        "expiration_date": {
+          "$id": "/properties/concerns/properties/expiration_date",
+          "type": "boolean",
+          "title": "The Expiration_date Schema ",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "quality": {
+          "$id": "/properties/concerns/properties/quality",
+          "type": "boolean",
+          "title": "The Quality Schema ",
+          "default": false,
+          "examples": [
+            false
+          ]
+        }
+      }
+    }
+  }
+}
+
+
+

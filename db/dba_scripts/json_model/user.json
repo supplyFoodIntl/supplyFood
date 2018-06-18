@@ -1,0 +1,89 @@
+{"user": { "id": 1,
+  "email" : "",
+  "encrypted_password": "",
+  "reset_password_token":"" ,
+  "reset_password_sent_at":"" ,
+  "remember_created_at":"" ,
+  "sign_in_count":"" ,
+  "current_sign_in_at":"" ,
+  "last_sign_in_at":"" ,
+  "current_sign_in_ip":"" ,
+  "last_sign_in_ip":"" ,
+  "created_at":"" ,
+  "updated_at":"" ,
+  "person" : {
+	  "name":"" ,
+	  "ic":"" ,
+	  "person_type_id":"" ,
+	  "ic_type_id":"" ,
+	  "created_at":"" ,
+	  "updated_at":"" ,
+	  "is_donor":false,
+	  "is_volunteer":false,
+	  "is_supplier":false,
+	  "is_manager":false,
+	  "is_consumer":false,
+	"addresses" :[ {"address_type" :"",
+			"public_place":"",
+			"public_place_number":"",
+			"private_place":"",
+			"private_place_number":"",
+			"zipcode":"",
+			"city":"",
+			"state":"",
+			"country":""			
+			}
+	],
+	  "donor": {
+		"first_donation":"",
+		"last_donation":"",
+		"donation_count":""
+		},
+	  "volunteer": {
+		"is_active":false,
+		"assignment_count":0,
+		"services" : [				
+				{
+				"date_admission":"",
+			  "date_dismiss":"",
+				"assignment_count":""}
+			]
+		},
+	  "supplier" : {
+		"is_active":false,
+		"assignment_count":0,
+		"total_paid":0,
+		"services" : [				
+				{
+				"date_admission":"",
+			  "date_dismiss":"",
+				"assignment_count":"",
+				"contract_type":0,
+				"total_paid":0}
+			]
+		},
+	  "manager": {
+		"is_active":false,
+		"assignment_count":0,
+		"total_volunteers_admited":0,
+		"total_supplies_admited":0,
+		"total_volunteers_dismissed":0,
+		"total_supplies_dismissed":0,
+		"services" : [				
+				{
+				"date_admission":"",
+			     "date_dismiss":"",
+				"assignment_count":0}
+			]
+		},
+	  "consumer": {
+		"meals_count":0,
+		"meals_asked":0,
+		"concerns" :{
+			"concern_type":0,
+			"concern_description":""
+			}
+		}
+	}
+}
+}

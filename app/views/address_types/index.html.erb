@@ -3,7 +3,7 @@
 
 <h2>Address Types</h2>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -15,7 +15,6 @@
     <% @address_types.each do |address_type| %>
       <tr scope="row">
         <td><%= address_type.name %></td>
-        <td><%= link_to 'Show', address_type %></td>
         <td><%= link_to 'Edit', edit_address_type_path(address_type) %></td>
         <td><%= link_to 'Destroy', address_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

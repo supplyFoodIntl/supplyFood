@@ -1,0 +1,28 @@
+{
+  "person" :{
+    "full_name": "#{full_name}",
+    "IC": "#{ic}",
+    "IC_Type": "#{ic_type}",
+    "user": {
+      "email": "#{email}"
+    }
+  },
+  "goods": [
+    {
+      "good_type": 1,
+      "qty" : 10
+    },
+     {
+      "good_type": 2 ,
+      "qty" : 10
+    }
+  ],
+  "scheduled_start": "2018/06/10 10:00",
+  "scheduled_until": "2018/06/10 15:00",
+  "confirmed":false,
+  "collected":false,
+  "concerns": {
+    "expiration_date":false,
+    "quality":false
+  }
+}

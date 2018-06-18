@@ -3,7 +3,7 @@
 
 <h2>Supply Food Configurations</h2>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -21,7 +21,6 @@
         <td><%= supply_food_configuration.description %></td>
         <td><%= supply_food_configuration.value %></td>
         <td><%= supply_food_configuration.html_configuration %></td>
-        <td><%= link_to 'Show', supply_food_configuration %></td>
         <td><%= link_to 'Edit', edit_supply_food_configuration_path(supply_food_configuration) %></td>
         <td><%= link_to 'Destroy', supply_food_configuration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

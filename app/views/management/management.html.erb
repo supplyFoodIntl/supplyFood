@@ -1,4 +1,100 @@
+
 <%= render 'management/tab' %>
 <h2>Management</h2>
 <p>Manage the site main data. Be careful with the alteration made on this section , they will be reflected on the user experience.</p>
+
+<script>
+$( function() {
+$( "#accordion" ).accordion({
+  collapsible: true,  active:false
+});
+} );
+</script>
+<div id="accordion">
+    <h3>Manager</h3>
+    <div>
+        <li>Operations</li>
+        <ul>
+            <li>Donation Campaign</li>
+            <ul>
+                <li>Extend donation campaing</li>
+                <li>End donation campaign</li>
+                <li>Donation campaign diary</li>
+            </ul>
+            <li>Aknowledge lost</li>
+        </ul>
+        <li>Team management</li>
+            <ul>
+                <li>Volunteers</li>
+                <ul>
+                    <li>Volunteers-to-be</li>
+                    <li>List Volunteers</li>
+                    <li>Admit Volunteer</li>
+                    <li>Dismiss Volunteer</li>
+                    <li>Send Thanks to Volunteer</li>
+                    <li>Letter of recommendation</li>
+                </ul>
+                <li>Suppliers</li>
+                <ul>
+                    <li>Suppliers-to-be</li>
+                    <li>List Suppliers</li>
+                    <li>Admit Supplier</li>
+                    <li>Pay Supplier</li>
+                    <li>Dismiss Supplier</li>
+                    <li>Letter of recommendation</li>
+                </ul>
+                <li>Training Schedule</li>
+            </ul>
+        <li>Reports</li>
+        <ul>
+            <li>Donor by donations</li>
+            <li>Collections by volunteer</li>
+            <li>Collections by supplier</li>
+            <li>Donation by region</li>
+            <li>Donations by good type</li>
+            <li>Deliveries by volunteer</li>
+            <li>Deliveries by consumer</li>
+            <li>Storages and Inventories</li>
+        </ul>
+    </div>
+    <h3>Volunteer</h3>
+    <div>
+        <li>Call Center</li>
+        <ul>
+            <li>Respond donations call</li>
+            <li>Direct mail</li>
+            <ul>
+                <li>Donation request</li>
+                <li>Volunteer request</li>
+            </ul>
+        </ul>
+        <li>Operations</li>
+        <ul>
+            <li>Check inventory</li>
+            <li>Execute disposal</li>
+        </ul>
+        <li>Donation Campaign</li>
+        <ul>
+            <li>Collect donations</li>
+            <li>Register consumer</li>
+            <li>Deliver donation</li>
+            <li>Add picture to donation campaign</li>
+        </ul>
+    </div>
+    <h3>Supplier</h3>
+    <div>
+        <li>Accept supply call</li>
+        <li>Try reschedule supply call</li>
+        <li>Refuse supply call</li>
+        <li>End supply call with OK</li>
+        <li>End supply call with concerns</li>
+        <li>End supply call with fail</li>
+    </div>
+    <h3>Consumer</h3>
+    <div>
+        <li>Ask for food</li>
+        <li>Thanks for food</li>
+        <li>Point food insecurity</li>
+    </div>
+</div>
 <%= render 'management/tab-end' %>

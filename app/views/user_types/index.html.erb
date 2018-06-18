@@ -3,7 +3,7 @@
 
 <h2>User Types</h2>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -15,7 +15,6 @@
     <% @user_types.each do |user_type| %>
       <tr scope="row">
         <td><%= user_type.name %></td>
-        <td><%= link_to 'Show', user_type %></td>
         <td><%= link_to 'Edit', edit_user_type_path(user_type) %></td>
         <td><%= link_to 'Destroy', user_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

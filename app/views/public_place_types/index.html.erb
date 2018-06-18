@@ -15,7 +15,6 @@
     <% @public_place_types.each do |public_place_type| %>
       <tr scope="row">
         <td><%= public_place_type.name %></td>
-        <td><%= link_to 'Show', public_place_type %></td>
         <td><%= link_to 'Edit', edit_public_place_type_path(public_place_type) %></td>
         <td><%= link_to 'Destroy', public_place_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -3,7 +3,7 @@
 
 <h2>Good Types</h2>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -17,7 +17,6 @@
       <tr scope="row">
         <td><%= good_type.name %></td>
         <td><%= good_type.good_type.nil? ? "-" : good_type.good_type.name    %></td>
-        <td><%= link_to 'Show', good_type %></td>
         <td><%= link_to 'Edit', edit_good_type_path(good_type) %></td>
         <td><%= link_to 'Destroy', good_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -4,7 +4,7 @@
 
 <h2>Identification Card Types</h2>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -20,7 +20,6 @@
         <td><%= ic_type.name %></td>
         <td><%= ic_type.created_at %></td>
         <td><%= ic_type.updated_at %></td>
-        <td><%= link_to 'Show', ic_type %></td>
         <td><%= link_to 'Edit', edit_ic_type_path(ic_type) %></td>
         <td><%= link_to 'Destroy', ic_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -5,9 +5,15 @@ create db fill script - constant ok (using rails console)
 
 --application
 
-ajust problems with jquery
-    test widgets on a simple page
+ajust problems with jquery ok
+    test widgets on a simple page ok
+    disable turbolinks solved the problem.
+    
+    
+check management-person register
 
+create the donation form on mongodb, test on mLab and heroku
+solve the problem of access control on heroku
 
 add consent form and consent form type ok
     required to become a donor, volunteer or supplier
@@ -16,6 +22,7 @@ donation
     mvc created ok
         on first donation show the consent form
             add the user as donor
+                show donor consent form
                 get full name
                 get address (simple form)
             jump to new donation
@@ -24,6 +31,9 @@ donation
                 add address to donation, not to donor, use 
                     test gem 'jt-rails-address', '~> 1.0' to the simple form, check gem install graticule https://github.com/collectiveidea/graticule too
                     then link the address to de person
+    create a new supply (self or courier which can be third party supplier or a volunteer)
+    ask to donate to a donation campaign or free donation
+        create new good_type if there is no one
 
 add address class 
     test gem 'jt-rails-address', '~> 1.0' to the simple form, check gem install graticule https://github.com/collectiveidea/graticule too
@@ -60,16 +70,47 @@ volunteer ok
 add rank to management tab
 
 supplier
+    if user is not a supplier
+        show terms of supplying
+    if ok
+        ask full name and address if dont exists
     execute supplies
         check in and checkout by volunteers or managers
 manager classes
-    select the courier available (volunteer or supplier)
+    assignment
+        supply
+            select the courier available (volunteer or supplier)
+        check
+            select a volunteer
+        deliver
+            donation campaign
+                select a group of volunteers
+            single delivery
+                select a volunteer
+    collect check
+        report collection by
+            supplier
+            volunteer
+            donor
+    delivery check
+        report deliveries by 
+            donation campaign
+            good type
+            volunteer
+            consumer
+            
+delivery
+    collect delivery check from consumers
+        get ic number
+            find the consumer
+            if not found create a new one
+        select the delivery package
+        confirm the delivery
+        get feedback from the consumer
     fix the good type selected by the donor on the donation system classification rules
     set the appropriate storage
     command volunteer to move supplies between inventories   
-donation
-    create a new supply (self or courier which can be third party supplier or a volunteer)
-    create new good_type if there is no one
+
     
 clean all the unused files
 
@@ -125,7 +166,65 @@ implement log and sql log
     implement log search
     
 add calendar of events (connection to https://www.eventbrite.com )
-    
+***** functions
+ Manager
+    Operations
+        Donation Campaign
+            Extend donation campaing
+            End donation campaign
+            Donation campaign diary
+        Aknowledge lost
+    Team management</li>
+        Volunteers</li>
+            Volunteers-to-be</li>
+            List Volunteers</li>
+            Admit Volunteer</li>
+            Dismiss Volunteer</li>
+            Send Thanks to Volunteer</li>
+            Letter of recommendation</li>
+        Suppliers</li>
+            Suppliers-to-be</li>
+            List Suppliers</li>
+            Admit Supplier</li>
+            Pay Supplier</li>
+            Dismiss Supplier</li>
+            Letter of recommendation</li>
+        Training Schedule</li>
+    Reports</li>
+        Donor by donations</li>
+        Collections by volunteer</li>
+        Collections by supplier</li>
+        Donation by region</li>
+        Donations by good type</li>
+        Deliveries by volunteer</li>
+        Deliveries by consumer</li>
+        Storages and Inventories</li>
+Volunteer</h3>
+    Call Center</li>
+        Respond donations call</li>
+        Direct mail</li>
+            Donation request</li>
+            Volunteer request</li>
+    Operations</li>
+        Check inventory</li>
+        Execute disposal</li>
+    Donation Campaign</li>
+        Collect donations</li>
+        Register consumer</li>
+        Deliver donation</li>
+        Add picture to donation campaign</li>
+Supplier</h3>
+    Accept supply call</li>
+    Try reschedule supply call</li>
+    Refuse supply call</li>
+    End supply call with OK</li>
+    End supply call with concerns</li>
+    End supply call with fail</li>
+Consumer</h3>
+    Ask for food</li>
+    Thanks for food</li>
+    Point food insecurity</li>
+
 change the donation counter from javascript to ajax jquery
 
 run unit tests 

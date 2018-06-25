@@ -5,15 +5,9 @@ create db fill script - constant ok (using rails console)
 
 --application
 
-ajust problems with jquery ok
-    test widgets on a simple page ok
-    disable turbolinks solved the problem.
-    
-    
 check management-person register
 
-create the donation form on mongodb, test on mLab and heroku
-solve the problem of access control on heroku
+add sub menu to accordion on management menu
 
 add consent form and consent form type ok
     required to become a donor, volunteer or supplier
@@ -34,6 +28,9 @@ donation
     create a new supply (self or courier which can be third party supplier or a volunteer)
     ask to donate to a donation campaign or free donation
         create new good_type if there is no one
+
+create the donation form on mongodb, test on mLab and heroku
+solve the problem of access control on heroku
 
 add address class 
     test gem 'jt-rails-address', '~> 1.0' to the simple form, check gem install graticule https://github.com/collectiveidea/graticule too
@@ -111,7 +108,9 @@ delivery
     set the appropriate storage
     command volunteer to move supplies between inventories   
 
-    
+create links for every function on management menu
+apply access control on the accordion
+
 clean all the unused files
 
 profile page
@@ -234,6 +233,10 @@ run unit tests
 
 modularize public_place register on a separated app
 -- test phase************************************
+ajust problems with jquery ok
+    test widgets on a simple page ok
+    disable turbolinks solved the problem. ok
+
 person
     add user_email column to person (1:1 relation) ok
     create when the user is created ok

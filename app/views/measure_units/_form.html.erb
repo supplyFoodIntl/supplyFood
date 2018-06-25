@@ -1,4 +1,4 @@
-<%= form_with(model: measure_unit, local: true) do |form| %>
+<%= form_with(model: measure_unit, local: true, class: "form-horizontal") do |form| %>
   <% if measure_unit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(measure_unit.errors.count, "error") %> prohibited this measure_unit from being saved:</h2>

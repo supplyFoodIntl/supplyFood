@@ -1,0 +1,5 @@
+create dummy data with https://mockaroo.com
+donation OK
+donated_good
+storage
+user

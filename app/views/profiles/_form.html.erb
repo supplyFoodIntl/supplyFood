@@ -1,4 +1,4 @@
-<%= form_with(model: profile, local: true) do |form| %>
+<%= form_with(model: profile, local: true, class: "form-horizontal") do |form| %>
   <% if profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
@@ -10,36 +10,58 @@
       </ul>
     </div>
   <% end %>
+    <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :full_name %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :full_name %>
+        </div>
+    </div>
+    <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :person_id %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :person_id %>
+        </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :full_name %>
-    <%= form.text_field :full_name %>
-  </div>
+    <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :consumer_id %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :consumer_id %>
+        </div>
+    </div>
+     
+    <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :supplier_id %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :supplier_id %>
+        </div>
+    </div>
+     
+    <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :volunteer_id %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :volunteer_id %>
+        </div>  
+    </div>
 
-  <div class="field">
-    <%= form.label :person_id %>
-    <%= form.text_field :person_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :consumer_id %>
-    <%= form.text_field :consumer_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :supplier_id %>
-    <%= form.text_field :supplier_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :volunteer_id %>
-    <%= form.text_field :volunteer_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+    <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :user_id %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :user_id %>
+        </div>
+    </div>
 
   <div class="actions">
     <%= form.submit %>

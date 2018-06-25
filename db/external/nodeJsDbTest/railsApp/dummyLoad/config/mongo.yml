@@ -1,0 +1,33 @@
+#imap
+#mongodb://sfTest:test1234@ds163300.mlab.com:63300/supplyfood
+#local
+#mongoose.connect('mongodb://localhost/supplyfoodTestMongo');
+defaults: &defaults
+  host: ds163300.mlab.com
+  port: 63300
+  options:
+    w: 1
+    pool_size: 1
+    slave_ok: false
+    ssl: false
+
+development:
+  <<: *defaults
+  database: supplyfood_dsv
+
+  username: sfTest
+  password: test1234
+
+test:
+  <<: *defaults
+  database: supplyfood_test
+  w: 0
+
+# set these environment variables on your prod server
+=begin
+production:
+  <<: *defaults
+  database: supplyfood
+  username: <%= ENV['MONGO_USERNAME'] %>
+  password: <%= ENV['MONGO_PASSWORD'] %>
+=end

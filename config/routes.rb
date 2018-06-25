@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :consent_forms
   resources :consent_form_types
   resources :donations
@@ -10,8 +11,7 @@ Rails.application.routes.draw do
   resources :suppliers
   resources :consumers
   resources :donors
-  devise_for :user
-  #devise_for :installs
+ 
   resources :donation_campaigns
   resources :signups
   resources :address_cocoons

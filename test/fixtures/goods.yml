@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Expiration_date: 2018-06-27
+  measure_unit: one
+  good_type: one
+  quantity: 1.5
+  donation: one
+  address: one
+
+two:
+  Expiration_date: 2018-06-27
+  measure_unit: two
+  good_type: two
+  quantity: 1.5
+  donation: two
+  address: two

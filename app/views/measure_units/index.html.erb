@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @measure_units.each do |measure_unit| %>
+    <% @measure_units.order(:name).each do |measure_unit| %>
       <tr scope="row">
         <td><%= measure_unit.name %></td>
         <td><%= link_to 'Edit', edit_measure_unit_path(measure_unit) %></td>

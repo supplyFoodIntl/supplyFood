@@ -69,6 +69,6 @@ class DonationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donation_params
-      params.require(:donation).permit(:available_start, :available_end, :donor_id, :volunteer_id)
+      params.require(:donation).permit(:available_start, :available_end, :donor_id, :volunteer_id, good_attributes: [:Expiration_date, :measure_unit_id, :good_type_id, :donation_id, :address_id, :_destroy])
     end
 end

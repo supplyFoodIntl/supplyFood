@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_15_234135) do
+ActiveRecord::Schema.define(version: 2018_06_27_232106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,21 @@ ActiveRecord::Schema.define(version: 2018_06_15_234135) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["good_type_id"], name: "index_good_types_on_good_type_id"
+  end
+
+  create_table "goods", force: :cascade do |t|
+    t.date "Expiration_date"
+    t.bigint "measure_unit_id"
+    t.bigint "good_type_id"
+    t.decimal "quantity"
+    t.bigint "donation_id"
+    t.bigint "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_goods_on_address_id"
+    t.index ["donation_id"], name: "index_goods_on_donation_id"
+    t.index ["good_type_id"], name: "index_goods_on_good_type_id"
+    t.index ["measure_unit_id"], name: "index_goods_on_measure_unit_id"
   end
 
   create_table "ic_types", force: :cascade do |t|
@@ -323,12 +338,6 @@ ActiveRecord::Schema.define(version: 2018_06_15_234135) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "usertypes", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "volunteers", force: :cascade do |t|
     t.bigint "person_id"
     t.datetime "created_at", null: false
@@ -349,6 +358,10 @@ ActiveRecord::Schema.define(version: 2018_06_15_234135) do
   add_foreign_key "donations", "volunteers"
   add_foreign_key "donors", "people"
   add_foreign_key "good_types", "good_types"
+  add_foreign_key "goods", "addresses"
+  add_foreign_key "goods", "donations"
+  add_foreign_key "goods", "good_types"
+  add_foreign_key "goods", "measure_units"
   add_foreign_key "people", "ic_types"
   add_foreign_key "people", "person_types"
   add_foreign_key "person_cocoons", "ic_types"

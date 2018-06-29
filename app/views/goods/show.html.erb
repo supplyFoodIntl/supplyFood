@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Expiration date:</strong>
+  <%= @good.Expiration_date %>
+</p>
+
+<p>
+  <strong>Measure unit:</strong>
+  <%= @good.measure_unit %>
+</p>
+
+<p>
+  <strong>Good type:</strong>
+  <%= @good.good_type %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @good.quantity %>
+</p>
+
+<p>
+  <strong>Donation:</strong>
+  <%= @good.donation %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @good.address %>
+</p>
+
+<%= link_to 'Edit', edit_good_path(@good) %> |
+<%= link_to 'Back', goods_path %>

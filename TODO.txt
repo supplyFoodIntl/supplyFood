@@ -4,18 +4,23 @@ create db fill script - constant ok (using rails console)
     improve (use rake db:schema:dump)
 
 --application
+adjusting user creation to add a person and a profile pointing to the new user
 
-check management-person register
+set a sort parameter for each management table, now is sorted by id (measure_unit)
 
-add sub menu to accordion on management menu
-
-add consent form and consent form type ok
-    required to become a donor, volunteer or supplier
 donation
-    ajust new donation do bootstrap
+    set the donor (after ok on consent_form) 
+    simplify the donation form
+        full name ok
+        phone number ok
+        retrieve address ok
+        goods (usng cocoon) ok
+            find and insert if not found
+        send
+    ajust new donation to bootstrap ok
     mvc created ok
         on first donation show the consent form
-            add the user as donor
+            set the user as donor
                 show donor consent form
                 get full name
                 get address (simple form)
@@ -28,6 +33,14 @@ donation
     create a new supply (self or courier which can be third party supplier or a volunteer)
     ask to donate to a donation campaign or free donation
         create new good_type if there is no one
+
+
+check management-person register
+
+add sub menu to accordion on management menu
+
+add consent form and consent form type ok
+    required to become a donor, volunteer or supplier
 
 create the donation form on mongodb, test on mLab and heroku
 solve the problem of access control on heroku

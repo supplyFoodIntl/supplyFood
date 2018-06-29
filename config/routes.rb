@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :goods
   devise_for :users
   resources :consent_forms
   resources :consent_form_types

@@ -1,61 +1,6 @@
-ArInternalMetadatum.create!([
-  {key: "environment", value: "development"}
-])
-SchemaMigration.create!([
-  {version: "20180613121617"},
-  {version: "20180530133654"},
-  {version: "20180530213344"},
-  {version: "20180601162453"},
-  {version: "20180530230012"},
-  {version: "20180603044947"},
-  {version: "20180530213350"},
-  {version: "20180530132117"},
-  {version: "20180530125608"},
-  {version: "20180603044525"},
-  {version: "20180531143622"},
-  {version: "20180531140818"},
-  {version: "20180530120334"},
-  {version: "20180530213357"},
-  {version: "20180603054821"},
-  {version: "20180530132119"},
-  {version: "20180601162455"},
-  {version: "20180530120341"},
-  {version: "20180531004503"},
-  {version: "20180530220017"},
-  {version: "20180601162533"},
-  {version: "20180530213347"},
-  {version: "20180603045241"},
-  {version: "20180530213349"},
-  {version: "20180603055833"},
-  {version: "20180603055924"},
-  {version: "20180602202645"},
-  {version: "20180530133729"},
-  {version: "20180613121933"},
-  {version: "20180613122908"},
-  {version: "20180605131808"},
-  {version: "20180607235028"},
-  {version: "20180608001055"},
-  {version: "20180608201231"},
-  {version: "20180609030049"},
-  {version: "20180609030947"},
-  {version: "20180609031250"},
-  {version: "20180610184914"},
-  {version: "20180611143023"},
-  {version: "20180611165649"},
-  {version: "20180611182521"},
-  {version: "20180613120032"},
-  {version: "20180613120607"},
-  {version: "20180613121152"},
-  {version: "20180613123021"},
-  {version: "20180613191926"},
-  {version: "20180614235657"},
-  {version: "20180615115255"},
-  {version: "20180615120653"},
-  {version: "20180615120803"},
-  {version: "20180615120847"}
-])
 User.create!([
-  {email: "dribeiroexpertise@gmail.com", encrypted_password: "$2a$11$6qv01/265H/JnJcoq1PbXeaU0PLsOcyZH1FoXaC1EYilVCibd8bya", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 14, current_sign_in_at: "2018-06-15 00:29:14", last_sign_in_at: "2018-06-14 20:37:54", current_sign_in_ip: "192.168.0.108", last_sign_in_ip: "192.168.0.108"}
+  {email: "lordofshade@hotmail.com", encrypted_password: "$2a$11$TOCw/0VTPkxcX8lfR0fsbOPrfEknLroQqrUVdKqckGjx3B8CBz1VO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2018-06-18 18:10:34", last_sign_in_at: "2018-06-15 20:56:14", current_sign_in_ip: "192.168.0.108", last_sign_in_ip: "192.168.0.108"},
+  {email: "dribeiroexpertise@gmail.com", encrypted_password: "$2a$11$6qv01/265H/JnJcoq1PbXeaU0PLsOcyZH1FoXaC1EYilVCibd8bya", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 18, current_sign_in_at: "2018-07-01 02:10:46", last_sign_in_at: "2018-06-27 13:54:34", current_sign_in_ip: "192.168.0.34", last_sign_in_ip: "192.168.0.34"}
 ])
 Address.create!([
   {public_place_id: 1, private_place_number: 1, private_place_type_id: 1}
@@ -65,7 +10,10 @@ AddressCocoon.create!([
   {line_one: "1234", line_two: "32442", zip_code: 234234, person_cocoon_id: 4},
   {line_one: "456", line_two: "345", zip_code: 234234, person_cocoon_id: 4},
   {line_one: "aaa", line_two: "aaa", zip_code: 222, person_cocoon_id: 5},
-  {line_one: "bbb", line_two: "bbr", zip_code: 2324342, person_cocoon_id: 5}
+  {line_one: "bbb", line_two: "bbr", zip_code: 2324342, person_cocoon_id: 5},
+  {line_one: "1", line_two: "2", zip_code: 3, person_cocoon_id: 3},
+  {line_one: "3", line_two: "1", zip_code: 1, person_cocoon_id: 3},
+  {line_one: "456", line_two: "345", zip_code: 234234, person_cocoon_id: 4}
 ])
 AddressType.create!([
   {name: "Home"},
@@ -79,6 +27,11 @@ AssingmentType.create!([
   {name: "Delivery", description: "Transport donations to consumer"},
   {name: "Lost", description: "Inventory the storage to assure the donations are proper to consumption"},
   {name: "Fundraise", description: "contact possible donors"}
+])
+ConsentFormType.create!([
+  {description: "Volunteer", html_text: "By clicking 'OK' in this form you are agreeing in volunteering on supply!Foods initiative"},
+  {description: "Donor", html_text: "by clicking 'ok' on this form you are agreeing in donate to the supply!food initiative"},
+  {description: "Supplier", html_text: "by clicking 'ok' on this for, you are agreeing in work as supplier to the 'supply!food' initiative"}
 ])
 Country.create!([
   {name: "Afghanistan", alpha_2_code: "AF", alpha_3_code: "AFG", numeric_code: 4, independent: true},
@@ -355,8 +308,7 @@ IcType.create!([
   {name: "National ID Card"},
   {name: "Social Security Number"},
   {name: "Passport"},
-  {name: "test"},
-  {name: "teste"}
+  {name: "Driver's license"}
 ])
 Level.create!([
   {name: "Good samaritan", observation: "Some person who wants to help the other no matter what (11-50 meals/month)"},
@@ -369,15 +321,17 @@ MeasureUnit.create!([
   {name: "Pound"},
   {name: "Ounce"},
   {name: "Liter"},
-  {name: "Mililiter"}
+  {name: "Mililiter"},
+  {name: "Unit"}
 ])
 Person.create!([
-  {name: "João Pedro da silva", ic: "9856", person_type_id: 1, ic_type_id: 3},
-  {name: "Daniel Barbosa de Freitas Ribeiro", ic: "01234589", person_type_id: 1, ic_type_id: 1},
-  {name: "Napoleão Pereira da Silva Fraga de Melo Neto", ic: "9865667", person_type_id: 2, ic_type_id: 2},
-  {name: "", ic: "", person_type_id: 1, ic_type_id: 2},
-  {name: "", ic: "", person_type_id: 1, ic_type_id: 2},
-  {name: "fulano de tal", ic: "teste", person_type_id: 2, ic_type_id: 2}
+  {name: "João Pedro da silva", ic: "9856", person_type_id: 1, ic_type_id: 3, email: nil},
+  {name: "Daniel Barbosa de Freitas Ribeiro", ic: "01234589", person_type_id: 1, ic_type_id: 1, email: nil},
+  {name: "Napoleão Pereira da Silva Fraga de Melo Neto", ic: "9865667", person_type_id: 2, ic_type_id: 2, email: nil},
+  {name: "", ic: "", person_type_id: 1, ic_type_id: 2, email: nil},
+  {name: "", ic: "", person_type_id: 1, ic_type_id: 2, email: nil},
+  {name: "fulano de tal", ic: "teste", person_type_id: 2, ic_type_id: 2, email: nil},
+  {name: nil, ic: nil, person_type_id: nil, ic_type_id: nil, email: "lordofshade@hotmail.com"}
 ])
 PersonCocoon.create!([
   {name: "teste", ic: "123123", ic_type_id: 1},
@@ -546,7 +500,12 @@ SupplyFoodConfiguration.create!([
   {name: "Services", description: "describe the services provided by your hunger relief project", value: nil, html_configuration: "we divide our work in 4 major activites : collect, storage, inspect and deliver"},
   {name: "Legal", description: "legal concerns and the legal agreement", value: nil, html_configuration: "<p>legal concerns</p><p>legal agreement</p>"},
   {name: "Volunteer form contract", description: "the term of contract of the volunteer service", value: nil, html_configuration: "<p> volunteer contract<p><p>as a volunteer i hereby accept that my work is volunteer, not paid</p>"},
-  {name: "Volunteer intro page", description: "initial page from volunteer menu, explaining the importance and work of the volunteer", value: nil, html_configuration: "<p>the volunteer work is the base of any hunger relief program<p><p> since the material resources are scarce , the sucess of the project is based on the strict organization and planning and besides all, the good will of the volunteers.</p>"}
+  {name: "Volunteer intro page", description: "initial page from volunteer menu, explaining the importance and work of the volunteer", value: nil, html_configuration: "<p>the volunteer work is the base of any hunger relief program<p><p> since the material resources are scarce , the sucess of the project is based on the strict organization and planning and besides all, the good will of the volunteers.</p>"},
+  {name: "State", description: "RJ", value: nil, html_configuration: ""},
+  {name: "Country", description: "BR", value: nil, html_configuration: ""},
+  {name: "City", description: "Rio de Janeiro", value: nil, html_configuration: ""},
+  {name: "Volunteer letter of recommedation", description: "the model of letter of recomendation to volunteers", value: nil, html_configuration: "<p> the volunteer was of great importance to this initiative </p>"},
+  {name: "Supplier letter of recommedation", description: "the model of letter of recomendation to suppliers", value: nil, html_configuration: "<p> the services of the supplier was very important to our initiative </p>"}
 ])
 UserType.create!([
   {name: "Donor"},

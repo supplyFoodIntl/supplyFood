@@ -1,6 +1,6 @@
 User.create!([
-  {email: "lordofshade@hotmail.com", encrypted_password: "$2a$11$TOCw/0VTPkxcX8lfR0fsbOPrfEknLroQqrUVdKqckGjx3B8CBz1VO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2018-06-18 18:10:34", last_sign_in_at: "2018-06-15 20:56:14", current_sign_in_ip: "192.168.0.108", last_sign_in_ip: "192.168.0.108"},
-  {email: "dribeiroexpertise@gmail.com", encrypted_password: "$2a$11$6qv01/265H/JnJcoq1PbXeaU0PLsOcyZH1FoXaC1EYilVCibd8bya", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 18, current_sign_in_at: "2018-07-01 02:10:46", last_sign_in_at: "2018-06-27 13:54:34", current_sign_in_ip: "192.168.0.34", last_sign_in_ip: "192.168.0.34"}
+  {email: "lordofshade@hotmail.com", password: "$2a$11$TOCw/0VTPkxcX8lfR0fsbOPrfEknLroQqrUVdKqckGjx3B8CBz1VO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2018-06-18 18:10:34", last_sign_in_at: "2018-06-15 20:56:14", current_sign_in_ip: "192.168.0.108", last_sign_in_ip: "192.168.0.108"},
+  {email: "dribeiroexpertise@gmail.com", password: "$2a$11$6qv01/265H/JnJcoq1PbXeaU0PLsOcyZH1FoXaC1EYilVCibd8bya", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 18, current_sign_in_at: "2018-07-01 02:10:46", last_sign_in_at: "2018-06-27 13:54:34", current_sign_in_ip: "192.168.0.34", last_sign_in_ip: "192.168.0.34"}
 ])
 Address.create!([
   {public_place_id: 1, private_place_number: 1, private_place_type_id: 1}

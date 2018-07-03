@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   resources :goods
-  devise_for :users
+  devise_for :users , :controllers => { registrations: 'registrations' }
   resources :consent_forms
   resources :consent_form_types
   resources :donations
   resources :cities
   resources :states
   resources :countries
-  resources :profiles
   resources :volunteers
   resources :suppliers
   resources :consumers

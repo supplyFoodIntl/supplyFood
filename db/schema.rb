@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_27_232106) do
+ActiveRecord::Schema.define(version: 2018_07_02_213250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -334,8 +334,22 @@ ActiveRecord::Schema.define(version: 2018_06_27_232106) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "volunteer_id"
+    t.bigint "donor_id"
+    t.bigint "consumer_id"
+    t.bigint "supplier_id"
+    t.string "full_name"
+    t.string "ic"
+    t.bigint "person_type_id"
+    t.bigint "ic_type_id"
+    t.index ["consumer_id"], name: "index_users_on_consumer_id"
+    t.index ["donor_id"], name: "index_users_on_donor_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["ic_type_id"], name: "index_users_on_ic_type_id"
+    t.index ["person_type_id"], name: "index_users_on_person_type_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["supplier_id"], name: "index_users_on_supplier_id"
+    t.index ["volunteer_id"], name: "index_users_on_volunteer_id"
   end
 
   create_table "volunteers", force: :cascade do |t|
@@ -374,5 +388,11 @@ ActiveRecord::Schema.define(version: 2018_06_27_232106) do
   add_foreign_key "public_places", "public_place_types"
   add_foreign_key "states", "countries"
   add_foreign_key "suppliers", "people"
+  add_foreign_key "users", "consumers"
+  add_foreign_key "users", "donors"
+  add_foreign_key "users", "ic_types"
+  add_foreign_key "users", "person_types"
+  add_foreign_key "users", "suppliers"
+  add_foreign_key "users", "volunteers"
   add_foreign_key "volunteers", "people"
 end

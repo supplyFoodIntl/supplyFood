@@ -22,11 +22,8 @@
         
           <li class="nav-item">
             <%=
-            @current_profile = get_current_profile
-            if @current_profile.nil?
-                link_to 'Profile', new_profile_path , class:"btn btn-xs btn-primary pull-right"
-            else
-                link_to 'Profile', edit_profile_path[current_user.id] , class:"btn btn-xs btn-primary pull-right" 
+            if !current_user.nil?
+                link_to 'User', edit_user_registration_path(current_user.id)  , class:"btn btn-xs btn-primary pull-right" 
             end
             %></li>
         <% end %>

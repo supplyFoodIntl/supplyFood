@@ -8,6 +8,8 @@
     @assignment_types_active = ' active' 
  elsif current_page?(controller: 'supply_food_configurations', action: 'index')
      @supply_food_configurations_active = ' active' 
+ elsif current_page?(controller: 'consent_form_types', action: 'index')
+     @consent_form_types_active = ' active' 
  elsif current_page?(controller: 'form_contacts', action: 'index') 
      @form_contacts_active= ' active' 
  elsif  current_page?(controller: 'ic_types', action: 'index') 
@@ -47,6 +49,9 @@ elsif current_page?(controller: 'user_types', action: 'index')
   </li>
   <li class="nav-item"  > 
       <%= link_to 'Configurations', supply_food_configurations_url, class:"#{@linkClass}  #{@supply_food_configurations_active}" %>
+  </li>
+  <li class="nav-item"  > 
+      <%= link_to 'Consent Form Types', consent_form_types_url, class:"#{@linkClass}  #{@consent_form_types_active}" %>
   </li>
   <li class="nav-item" >
       <%= link_to 'Contact Messages', form_contacts_url, class:"#{@linkClass}  #{@form_contacts_active}"  %>

@@ -4,7 +4,7 @@ class AddressTypesController < ApplicationController
   # GET /address_types
   # GET /address_types.json
   def index
-    @address_types = AddressType.all
+    @address_types = AddressType.all.order("name")
   end
 
   # GET /address_types/1

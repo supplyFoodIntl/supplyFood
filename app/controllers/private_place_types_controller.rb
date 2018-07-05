@@ -4,7 +4,7 @@ class PrivatePlaceTypesController < ApplicationController
   # GET /private_place_types
   # GET /private_place_types.json
   def index
-    @private_place_types = PrivatePlaceType.all
+    @private_place_types = PrivatePlaceType.all.order("name")
   end
 
   # GET /private_place_types/1

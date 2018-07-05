@@ -21,8 +21,8 @@
       <tr scope="row">
         <td><%= person.name %></td>
         <td><%= person.ic %></td>
-        <td><%= person.person_type.name %></td>
-        <td><%= person.ic_type.name %></td>
+        <td><%= person.person_type.nil? ? "-" : person.person_type.name   %></td>
+        <td><%= person.ic_type.nil? ? "-" : person.ic_type.name   %></td>
         <td><%= person.created_at.strftime(DATETIMEFORMAT) %></td>
         <td><%= person.updated_at.strftime(DATETIMEFORMAT) %></td>
         <td><%= link_to 'Show', person %></td>

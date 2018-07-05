@@ -4,12 +4,17 @@ create db fill script - constant ok (using rails console)
     improve (use rake db:schema:dump)
 
 --application
-adjusting user creation to add a person and a profile pointing to the new user
-
-set a sort parameter for each management table, now is sorted by id (measure_unit)
-
+change all references of the term 'consumer to donee'
 donation
+    destroy profile entity, now embedded on user ok
     set the donor (after ok on consent_form) 
+        start the consent forms on user creation pointing to the person linked to user ok
+            add field `is_signed` and `signed_at` to consent form ok
+            add field `valid until` ok
+            refactor the consent form to include the consent form text and a checkbox 'i agree' to edit the consent form
+                input the date time of the consent and the expiration date in the controller
+                show the consent form expiration date in a alertbox before redirect back to the donation
+                redirect to donation
     simplify the donation form
         full name ok
         phone number ok
@@ -246,6 +251,8 @@ run unit tests
 
 modularize public_place register on a separated app
 -- test phase************************************
+set a sort parameter for each management table, now is sorted by id (ok)
+adjusting user creation to add a person and a profile pointing to the new user ok
 ajust problems with jquery ok
     test widgets on a simple page ok
     disable turbolinks solved the problem. ok

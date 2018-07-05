@@ -4,7 +4,7 @@ class RanksController < ApplicationController
   # GET /ranks
   # GET /ranks.json
   def index
-    @ranks = Rank.all
+    @ranks = Rank.all.order("name")
   end
 
   # GET /ranks/1

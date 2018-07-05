@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_02_213250) do
+ActiveRecord::Schema.define(version: 2018_07_05_210036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,11 +74,14 @@ ActiveRecord::Schema.define(version: 2018_07_02_213250) do
 
   create_table "consent_forms", force: :cascade do |t|
     t.bigint "consent_form_type_id"
-    t.bigint "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_signed", default: false, null: false
+    t.datetime "signed_at"
+    t.datetime "valid_until"
+    t.bigint "user_id"
     t.index ["consent_form_type_id"], name: "index_consent_forms_on_consent_form_type_id"
-    t.index ["person_id"], name: "index_consent_forms_on_person_id"
+    t.index ["user_id"], name: "index_consent_forms_on_user_id"
   end
 
   create_table "consumers", force: :cascade do |t|
@@ -119,9 +122,9 @@ ActiveRecord::Schema.define(version: 2018_07_02_213250) do
   end
 
   create_table "donors", force: :cascade do |t|
-    t.bigint "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "person_id"
     t.index ["person_id"], name: "index_donors_on_person_id"
   end
 
@@ -365,7 +368,7 @@ ActiveRecord::Schema.define(version: 2018_07_02_213250) do
   add_foreign_key "cities", "countries"
   add_foreign_key "cities", "states"
   add_foreign_key "consent_forms", "consent_form_types"
-  add_foreign_key "consent_forms", "people"
+  add_foreign_key "consent_forms", "users"
   add_foreign_key "consumers", "people"
   add_foreign_key "donation_campaigns", "addresses"
   add_foreign_key "donations", "donors"

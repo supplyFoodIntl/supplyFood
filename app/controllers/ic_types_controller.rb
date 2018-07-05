@@ -4,7 +4,7 @@ class IcTypesController < ApplicationController
   # GET /ic_types
   # GET /ic_types.json
   def index
-    @ic_types = IcType.all
+    @ic_types = IcType.all.order("name")
   end
 
   # GET /ic_types/1

@@ -4,7 +4,7 @@ class AssingmentTypesController < ApplicationController
   # GET /assingment_types
   # GET /assingment_types.json
   def index
-    @assingment_types = AssingmentType.all
+    @assingment_types = AssingmentType.all.order("name")
   end
 
   # GET /assingment_types/1

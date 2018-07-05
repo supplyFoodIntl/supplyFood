@@ -4,7 +4,7 @@ class PersonTypesController < ApplicationController
   # GET /person_types
   # GET /person_types.json
   def index
-    @person_types = PersonType.all
+    @person_types = PersonType.all.order("name")
   end
 
   # GET /person_types/1

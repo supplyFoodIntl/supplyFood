@@ -14,7 +14,31 @@ class DonationsController < ApplicationController
 
   # GET /donations/new
   def new
-    @donation = Donation.new
+      #check if the current_user have the donation consent form filled    
+        current_consent_form_type = ConsentFormType.find_by description: "Donor"
+        current_consent_form = ConsentForm.find_by user: current_user, consent_form_type: current_consent_form_type
+      #pry
+      puts "nil?"
+      puts current_consent_form.nil? 
+      puts "is signed?"
+      puts current_consent_form.is_signed
+      puts "valid until "
+      puts current_consent_form.valid_until
+      #pry
+      if current_consent_form.nil? 
+          #no consent 
+          redirect_to  edit_consent_form_path (current_consent_form)
+      elsif !current_consent_form.is_signed
+          #consent form must be signed
+          puts "!!!not signed"
+          redirect_to  edit_consent_form_path (current_consent_form)
+      elsif !current_consent_form.valid_until.nil? && current_consent_form.valid_until<Time.now
+          #consent must be valid
+          redirect_to  edit_consent_form_path (current_consent_form)
+      else
+          #consent form ok
+          @donation = Donation.new
+      end
   end
 
   # GET /donations/1/edit

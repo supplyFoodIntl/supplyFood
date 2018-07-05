@@ -6,7 +6,7 @@ class SupplyFoodConfigurationsController < ApplicationController
   # GET /supply_food_configurations
   # GET /supply_food_configurations.json
   def index
-    @supply_food_configurations = SupplyFoodConfiguration.all
+    @supply_food_configurations = SupplyFoodConfiguration.all.order("name")
   end
 
   # GET /supply_food_configurations/1

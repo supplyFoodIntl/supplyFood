@@ -15,7 +15,7 @@
     <% @consent_forms.each do |consent_form| %>
       <tr>
         <td><%= consent_form.consent_form_type %></td>
-        <td><%= consent_form.person %></td>
+        <td><%= consent_form.user %></td>
         <td><%= link_to 'Show', consent_form %></td>
         <td><%= link_to 'Edit', edit_consent_form_path(consent_form) %></td>
         <td><%= link_to 'Destroy', consent_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>

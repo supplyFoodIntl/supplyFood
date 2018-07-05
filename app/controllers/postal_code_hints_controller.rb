@@ -4,7 +4,7 @@ class PostalCodeHintsController < ApplicationController
   # GET /postal_code_hints
   # GET /postal_code_hints.json
   def index
-    @postal_code_hints = PostalCodeHint.all
+    @postal_code_hints = PostalCodeHint.all.order("hint")
   end
 
   #control the seach on postal_codes_hint

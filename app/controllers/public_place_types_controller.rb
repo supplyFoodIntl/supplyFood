@@ -4,7 +4,7 @@ class PublicPlaceTypesController < ApplicationController
   # GET /public_place_types
   # GET /public_place_types.json
   def index
-    @public_place_types = PublicPlaceType.all
+    @public_place_types = PublicPlaceType.all.order("name")
   end
 
   # GET /public_place_types/1

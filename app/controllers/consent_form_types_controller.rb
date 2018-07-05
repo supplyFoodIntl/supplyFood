@@ -4,7 +4,7 @@ class ConsentFormTypesController < ApplicationController
   # GET /consent_form_types
   # GET /consent_form_types.json
   def index
-    @consent_form_types = ConsentFormType.all
+    @consent_form_types = ConsentFormType.all.order("description")
   end
 
   # GET /consent_form_types/1

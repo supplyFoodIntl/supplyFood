@@ -12,13 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :consent_form_type_id %>
-    <%= form.text_field :consent_form_type_id %>
+      <textarea  cols= "80"  rows= "20" readonly>
+            <%=  @consent_form.consent_form_type.html_text %>
+      </textarea>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.hidden_field :consent_form_type_id %>
   </div>
 
   <div class="field">
-    <%= form.label :person_id %>
-    <%= form.text_field :person_id %>
+    <%= form.hidden_field :user_id %>
+  </div>
+
+  <div class="field">
+      <%= form.label "I Agree" %>
+    <%= form.check_box :is_signed %>
   </div>
 
   <div class="actions">

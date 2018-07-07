@@ -1,9 +1,7 @@
 class User < ApplicationRecord
-  #attr_accessor :id, :email , :username, :person_id, :people_attributes, :user_types_attributes #:password_digest
-  #has_one :profile 
   has_one :person
   has_one :volunteer
-  has_one :donor
+  belongs_to :donor
   has_one :supplier
   has_one :consumer
   has_many :consent_form
@@ -21,33 +19,47 @@ class User < ApplicationRecord
     
    def add_unsigned_consent_forms
        #add donor consent form
+       add_unsigned_donor_consent_forms
+
+       #add supplier consent form
+       add_unsigned_supplier_consent_forms
+       
+       #add volunteer consent form
+       add_unsigned_volunteer_consent_forms
+     
+       #add consumer consent form
+       add_unsigned_consumer_consent_forms
+
+   end  
+    
+    def add_unsigned_donor_consent_forms
        donor_consent = ConsentForm.new
        donor_consent.consent_form_type = ConsentFormType.find_by description: "Donor"
        donor_consent.user = self
-       
-       #add supplier consent form
+       donor_consent.save
+    end
+    
+    def add_unsigned_supplier_consent_forms
        supplier_consent = ConsentForm.new
        supplier_consent.consent_form_type = ConsentFormType.find_by description: "Supplier"
        supplier_consent.user = self
-       
-       #add volunteer consent form
+       supplier_consent.save
+    end
+    
+    def add_unsigned_volunteer_consent_forms
        volunteer_consent = ConsentForm.new
        volunteer_consent.consent_form_type = ConsentFormType.find_by description: "Volunteer"
-       volunteer_consent.user = self       
-
-       #add consumer consent form
+       volunteer_consent.user = self  
+       volunteer_consent.save
+    end
+    
+    def add_unsigned_consumer_consent_forms
        consumer_consent = ConsentForm.new
        consumer_consent.consent_form_type = ConsentFormType.find_by description: "Donee"
-       consumer_consent.user = self    
-       
-       donor_consent.save
-       supplier_consent.save
-       volunteer_consent.save
+       consumer_consent.user = self  
        consumer_consent.save
-       
-   end  
+    end
     
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  #extend Devise::Models
 end

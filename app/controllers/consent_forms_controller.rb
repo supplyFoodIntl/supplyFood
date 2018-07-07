@@ -42,8 +42,11 @@ class ConsentFormsController < ApplicationController
   def update
     respond_to do |format|
       if @consent_form.update(consent_form_params)
-        format.html { redirect_to @consent_form, notice: 'Consent form was successfully updated.' }
-        format.json { render :show, status: :ok, location: @consent_form }
+          #redirect to the origin of the consent_form
+          puts "************ consent form origin : " + @consent_form.origin_url
+        #format.html { redirect_to @consent_form, notice: 'Consent form was successfully updated.' }
+        format.html { redirect_to @consent_form.origin_url, notice: 'Consent form was successfully updated.' }
+        format.json { render :show, status: :ok, location: @consent_form.origin_url}
       else
         format.html { render :edit }
         format.json { render json: @consent_form.errors, status: :unprocessable_entity }

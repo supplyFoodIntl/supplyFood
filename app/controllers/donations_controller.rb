@@ -18,15 +18,15 @@ class DonationsController < ApplicationController
         current_consent_form_type = ConsentFormType.find_by description: "Donor"
         current_consent_form = ConsentForm.find_by user: current_user, consent_form_type: current_consent_form_type
       #pry
-      puts "nil?"
-      puts current_consent_form.nil? 
-      puts "is signed?"
-      puts current_consent_form.is_signed
-      puts "valid until "
-      puts current_consent_form.valid_until
-      #pry
       if current_consent_form.nil? 
           #no consent 
+          #create the consent end redirect to be signed
+           current_consent_form = ConsentForm.new
+           current_consent_form.consent_form_type = ConsentFormType.find_by description: "Donor"
+           current_consent_form.origin_url = "/donations/new"
+           current_consent_form.user = current_user
+           current_consent_form.save
+          
           redirect_to  edit_consent_form_path (current_consent_form)
       elsif !current_consent_form.is_signed
           #consent form must be signed
@@ -37,7 +37,20 @@ class DonationsController < ApplicationController
           redirect_to  edit_consent_form_path (current_consent_form)
       else
           #consent form ok
+          #check if the is a donorId to the current user
+          puts "create a new donor"
+          if current_user.donor.nil?
+              #if not, create
+              current_donor = Donor.new
+              current_donor.save
+              puts current_donor.errors.to_json
+              current_user.donor =current_donor
+              current_user.save
+          end
+          #open new donation
           @donation = Donation.new
+          #set the user donor to the donation
+          @donation.donor = current_user.donor
       end
   end
 

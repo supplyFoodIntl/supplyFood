@@ -1,5 +1,5 @@
 class RemovePersonFromDonor < ActiveRecord::Migration[5.2]
   def change
-      remove_column :donors, :person_id, foreign_key: false
+    remove_reference :donors, :person, foreign_key: true
   end
 end

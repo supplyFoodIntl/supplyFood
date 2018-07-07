@@ -13,6 +13,14 @@
 
     <div class="form-group field">  
         <div class="control-label col-sm-8">
+            <%= form.label :donor_full_name %>
+            <%= form.label :donor_consent_form_signed_at %>
+            <%= form.label :donor_consent_form_valid_until %>
+        </div>
+    </div>
+
+    <div class="form-group field">  
+        <div class="control-label col-sm-8">
             <%= form.label :available_start %>
             <%= form.datetime_select :available_start %>
         </div>
@@ -30,7 +38,7 @@
 <h2>Retrieve Address</h2>
     <div class="form-group field">  
         <div class="col-sm-8">
-            <%= form.text_field :lineOne, class:"form-control",placeholder:"eg : Broadway )" %>
+            <%= form.text_field :lineOne, class:"form-control",placeholder:"eg : Broadway " %>
         </div>
          <div class="control-label col-sm-4">
             <%= form.label "Country/State/City :" %>&nbsp;<%= SupplyFoodConfiguration.get_favourite_location %>
@@ -44,7 +52,7 @@
             <%= form.label :Phone  %>
         </div>
         <div class="col-sm-8">
-            <%= form.text_field :Phone, class:"form-control",placeholder:"eg : Broadway )" %>
+            <%= form.text_field :Phone, class:"form-control",placeholder:"eg : 999-999-9999 " %>
         </div>
     </div>
 <hr>

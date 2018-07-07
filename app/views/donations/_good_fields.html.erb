@@ -4,20 +4,18 @@
             <%= f.label :good_type %>
         </div>
         <div class="col-sm-8">
-            <%= f.text_field :good_type, class:"form-control",placeholder:"eg : Broadway )" %>
+            <%= f.text_field :good_type, class:"form-control",placeholder:"eg : oatmeal pack )" %>
         </div>
-                <div class="control-label col-sm-4">
-            <%= f.label :quantity %>
-        </div>
-        <div class="col-sm-8">
-            <%= f.text_field :quantity, class:"form-control",placeholder:"eg : Broadway )" %>
+            <div class="control-label col-sm-4">
+                <%= f.label :quantity %>
+                <%= f.text_field :quantity, class:"form-control",placeholder:"eg : 99 )" %>
+            </div>
         </div>
 
         <div class="control-label col-sm-4">
             <%= f.label :measure_unit %>
-        </div>
-        <div class="col-sm-8">
             <%= collection_select( :good_type,:good_type_measure_unit,  MeasureUnit.all, :id, :name,class:"form-control" ) %>
         </div>
+
     </div>
 <hr>

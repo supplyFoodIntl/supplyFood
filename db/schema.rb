@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_05_210036) do
+ActiveRecord::Schema.define(version: 2018_07_07_132428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2018_07_05_210036) do
     t.datetime "signed_at"
     t.datetime "valid_until"
     t.bigint "user_id"
+    t.string "origin_url"
     t.index ["consent_form_type_id"], name: "index_consent_forms_on_consent_form_type_id"
     t.index ["user_id"], name: "index_consent_forms_on_user_id"
   end
@@ -124,8 +125,6 @@ ActiveRecord::Schema.define(version: 2018_07_05_210036) do
   create_table "donors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "person_id"
-    t.index ["person_id"], name: "index_donors_on_person_id"
   end
 
   create_table "form_contacts", force: :cascade do |t|
@@ -373,7 +372,6 @@ ActiveRecord::Schema.define(version: 2018_07_05_210036) do
   add_foreign_key "donation_campaigns", "addresses"
   add_foreign_key "donations", "donors"
   add_foreign_key "donations", "volunteers"
-  add_foreign_key "donors", "people"
   add_foreign_key "good_types", "good_types"
   add_foreign_key "goods", "addresses"
   add_foreign_key "goods", "donations"

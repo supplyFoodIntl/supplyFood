@@ -13,7 +13,7 @@
 
   <div class="field">
       <textarea  cols= "80"  rows= "20" readonly>
-            <%=  @consent_form.consent_form_type.html_text %>
+            <%= @consent_form.consent_form_type.html_text %>
       </textarea>
   </div>
 
@@ -33,6 +33,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Proceed" %>
   </div>
+
 <% end %>

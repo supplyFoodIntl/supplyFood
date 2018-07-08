@@ -20,6 +20,7 @@ class DonationsController < ApplicationController
       #pry
       if current_consent_form.nil? 
           #no consent 
+          puts "!!!no consent"
           #create the consent end redirect to be signed
            current_consent_form = ConsentForm.new
            current_consent_form.consent_form_type = ConsentFormType.find_by description: "Donor"
@@ -34,23 +35,14 @@ class DonationsController < ApplicationController
           redirect_to  edit_consent_form_path (current_consent_form)
       elsif !current_consent_form.valid_until.nil? && current_consent_form.valid_until<Time.now
           #consent must be valid
+          puts "!!!consent expired"
           redirect_to  edit_consent_form_path (current_consent_form)
       else
           #consent form ok
-          #check if the is a donorId to the current user
-          puts "create a new donor"
-          if current_user.donor.nil?
-              #if not, create
-              current_donor = Donor.new
-              current_donor.save
-              puts current_donor.errors.to_json
-              current_user.donor =current_donor
-              current_user.save
-          end
+
           #open new donation
           @donation = Donation.new
-          #set the user donor to the donation
-          @donation.donor = current_user.donor
+
       end
   end
 
@@ -62,7 +54,20 @@ class DonationsController < ApplicationController
   # POST /donations.json
   def create
     @donation = Donation.new(donation_params)
-
+      #check if the is a donorId to the current user
+      if current_user.donor.nil?
+          puts "create a new donor"
+          #if not, create
+          current_donor = Donor.new
+          current_donor.save
+          puts current_donor.errors.to_json
+          current_user.donor =current_donor
+          current_user.save
+      end
+      #set the user donor to the donation
+      @donation.donor = current_user.donor
+      puts "!!!donor associated"
+      
     respond_to do |format|
       if @donation.save
         format.html { redirect_to @donation, notice: 'Donation was successfully created.' }
@@ -106,6 +111,6 @@ class DonationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donation_params
-      params.require(:donation).permit(:available_start, :available_end, :donor_id, :volunteer_id, good_attributes: [:Expiration_date, :measure_unit_id, :good_type_id, :donation_id, :address_id, :_destroy])
+      params.require(:donation).permit(:available_start, :available_end, :donor, :retrieve_address, :confirmation_phone, goods_attributes: [:Expiration_date, :measure_unit_id, :good_type_id, :donation_id, :address_id, :_destroy])
     end
 end

@@ -13,11 +13,17 @@
 
     <div class="form-group field">  
         <div class="control-label col-sm-8">
-            <%= form.label :donor_full_name %>
-            <%= form.label :donor_consent_form_signed_at %>
-            <%= form.label :donor_consent_form_valid_until %>
+            <%= form.label "Donor fulll name :" %>
+            <% if current_user.full_name.nil? ||current_user.full_name.strip =="" %>
+                <%= form.text_field :full_name, class:"form-control",placeholder:"eg : John Smith " %>
+            <% else %>
+                <%= current_user.full_name %>
+            <% end %>
         </div>
     </div>
+
+    donor :<%= current_user.donor %><br>
+    donation donor :<%= donation.donor %>
 
     <div class="form-group field">  
         <div class="control-label col-sm-8">
@@ -38,7 +44,7 @@
 <h2>Retrieve Address</h2>
     <div class="form-group field">  
         <div class="col-sm-8">
-            <%= form.text_field :lineOne, class:"form-control",placeholder:"eg : Broadway " %>
+            <%= form.text_field :retrieve_address, class:"form-control",placeholder:"eg : Broadway " %>
         </div>
          <div class="control-label col-sm-4">
             <%= form.label "Country/State/City :" %>&nbsp;<%= SupplyFoodConfiguration.get_favourite_location %>
@@ -49,10 +55,10 @@
     
     <div class="form-group field">  
         <div class="control-label col-sm-4">
-            <%= form.label :Phone  %>
+            <%= form.label :phone  %>
         </div>
         <div class="col-sm-8">
-            <%= form.text_field :Phone, class:"form-control",placeholder:"eg : 999-999-9999 " %>
+            <%= form.text_field :phone, class:"form-control",placeholder:"eg : 999-999-9999 " %>
         </div>
     </div>
 <hr>

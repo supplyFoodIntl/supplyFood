@@ -5,9 +5,10 @@ create db fill script - constant ok (using rails console)
 
 --application
 change all references of the term 'consumer to donee'
+
 donation
     destroy profile entity, now embedded on user ok
-    set the donor (after ok on consent_form) 
+    set the donor (after ok on consent_form) ok move to a helper function
         start the consent forms on user creation pointing to the person linked to user ok
             add field `is_signed` and `signed_at` to consent form ok
             add field `valid until` ok
@@ -20,21 +21,21 @@ donation
         phone number ok
         retrieve address ok
         goods (usng cocoon) ok
-            find and insert if not found
+            find and insert if not found 
         send
     ajust new donation to bootstrap ok
     mvc created ok
-        on first donation show the consent form
-            set the user as donor
-                show donor consent form
-                get full name
-                get address (simple form)
+        on first donation show the consent form ok
+            set the user as donor ok
+                show donor consent form ok
+                get full name ok
+                get address (simple form) ok
             jump to new donation
                 on create 
                     create a blank supply
                 add address to donation, not to donor, use 
                     test gem 'jt-rails-address', '~> 1.0' to the simple form, check gem install graticule https://github.com/collectiveidea/graticule too
-                    then link the address to de person
+                    then link the address to de person v2
     create a new supply (self or courier which can be third party supplier or a volunteer)
     ask to donate to a donation campaign or free donation
         create new good_type if there is no one

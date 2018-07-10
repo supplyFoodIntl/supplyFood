@@ -1,4 +1,4 @@
-class assignmentTypesController < ApplicationController
+class AssignmentTypesController < ApplicationController
   before_action :set_assignment_type, only: [:show, :edit, :update, :destroy]
 
   # GET /assignment_types

@@ -1,0 +1,16 @@
+<%= render 'management/tab'  %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @assignment_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @assignment_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_assignment_type_path(@assignment_type) %> |
+<%= link_to 'Back', assignment_types_path %>
+<%= render 'management/tab-end' %>

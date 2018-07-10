@@ -4,7 +4,8 @@ class GoodTypesController < ApplicationController
   # GET /good_types
   # GET /good_types.json
   def index
-    @good_types = GoodType.paginate(page: params[:page], per_page: 10)
+    #@good_types = GoodType.paginate(page: params[:page], per_page: 10).order('coalesce(good_type_id,0,good_type_id) , name')
+      @good_types = GoodType.all
   end
 
   # GET /good_types/1
@@ -69,6 +70,6 @@ class GoodTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def good_type_params
-      params.require(:good_type).permit(:name, :good_type_id)
+      params.require(:good_type).permit(:name, :parent_id)
     end
 end

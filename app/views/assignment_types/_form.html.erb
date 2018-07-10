@@ -1,10 +1,10 @@
-<%= form_with(model: assingment_type, local: true,class: "form-horizontal") do |form| %>
-  <% if assingment_type.errors.any? %>
+<%= form_with(model: assignment_type, local: true,class: "form-horizontal") do |form| %>
+  <% if assignment_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(assingment_type.errors.count, "error") %> prohibited this assingment_type from being saved:</h2>
+      <h2><%= pluralize(assignment_type.errors.count, "error") %> prohibited this assignment_type from being saved:</h2>
 
       <ul>
-      <% assingment_type.errors.full_messages.each do |message| %>
+      <% assignment_type.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

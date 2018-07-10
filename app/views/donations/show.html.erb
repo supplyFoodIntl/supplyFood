@@ -17,8 +17,7 @@
 
 <p>
   <strong>Volunteer:</strong>
-  <%= !@donation.volunteer.nil? ? @donation.volunteer.nil : "unassigned" %>
+  <%= !@donation.volunteer.nil? ? @donation.volunteer : "unassigned" %>
 </p>
 
-<%= link_to 'Edit', edit_donation_path(@donation) %> |
-<%= link_to 'Back', donations_path %>
+

@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class AssingmentTypesControllerTest < ActionDispatch::IntegrationTest
+class assignmentTypesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @assingment_type = assingment_types(:one)
+    @assignment_type = assignment_types(:one)
   end
 
   test "should get index" do
-    get assingment_types_url
+    get assignment_types_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_assingment_type_url
+    get new_assignment_type_url
     assert_response :success
   end
 
-  test "should create assingment_type" do
-    assert_difference('AssingmentType.count') do
-      post assingment_types_url, params: { assingment_type: { description: @assingment_type.description, name: @assingment_type.name } }
+  test "should create assignment_type" do
+    assert_difference('assignmentType.count') do
+      post assignment_types_url, params: { assignment_type: { description: @assignment_type.description, name: @assignment_type.name } }
     end
 
-    assert_redirected_to assingment_type_url(AssingmentType.last)
+    assert_redirected_to assignment_type_url(assignmentType.last)
   end
 
-  test "should show assingment_type" do
-    get assingment_type_url(@assingment_type)
+  test "should show assignment_type" do
+    get assignment_type_url(@assignment_type)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_assingment_type_url(@assingment_type)
+    get edit_assignment_type_url(@assignment_type)
     assert_response :success
   end
 
-  test "should update assingment_type" do
-    patch assingment_type_url(@assingment_type), params: { assingment_type: { description: @assingment_type.description, name: @assingment_type.name } }
-    assert_redirected_to assingment_type_url(@assingment_type)
+  test "should update assignment_type" do
+    patch assignment_type_url(@assignment_type), params: { assignment_type: { description: @assignment_type.description, name: @assignment_type.name } }
+    assert_redirected_to assignment_type_url(@assignment_type)
   end
 
-  test "should destroy assingment_type" do
-    assert_difference('AssingmentType.count', -1) do
-      delete assingment_type_url(@assingment_type)
+  test "should destroy assignment_type" do
+    assert_difference('assignmentType.count', -1) do
+      delete assignment_type_url(@assignment_type)
     end
 
-    assert_redirected_to assingment_types_url
+    assert_redirected_to assignment_types_url
   end
 end

@@ -5,6 +5,7 @@
         </div>
         <div class="col-sm-8">
             <%= f.text_field :good_type, class:"form-control",placeholder:"eg : oatmeal pack )" %>
+            <%= collection_select( :good_type,:good_type_id,  GoodType.all, :id, :name,class:"form-control" )%>
         </div>
             <div class="control-label col-sm-4">
                 <%= f.label :quantity %>

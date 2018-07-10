@@ -5,7 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Person</th>
+        <th>Operating area</th>
+        <th>Availability</th>
+        <th>Skills</th>
+        <th>Limitations</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,7 +16,10 @@
   <tbody>
     <% @volunteers.each do |volunteer| %>
       <tr>
-        <td><%= volunteer.person %></td>
+        <td><%= volunteer.operating_area %></td>
+          <td><%= volunteer.availability %></td>
+          <td><%= volunteer.skills %></td>
+          <td><%= volunteer.health_concerns %></td>
         <td><%= link_to 'Show', volunteer %></td>
         <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
         <td><%= link_to 'Destroy', volunteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

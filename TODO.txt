@@ -7,6 +7,17 @@ create db fill script - constant ok (using rails console)
 change all references of the term 'consumer to donee'
 
 donation
+    use boostrap tree view to good type
+    check the problems on good insertion
+    add donation status calculated
+        sent - no supplier nor volunteer
+        assigned - no supplier but volunteer
+        scheduled - supplier and volunteer
+        collected - has supply
+        stored - has inventory
+        to delivery - has delivery
+        delivering - has some good delivered
+        delivered - has all goods delivered
     destroy profile entity, now embedded on user ok
     set the donor (after ok on consent_form) ok move to a helper function
         start the consent forms on user creation pointing to the person linked to user ok
@@ -159,7 +170,7 @@ add new flowchart to the about page
 
 fix the error on rails server to stats.txt when editing some table, just editing(need to add a route?)
 
-fix the object assingment to assignment (on all mvc & db)
+fix the object assignment to assignment (on all mvc & db)
 
 error handling messages over a _errors.html.erb
     review constraints on domains table to not allow input on blank names
@@ -374,6 +385,12 @@ add signin and sign up
         only show sign out if the user is signed in
         reset password *** using devised, not necessary anymore***
         make signup, signin and signout on the same button on the right of the navbar ok
+
+add call center module
+    contacts
+    calls
+        replies
+        services (social assistance, snaps, health, nutrition)
     
 -------------v2************************************************
 

@@ -3,9 +3,22 @@
 /*
 *= require jquery-ui
 */
+
 @import "jquery-ui";
+@import "tree_view";
 @import "bootstrap";
 @import "font-awesome";
+@import "jstree-default";
+
+
+//business types
+.nested_good_types {
+  margin-left: 30px;
+}
+
+.nested_good_types .nested_good_types .nested_good_types .nested_good_types {
+  margin-left: 0;
+}
 
 // sidebar
 /* The sidebar menu */

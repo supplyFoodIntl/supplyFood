@@ -1,9 +1,21 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Person:</strong>
-  <%= @volunteer.person %>
+  <strong>Operating area:</strong>
+  <%= @volunteer.operating_area %>
 </p>
 
-<%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
-<%= link_to 'Back', volunteers_path %>
+<p>
+  <strong>Availability:</strong>
+  <%= @volunteer.availability %>
+</p>
+
+<p>
+  <strong>Skills:</strong>
+  <%= @volunteer.skills %>
+</p>
+
+<p>
+  <strong>Limitations:</strong>
+  <%= @volunteer.health_concerns %>
+</p>
+
+

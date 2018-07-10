@@ -11,12 +11,45 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :person_id %>
-    <%= form.text_field :person_id %>
-  </div>
+   <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :operating_area %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :operating_area, class:"form-control",placeholder:"eg: near Baxter Av.", autofocus:true %>
+        </div>
+    </div> 
+
+   <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :availability %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :availability, class:"form-control",placeholder:"eg : saturday and sunday 10-4", autofocus:true %>
+        </div>
+    </div> 
+
+   <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :skills %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :skills, class:"form-control",placeholder:"eg : cooking, sanitary inspection, driving car, etc.", autofocus:true %>
+        </div>
+    </div> 
+
+   <div class="form-group field">  
+        <div class="control-label col-sm-4">
+            <%= form.label :Limitations %>
+        </div>
+        <div class="col-sm-8">
+            <%= form.text_field :health_concerns, class:"form-control",placeholder:"eg : reduced mobility", autofocus:true %>
+        </div>
+    </div> 
+
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Apply" %>
   </div>
 <% end %>

@@ -28,6 +28,12 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
 
+#jquery components
+#tree objects
+gem "jstree-rails-4"
+#tree data model
+gem 'ancestry'
+
 
 # seed dump
 gem 'seed_dump'

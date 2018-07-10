@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_07_235610) do
+ActiveRecord::Schema.define(version: 2018_07_09_235533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,8 @@ ActiveRecord::Schema.define(version: 2018_07_07_235610) do
   create_table "donors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "level_id"
+    t.index ["level_id"], name: "index_donors_on_level_id"
   end
 
   create_table "form_contacts", force: :cascade do |t|
@@ -142,6 +144,9 @@ ActiveRecord::Schema.define(version: 2018_07_07_235610) do
     t.bigint "good_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "parent_id"
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_good_types_on_ancestry"
     t.index ["good_type_id"], name: "index_good_types_on_good_type_id"
   end
 
@@ -357,10 +362,12 @@ ActiveRecord::Schema.define(version: 2018_07_07_235610) do
   end
 
   create_table "volunteers", force: :cascade do |t|
-    t.bigint "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["person_id"], name: "index_volunteers_on_person_id"
+    t.string "operating_area"
+    t.string "availability"
+    t.json "health_concerns"
+    t.json "skills"
   end
 
   add_foreign_key "address_cocoons", "person_cocoons"
@@ -374,6 +381,7 @@ ActiveRecord::Schema.define(version: 2018_07_07_235610) do
   add_foreign_key "donation_campaigns", "addresses"
   add_foreign_key "donations", "donors"
   add_foreign_key "donations", "volunteers"
+  add_foreign_key "donors", "levels"
   add_foreign_key "good_types", "good_types"
   add_foreign_key "goods", "addresses"
   add_foreign_key "goods", "donations"
@@ -397,5 +405,4 @@ ActiveRecord::Schema.define(version: 2018_07_07_235610) do
   add_foreign_key "users", "person_types"
   add_foreign_key "users", "suppliers"
   add_foreign_key "users", "volunteers"
-  add_foreign_key "volunteers", "people"
 end

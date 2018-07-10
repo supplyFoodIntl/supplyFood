@@ -1,0 +1,33 @@
+<%= render 'management/tab'  %>
+<p id="notice"><%= notice %></p>
+
+<h2>Assignment Types</h2>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assignment_types.each do |assignment_type| %>
+      <tr scope="row">
+        <td><%= assignment_type.name %></td>
+        <td><%= assignment_type.description %></td>
+        <td><%= link_to 'Edit', edit_assignment_type_path(assignment_type) %></td>
+        <td><%= link_to 'Destroy', assignment_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<%= link_to 'New Assignment Type', new_assignment_type_path %>
+<%= render 'management/tab-end' %>

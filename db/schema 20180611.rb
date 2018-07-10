@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2018_06_13_120607) do
     t.index ["person_id", "address_id"], name: "index_addresses_people_on_person_id_and_address_id"
   end
 
-  create_table "assingment_types", force: :cascade do |t|
+  create_table "assignment_types", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false

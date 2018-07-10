@@ -8,8 +8,10 @@
 
 <p>
   <strong>Good type:</strong>
-  <%= @good_type.good_type %>
+  <%= @good_type.parent.name %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_good_type_path(@good_type) %> |
 <%= link_to 'Back', good_types_path %>

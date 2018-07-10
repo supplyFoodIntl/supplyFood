@@ -12,8 +12,8 @@
   <% end %>
 
     <div class="form-group field">  
-        <div class="control-label col-sm-8">
-            <%= form.label "Donor fulll name :" %>
+        <div class="control-label col-sm-16">
+            <%= form.label "Your Name :" %>
             <% if current_user.full_name.nil? ||current_user.full_name.strip =="" %>
                 <%= form.text_field :full_name, class:"form-control",placeholder:"eg : John Smith " %>
             <% else %>
@@ -22,28 +22,17 @@
         </div>
     </div>
 
-    donor :<%= current_user.donor %><br>
-    donation donor :<%= donation.donor %>
-
     <div class="form-group field">  
-        <div class="control-label col-sm-8">
-            <%= form.label :available_start %>
-            <%= form.datetime_select :available_start %>
+        <div class="control-label col-sm-16">
+            <%= form.label "Collect the donation between" %>
+            <%= form.datetime_select :available_start %> and <%= form.datetime_select :available_end %>
         </div>
     </div>
-
-
-  <div class="form-group field">  
-    <div class="control-label col-sm-8">
-        <%= form.label :available_end %>
-        <%= form.datetime_select :available_end %>
-    </div>
-  </div>
 <hr>
 
 <h2>Retrieve Address</h2>
     <div class="form-group field">  
-        <div class="col-sm-8">
+        <div class="col-sm-16">
             <%= form.text_field :retrieve_address, class:"form-control",placeholder:"eg : Broadway " %>
         </div>
          <div class="control-label col-sm-4">

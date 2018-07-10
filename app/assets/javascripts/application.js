@@ -19,4 +19,9 @@
 //= require_tree .
 //= require jquery3
 //= require jquery-ui
+//= require jquery.dimensions.min
+//= require jquery.drawinglibrary
+//= require jquery.svg.min
+//= require jstree
+
 // require popper removed

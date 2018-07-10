@@ -1,15 +1,13 @@
 class User < ApplicationRecord
   has_one :person
-  has_one :volunteer
+  belongs_to :volunteer
   belongs_to :donor
   has_one :supplier
   has_one :consumer
   has_many :consent_form
-    
-  accepts_nested_attributes_for :person
+
 
   after_create :add_person, :add_unsigned_consent_forms
-
     
    def add_person
      person = Person.new

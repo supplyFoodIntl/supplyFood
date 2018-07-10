@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   resources :person_types
   resources :ic_types
   resources :people
-  resources :assingment_types
+  resources :assignment_types
   resources :form_contacts
     
   root 'splash#splash'

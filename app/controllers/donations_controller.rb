@@ -54,19 +54,20 @@ class DonationsController < ApplicationController
   # POST /donations.json
   def create
     @donation = Donation.new(donation_params)
-      #check if the is a donorId to the current user
-      if current_user.donor.nil?
-          puts "create a new donor"
-          #if not, create
+    #TODO : move this routine to a helper method called User.donor_find_or_create_by
+    #check if the is a donorId to the current user
+    if current_user.donor.nil?
+          #if not, create a new donor, set disabled
           current_donor = Donor.new
+          current_donor.level=@@donor_start_level
           current_donor.save
-          puts current_donor.errors.to_json
+          #associate the new donor to the current user
           current_user.donor =current_donor
           current_user.save
-      end
-      #set the user donor to the donation
-      @donation.donor = current_user.donor
-      puts "!!!donor associated"
+    end
+    #set the user donor to the donation
+    @donation.donor = current_user.donor
+    puts "!!!donor associated"
       
     respond_to do |format|
       if @donation.save

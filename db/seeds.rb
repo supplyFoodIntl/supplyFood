@@ -18,7 +18,7 @@ AddressType.create!([
   {name: "Billing"},
   {name: "Shipping"}
 ])
-AssingmentType.create!([
+assignmentType.create!([
   {name: "Collect", description: "Collect donation from a donor"},
   {name: "Store", description: "Store donations on a distribution hub"},
   {name: "Delivery", description: "Transport donations to consumer"},

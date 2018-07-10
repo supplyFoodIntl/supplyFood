@@ -14,7 +14,38 @@ class SuppliersController < ApplicationController
 
   # GET /suppliers/new
   def new
-    @supplier = Supplier.new
+      #check if the current_user have the donation consent form filled    
+        current_consent_form_type = ConsentFormType.find_by description: "Supplier"
+        current_consent_form = ConsentForm.find_by user: current_user, consent_form_type: current_consent_form_type
+      #pry
+      if current_consent_form.nil? 
+          #no consent 
+          puts "!!!no consent"
+          #create the consent end redirect to be signed
+           current_consent_form = ConsentForm.new
+           current_consent_form.consent_form_type = ConsentFormType.find_by description: "Supplier"
+           current_consent_form.origin_url = "/suppliers/new"
+           current_consent_form.user = current_user
+           current_consent_form.save
+
+          redirect_to  edit_consent_form_path (current_consent_form)
+      elsif !current_consent_form.is_signed
+          #consent form must be signed
+          puts "!!!not signed"
+          redirect_to  edit_consent_form_path (current_consent_form)
+      elsif !current_consent_form.valid_until.nil? && current_consent_form.valid_until<Time.now
+          #consent must be valid
+          puts "!!!consent expired"
+          redirect_to  edit_consent_form_path (current_consent_form)
+      else
+          #consent form ok
+
+          #open new supplier
+          @supplier = Supplier.new
+
+      end
+      
+    
   end
 
   # GET /suppliers/1/edit

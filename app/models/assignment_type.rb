@@ -1,2 +1,2 @@
-class assignmentType < ApplicationRecord
+class AssignmentType < ApplicationRecord
 end

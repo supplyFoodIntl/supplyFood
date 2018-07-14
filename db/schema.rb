@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_09_235533) do
+ActiveRecord::Schema.define(version: 2018_07_14_120514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2018_07_09_235533) do
     t.index ["person_id", "address_id"], name: "index_addresses_people_on_person_id_and_address_id"
   end
 
-  create_table "assingment_types", force: :cascade do |t|
+  create_table "assignment_types", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
@@ -151,7 +151,6 @@ ActiveRecord::Schema.define(version: 2018_07_09_235533) do
   end
 
   create_table "goods", force: :cascade do |t|
-    t.date "Expiration_date"
     t.bigint "measure_unit_id"
     t.bigint "good_type_id"
     t.decimal "quantity"
@@ -159,6 +158,7 @@ ActiveRecord::Schema.define(version: 2018_07_09_235533) do
     t.bigint "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "expiration_date", null: false
     t.index ["address_id"], name: "index_goods_on_address_id"
     t.index ["donation_id"], name: "index_goods_on_donation_id"
     t.index ["good_type_id"], name: "index_goods_on_good_type_id"

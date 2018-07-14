@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   resources :consent_forms
   resources :consent_form_types
   resources :donations
+      get 'confirm_donation', to: 'donations#confirm'
+      post 'confirm_donation', to: 'donations#confirm'
+      get 'collect_donation', to: 'donations#collect'
+      post 'collect_donation', to: 'donations#collect'
+      get 'abort_donation', to: 'donations#abort'
+      post 'abort_donation', to: 'donations#abort'
+    
   resources :cities
   resources :states
   resources :countries

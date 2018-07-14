@@ -44,17 +44,17 @@
     
     <div class="form-group field">  
         <div class="control-label col-sm-4">
-            <%= form.label :phone  %>
+            <%= form.label :confirmation_phone  %>
         </div>
         <div class="col-sm-8">
-            <%= form.text_field :phone, class:"form-control",placeholder:"eg : 999-999-9999 " %>
+            <%= form.text_field :confirmation_phone, class:"form-control",placeholder:"eg : 999-999-9999 " %>
         </div>
     </div>
 <hr>
 <h2>Donation Goods</h2>
 <div id="goods_sub_form">
     <%= form.fields_for :goods do |good| %>
-    <% render "goods_fields", :form => good %>
+        <% render "good_fields", :f => good %>
     <% end %>
     <div class='links'>
       <%= link_to_add_association 'add good',form, :goods %>

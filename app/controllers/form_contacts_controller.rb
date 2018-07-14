@@ -1,5 +1,6 @@
 class FormContactsController < ApplicationController
   before_action :set_form_contact, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!
 
   # GET /form_contacts
   # GET /form_contacts.json

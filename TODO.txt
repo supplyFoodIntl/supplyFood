@@ -7,8 +7,9 @@ create db fill script - constant ok (using rails console)
 change all references of the term 'consumer to donee'
 
 donation
-    use boostrap tree view to good type
+    format donation listing to smaller dates
     check the problems on good insertion
+    use boostrap tree view to good type
     add donation status calculated
         sent - no supplier nor volunteer
         assigned - no supplier but volunteer

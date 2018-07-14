@@ -1,13 +1,29 @@
 class User < ApplicationRecord
   has_one :person
-  belongs_to :volunteer
-  belongs_to :donor
+  belongs_to :volunteer ,  optional: true
+  belongs_to :donor, optional: true
   has_one :supplier
   has_one :consumer
   has_many :consent_form
 
 
   after_create :add_person, :add_unsigned_consent_forms
+    
+  def donor_find_or_create
+        #check if the is a donorId to the current user
+        if self.donor.nil?
+              #if not, create a new donor, set disabled
+              current_donor = Donor.new
+              current_donor.level=@@donor_start_level
+              current_donor.save
+              #associate the new donor to the current user
+              self.donor =current_donor
+              self.save
+        end
+        #set the user donor to the donation
+        puts "!!!donor associated"
+        self.donor
+    end 
     
    def add_person
      person = Person.new

@@ -1,26 +1,31 @@
 Rails.application.routes.draw do
+  devise_for :users 
   resources :goods
-  devise_for :users , :controllers => { registrations: 'registrations' }
   resources :consent_forms
   resources :consent_form_types
   resources :donations
-      get 'confirm_donation', to: 'donations#confirm'
+      get  'confirm_donation', to: 'donations#confirm'
       post 'confirm_donation', to: 'donations#confirm'
-      get 'collect_donation', to: 'donations#collect'
+      get  'collect_donation', to: 'donations#collect'
       post 'collect_donation', to: 'donations#collect'
-      get 'abort_donation', to: 'donations#abort'
+      get  'abort_donation', to: 'donations#abort'
       post 'abort_donation', to: 'donations#abort'
     
   resources :cities
   resources :states
   resources :countries
   resources :volunteers
+    get 'volunteer', to: 'volunteers#menu'
   resources :suppliers
   resources :consumers
   resources :donors
+    get 'donor', to: 'donor#donor'
+	get 'donate', to: 'donor#donate'
+	get 'track_donations', to: 'donor#track_donations'
+	get 'list_donations', to: 'donor#list_donations'
+
  
   resources :donation_campaigns
-  resources :signups
   resources :address_cocoons
   resources :person_cocoons
   resources :services
@@ -56,9 +61,6 @@ Rails.application.routes.draw do
        get 'testbootstrap', to: 'home#testbootstrap'
   end
  
-    
- 
-    
   get 'foodhandling', to: 'home#foodhandling'
   get 'news', to: 'home#news'
   get 'legal', to: 'home#legal'
@@ -67,14 +69,9 @@ Rails.application.routes.draw do
     
   get 'management', to: 'management#management'
     
-  get 'donor', to: 'donor#donor'
-  get 'donate', to: 'donor#donate'
-  get 'track_donations', to: 'donor#track_donations'
-  get 'list_donations', to: 'donor#list_donations'
 
-  get 'donor', to: 'donor#donor'
     
-  get 'volunteer', to: 'volunteers#menu'
+
 
     
     

@@ -16,16 +16,19 @@ gem 'puma', '~> 3.11'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+
+#jquery
+#jquery ui rails , used to autocomplete text boxes
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'xdan-datetimepicker-rails'
 # Bootstrap
 gem 'bootstrap', '~> 4.1.1'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 #disabled to use bootstrap 4
 #gem 'bootstrap-sass'
-#jquery
-#jquery ui rails , used to autocomplete text boxes
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
+
 gem 'font-awesome-rails'
 
 #jquery components
@@ -33,7 +36,6 @@ gem 'font-awesome-rails'
 gem "jstree-rails-4"
 #tree data model
 gem 'ancestry'
-
 
 # seed dump
 gem 'seed_dump'

@@ -4,12 +4,11 @@
 *= require jquery-ui
 */
 
-@import "jquery-ui";
 @import "tree_view";
 @import "bootstrap";
 @import "font-awesome";
 @import "jstree-default";
-
+@import "jquery.xdan.datetimepicker";
 
 //business types
 .nested_good_types {

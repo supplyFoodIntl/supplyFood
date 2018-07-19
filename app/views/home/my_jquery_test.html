@@ -1,43 +1,17 @@
-<script>
+    <!-- this should go after your </body> -->
+    <link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css"/ >
+    < src="/assets/jquery.js"></script>
+    <script src="/assets/jquery.datetimepicker.full.min.js"></script>
+
+ <script>
   $( function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  } );
-    
-    function bing(event){
-    alert('this is a bing');
-        event.preventDefault();
-}
+        $( "#datepicker" ).datepicker();
+    } );
+     
+     $('#datetimepicker').datetimepicker();
   </script>
-<div class="ui-widget">
-  <label for="tags">Tags: </label>
-  <input id="tags">
-    
-    <a href="" onmousedown="bing(event);">BING</a>
-</div>
- 
+
+<p>Date: <input type="text" name="date" id="datepicker"></p>
+
+<p>Date: <input type="text"  id="datetimepicker"></p>
+

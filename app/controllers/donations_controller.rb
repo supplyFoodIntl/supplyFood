@@ -41,7 +41,6 @@ class DonationsController < ApplicationController
     @donation = Donation.new(donation_params)
     
     @donation.donor = current_user.donor_find_or_create
-    #pry  
     respond_to do |format|
       if @donation.save
         format.html { redirect_to @donation, notice: 'Donation was successfully created.' }
@@ -83,7 +82,6 @@ class DonationsController < ApplicationController
           #check if the current_user have the donation consent form filled    
           current_consent_form_type = ConsentFormType.find_by description: "Donor"
           current_consent_form = ConsentForm.find_by user: current_user, consent_form_type: current_consent_form_type
-          #pry
           if current_consent_form.nil? 
               #no consent 
               puts "!!!no consent"
@@ -105,7 +103,6 @@ class DonationsController < ApplicationController
               redirect_to  edit_consent_form_path (current_consent_form)
           else
               #consent form ok
-
               #open new donation
               true
           end

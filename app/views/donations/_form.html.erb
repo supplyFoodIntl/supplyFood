@@ -1,3 +1,10 @@
+	<script>
+		 $( function() {
+			$( ".datetimepicker" ).datetimepicker();
+			$( ".datepicker" ).datepicker({ format: "dd/mm/yyyy"});
+			}	 );
+    </script>
+
 <%= form_with(model: donation, local: true,class: "form-horizontal") do |form| %>
   <% if donation.errors.any? %>
     <div id="error_explanation">
@@ -12,7 +19,7 @@
   <% end %>
 
     <div class="form-group field">  
-        <div class="control-label col-sm-16">
+        <div class="control-label col-sm-8">
             <%= form.label "Your Name :" %>
             <% if current_user.full_name.nil? ||current_user.full_name.strip =="" %>
                 <%= form.text_field :full_name, class:"form-control",placeholder:"eg : John Smith " %>
@@ -25,18 +32,25 @@
     <div class="form-group field">  
         <div class="control-label col-sm-16">
             <%= form.label "Collect the donation between" %>
-            <%= form.datetime_select :available_start %> and <%= form.datetime_select :available_end %>
         </div>
+
+		<div class="row">
+			<div class="col-sm-4">
+				<%= form.text_field :available_start, class:"form-control field datetimepicker" %> and 
+				<%= form.text_field :available_end, class:"form-control field datetimepicker" %>
+			</div>
+		</div>
+
     </div>
 <hr>
 
 <h2>Retrieve Address</h2>
     <div class="form-group field">  
-        <div class="col-sm-16">
+        <div class="col-sm-4">
             <%= form.text_field :retrieve_address, class:"form-control",placeholder:"eg : Broadway " %>
         </div>
          <div class="control-label col-sm-4">
-            <%= form.label "Country/State/City :" %>&nbsp;<%= SupplyFoodConfiguration.get_favourite_location %>
+            <%= form.label "Area of activity , Country/State/City :" %>&nbsp;<%= SupplyFoodConfiguration.get_favourite_location %>
         </div>
         
     </div>
@@ -46,7 +60,7 @@
         <div class="control-label col-sm-4">
             <%= form.label :confirmation_phone  %>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-3">
             <%= form.text_field :confirmation_phone, class:"form-control",placeholder:"eg : 999-999-9999 " %>
         </div>
     </div>
@@ -61,10 +75,15 @@
     </div>
 </div>
 
+
+
+
+
+
 <hr>
 
     <%= link_to "","send mongo", remote: true, class: 'btn btn-xs btn-success',  onmousedown: "addDonation(event);"  %>
-  <div class="actions">
+    <div class="actions">
     <%= form.submit %>
-  </div>
+    </div>
 <% end %>

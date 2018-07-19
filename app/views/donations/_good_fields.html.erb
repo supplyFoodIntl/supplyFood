@@ -1,4 +1,10 @@
 <h2>Goods</h2>
+
+	  <script>
+  $( function() {
+    $( ".datepickerSubGood" ).datepicker();
+  } );
+    </script>
     <div class="form-group nested-fields">  
         
         <div class="control-label col-sm-4">
@@ -8,20 +14,17 @@
         
         <div class="control-label col-sm-4">
                 <%= f.label :quantity %>
+                <%= f.text_field :quantity, class:"form-control field", placeholder:"eg : 5" %>
         </div>
-        <%= f.text_field :quantity, class:"form-control field",placeholder:"eg : 99 )" %>
+        
+        <div class="control-label col-sm-4">
+                <%= f.label :measure_unit %>
+                <%= f.collection_select( :measure_unit_id,  MeasureUnit.all, :id, :name,class:"form-control field" ) %>
+        </div>
 
-        <div class="control-label col-sm-4 ">
-            <%= f.label :measure_unit %>
-            <%= f.collection_select( :measure_unit_id,  MeasureUnit.all, :id, :name,class:"form-control field" ) %>
-        </div>
-        
-        
         <div class="control-label col-sm-4 ">
             <%= f.label :expiration_date %>
-            <%= f.date_select :expiration_date, class:"form-control field",placeholder:"eg : 99 )" %>
+			<%= f.text_field :expiration_date, class:"form-control field datepickerSubGood" %>
         </div>
-
-
+		
     </div>
-<hr>

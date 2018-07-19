@@ -28,10 +28,8 @@
         <td><%= donation.supplier %></td>
         <td><%= donation.volunteer %></td>
         <td><%= donation.status %></td>     
-        <td><%= link_to 'Set Collect', confirm_donation_path(donation), class:"btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to 'Receive', collect_donation_path(donation), class:"btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to 'Abort', abort_donation_path(donation), class:"btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to 'Destroy', donation, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to 'Collect', confirm_donation_path(donation), class:"btn btn-outline-primary btn-sm" %>
+        <%= link_to 'Receive', collect_donation_path(donation), class:"btn btn-outline-primary btn-sm" %><%= link_to 'Abort', abort_donation_path(donation), class:"btn btn-outline-primary btn-sm" %><%= link_to 'Destroy', donation, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

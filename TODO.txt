@@ -7,10 +7,11 @@ create db fill script - constant ok (using rails console)
 change all references of the term 'consumer to donee'
 
 donation
+	****solve the problem with date format*****
+	add check :start must be previous than end
     improve the donation form appearance
-	available start and end are mandatory
+	available start and end are mandatory and show the datetime
     format donation listing to smaller dates
-	solve the problem with date format
     use boostrap tree view to good type
 	implement datetimepicker on date start and dateend
     add donation status calculated

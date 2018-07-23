@@ -1,0 +1,68 @@
+
+<h2>Manager Commands</h2>
+<p>Manage the site main data. Be careful with the alteration made on this section , they will be reflected on the user experience.</p>
+
+<script>
+$( function() {
+	$( "#accordion" ).accordion({
+	  collapsible: true,  active:false
+	});
+} );
+</script>
+
+<div id="accordion">
+    <h3>Operations</h3>
+	<div class="list-group" >
+        <h5 class="list-group-item"><%= link_to 'Donation Campaign', donation_campaigns_path %></h5>
+        <ul class="list-group">
+            <li class="list-group-item">Extend donation campaing</li>
+            <li class="list-group-item">End donation campaign</li>
+            <li class="list-group-item">Donation campaign diary</li>
+        </ul>
+        <h5 class="list-group-item">Inventory Audit</h5>
+        <ul class="list-group">
+            <li class="list-group-item">Aknowledge lost</li>
+        </ul>
+    </div>
+    <h3>Team management</h3>
+	<div class="list-group" >
+        <ul class="list-group">
+            <h4 class="list-group-item">Volunteers</h4>
+            <ul class="list-group">
+                    <li class="list-group-item">Volunteers-to-be</li>
+                    <li class="list-group-item">List Volunteers</li>
+                    <li class="list-group-item">Admit Volunteer</li>
+                    <li class="list-group-item">Dismiss Volunteer</li>
+                    <li class="list-group-item">Send Thanks to Volunteer</li>
+                    <li class="list-group-item">Letter of recommendation</li>
+            </ul>
+            <h4 class="list-group-item">Suppliers</h4>
+            <ul class="list-group">
+                <li class="list-group-item">Suppliers-to-be</li>
+                <li class="list-group-item">List Suppliers</li>
+                <li class="list-group-item">Admit Supplier</li>
+                <li class="list-group-item">Pay Supplier</li>
+                <li class="list-group-item">Dismiss Supplier</li>
+                <li class="list-group-item">Letter of recommendation</li>
+            </ul>
+            <h4 class="list-group-item">Training Schedule</h4>
+        </ul>
+        
+    </div>
+    <h3>Reports</h3>
+	<div class="list-group" >
+        <ul class="list-group">
+            <li class="list-group-item">Donor by donations</li>
+            <li class="list-group-item">Collections by volunteer</li>
+            <li class="list-group-item">Collections by supplier</li>
+            <li class="list-group-item">Donation by region</li>
+            <li class="list-group-item">Donations by good type</li>
+            <li class="list-group-item">Deliveries by volunteer</li>
+            <li class="list-group-item">Deliveries by donee</li>
+            <li class="list-group-item">Storages and Inventories</li>
+            <li class="list-group-item">Pending donations</li>
+        </ul>
+    </div>
+    
+
+</div>

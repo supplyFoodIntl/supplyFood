@@ -1,3 +1,5 @@
+
+<%= render 'management/tab' %>
 <h2>Management</h2>
 <p>Manage the site main data. Be careful with the alteration made on this section , they will be reflected on the user experience.</p>
 
@@ -90,7 +92,15 @@ $( function() {
 		</nav>
     </div>
     
-
+    <h3>Courier</h3>
+    <div class="list-group">
+        <li>Accept supply call</li>
+        <li>Try reschedule supply call</li>
+        <li>Refuse supply call</li>
+        <li>End supply call with OK</li>
+        <li>End supply call with concerns</li>
+        <li>End supply call with fail</li>
+    </div>
     <h3>Donee</h3>
     <div class="list-group">
         <li>Ask for food</li>
@@ -98,3 +108,4 @@ $( function() {
         <li>Point food insecurity</li>
     </div>
 </div>
+<%= render 'management/tab-end' %>

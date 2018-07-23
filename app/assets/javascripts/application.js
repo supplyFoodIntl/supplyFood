@@ -24,5 +24,8 @@
 //= require jstree
 //= require jquery.xdan.datetimepicker.full
 //# require datetimepicker
+//= require tinymce
+//= require tinymce-jquery
+
 //# require_tree .
 // require popper removed

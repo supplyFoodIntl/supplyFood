@@ -6,7 +6,23 @@
         <%= link_to 'Supply!', new_supplier_url %>
         <%= link_to 'Find Food!', donation_campaigns_url %>
         <%= link_to 'Call for Help!', point_hunger_url %>
-        <%= link_to 'Management', management_url %>
+		<div class="dropdown">
+				<button class="btn btn-xs btn-primary dropdown-toggle" 
+							type="button" id="dropdownMenuButton" data-toggle="dropdown" 
+							aria-haspopup="true" aria-expanded="false">
+					Management
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<ul class="list-group">
+						<%= link_to 'Main Tables', main_tables_management_url, class: "list-group-item" %>
+						<%= link_to 'Manager', manager_management_url, class: "list-group-item" %>
+						<%= link_to 'Volunteer', volunteer_management_url, class: "list-group-item" %>
+						<%= link_to 'Courier', supplier_management_url, class: "list-group-item" %>
+						<%= link_to 'Donee', donee_management_url, class: "list-group-item" %>
+					</ul>
+				</div>
+			</div>
+        
         <hr>
         <%= link_to 'Food Handling', foodhandling_url %>
         <%= link_to 'The value of a donation', valueofdonation_url %>

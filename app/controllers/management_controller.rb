@@ -1,9 +1,19 @@
 class ManagementController < ApplicationController
-    
-def management
-end
-    
+
+    def main_tables
+    end
+
+    def manager
+    end
+
+    def volunteer
+    end
 
 
+    def supplier
+    end
+
+    def donee
+    end
     
 end

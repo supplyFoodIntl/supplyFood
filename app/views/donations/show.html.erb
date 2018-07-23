@@ -1,23 +1,66 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Available start:</strong>
-  <%= @donation.available_start %>
-</p>
 
-<p>
-  <strong>Available end:</strong>
-  <%= @donation.available_end %>
-</p>
 
-<p>
-  <strong>Donor:</strong>
-  <%= @donation.donor %>
-</p>
+  <% if @donation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
 
-<p>
-  <strong>Volunteer:</strong>
-  <%= !@donation.volunteer.nil? ? @donation.volunteer : "unassigned" %>
-</p>
+      <ul>
+      <% @donation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div >  
+        <div >
+             <strong>Your Name :</strong>   
+                <%= current_user.full_name %>
+        </div>
+    </div>
+
+    <div  >  
+        <div  >
+            <strong>Collect the donation between </strong>
+        </div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<%= @donation.available_start  %> and 
+				<%= @donation.available_end  %>
+			</div>
+		</div>
+
+    </div>
+<hr>
+
+<h2>Retrieve Address</h2>
+    <div >  
+        <div class="col-sm-4">
+            <%= @donation.retrieve_address  %>
+        </div>
+         <div class="control-label col-sm-12">
+            Area of activity , 
+             Country/State/City : &nbsp;
+            <%= SupplyFoodConfiguration.get_favourite_location %>
+        </div>
+        
+    </div>
+
+    
+    <div  >  
+        <div class="col-sm-4">
+            <%= @donation.confirmation_phone  %>
+        </div>
+    </div>
+<hr>
+<h2>Donation Goods</h2>
+<div  >
+    <%= @donation.goods.each do |good| %>
+        <%# render "good_fields_show", :f => good %>
+    <% end %>
+</div>
 
 

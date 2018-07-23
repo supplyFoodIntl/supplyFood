@@ -67,13 +67,11 @@ Rails.application.routes.draw do
   get 'services', to: 'home#services'
   get 'valueofdonation', to: 'home#valueofdonation'
     
-  get 'management', to: 'management#management'
-    
+  get 'main_tables_management', to: 'management#main_tables'
+  get 'manager_management', to: 'management#manager'
+  get 'volunteer_management', to: 'management#volunteer'
+  get 'supplier_management', to: 'management#supplier'
+  get 'donee_management', to: 'management#donee'
 
-    
-
-
-    
-    
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

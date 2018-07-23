@@ -1,3 +1,7 @@
+<%= tinymce_assets %>
+<script type="text/javascript" src="/assets/tinymce.js">
+</script>
+    
 <%= form_with(model: supply_food_configuration, local: true,class: "form-horizontal") do |form| %>
   <% if supply_food_configuration.errors.any? %>
     <div id="error_explanation">
@@ -39,11 +43,12 @@
     </div>
 
     <div class="form-group field">  
+        <%= tinymce %> 
         <div class="control-label col-sm-4">
             <%= form.label :html_configuration %>
         </div>
         <div class="col-sm-8" >
-            <%= form.text_area :html_configuration, :rows => "10", class:"form-control",placeholder:" the html content will show on the parameter page" %>
+            <%= text_area_tag :html_configuration, "", :class => "tinymce form-control", :rows => 10, :cols => 120 ,placeholder:" the html content will show on the parameter page" %>
         </div>
     </div>
 
